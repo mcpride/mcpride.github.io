@@ -1,0 +1,1 @@
+Source of my personal pages. (See also https://mcpride.github.io) 
