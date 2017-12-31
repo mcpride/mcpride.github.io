@@ -2,7 +2,9 @@
 layout: post
 title:  "Guten Rutsch!"
 date:   2017-12-31 10:55:00
-categories: 2017 allgemein
+excerpt: "Das Jahr 2017 neigt sich dem Ende entgegen und meine persönlichen Github-Seiten gehen online."
+tags: [2017, allgemein]
+comments: true
 ---
 
 Das Jahr 2017 neigt sich dem Ende entgegen und meine persönlichen Github-Seiten
