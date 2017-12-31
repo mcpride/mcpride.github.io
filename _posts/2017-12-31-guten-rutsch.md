@@ -4,7 +4,7 @@ title:  "Guten Rutsch!"
 date:   2017-12-31 10:55:00
 excerpt: "Das Jahr 2017 neigt sich dem Ende entgegen und meine persönlichen Github-Seiten gehen online."
 feature: https://www.berlin.de/binaries/asset/image_assets/3297047/source/1444503366/667x500/
-tags: [2017, allgemein]
+tags: [Silvester, 2017, Allgemein, posts]
 comments: true
 ---
 
@@ -18,7 +18,7 @@ eigene Projekte zu beschreiben.
 
 Bleibt mir noch, allen Lesern einen "Guten Rutsch ins Jahr 2018" zu wünschen!
 
-... Moment mal, wieso eigentlich Rutsch? gerade habe ich im Kinderfernsehen
+... Moment mal, wieso eigentlich Rutsch? Gerade habe ich im deutschen Kinderfernsehen
 ("Sendung mit der Maus") erfahren, dass dabei nicht das gebräuchliche "Schlittern"
 gemeint ist sondern dass es ein vor 100 Jahren übliches Synoym für "Reise/Ausflug"
 war...
