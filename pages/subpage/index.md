@@ -1,7 +1,7 @@
 ---
 layout: page
 title: A subpage
-permalink: /subpage/
+permalink: /pages/subpage/
 ---
 
 Just another sub page!

@@ -2,5 +2,7 @@
 
 - title: Projects
   url: /projects/
-- title: subpage
-  url: /subpage/
+# - title: subpage
+#  url: /pages/subpage/
+- title: Jekyll
+  url: pages/jekyll/
