@@ -69,9 +69,17 @@ gems:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-gist
+  # - jekyll-multiple-languages-plugin
 
 jekyll-mentions:
     base_url: https://github.com
 
 # Exclude list
 exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile]
+
+languages: ["en", "de"]
+exclude_from_localizations: ["assets", "CNAME"]
+defaultLang: en
+languageNames:
+  de: Deutsch
+  en: English
