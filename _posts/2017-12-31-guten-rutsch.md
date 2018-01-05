@@ -6,6 +6,8 @@ excerpt: "Das Jahr 2017 neigt sich dem Ende entgegen und meine persönlichen Git
 feature: https://www.berlin.de/binaries/asset/image_assets/3297047/source/1444503366/667x500/
 tags: [Silvester, 2017, Allgemein, posts]
 comments: true
+lang: de
+ref: post-guten-rutsch 
 ---
 
 Das Jahr 2017 neigt sich dem Ende entgegen und meine persönlichen Github-Seiten
