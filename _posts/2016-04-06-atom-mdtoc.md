@@ -27,7 +27,7 @@ Generate a markdown TOC (table of contents) in [atom editor](https://atom.io/) u
 2. [Features](#features)   
 &emsp;2.1. [Example (this Table Of Contents)](#example-this-table-of-contents)   
 3. [Contributing](#contributing)   
-4. [Author](#author)   
+4. [Project sources](#project-sources)   
 5. [License](#license)   
 6. [Repeated heading example](#repeated-heading-example)   
 &emsp;6.1. [Heading](#heading)   
@@ -68,7 +68,7 @@ apm install atom-mdtoc
   - 2. [Features](#features)   
      - 2.1. [Example (this Table Of Contents)](#example-this-table-of-contents)   
   - 3. [Contributing](#contributing)   
-  - 4. [Author](#author)   
+  - 4. [Project sources](#project-sources)   
   - 5. [License](#license)   
   - 6. [Repeated heading example](#repeated-heading-example)   
      - 6.1. [Heading](#heading)   
@@ -88,15 +88,16 @@ apm install atom-mdtoc
 
 Pull requests and stars are always welcome. For bugs and feature requests, please create an issue.
 
-## Author
+## Project sources
 
-**Marco Stolze**
-
-* [github/mcpride](https://github.com/mcpride)
+* [github/mcpride/atom-mdtoc](https://github.com/mcpride/atom-mdtoc)
 
 ## License
 
-Copyright © 2016 [Marco Stolze](https://github.com/mcpride). Released under the [MIT license](LICENSE.md).
+Copyright © 2016 [Marco Stolze](https://mcpride.github.io/). Released under
+[MIT license](https://github.com/mcpride/atom-mdtoc/blob/master/LICENSE.md).
+
+-------------------------------------------------------------
 
 ## Repeated heading example
 
@@ -135,4 +136,3 @@ This is a sub heading
 ##### Sub-sub-heading
 
 This is a sub sub heading
-
