@@ -3,6 +3,9 @@ layout: page
 title: About
 tags: [about]
 date: 2017-12-31
+feature: /assets/img/20161211162843_03.jpg
+lang: en
+ref: about
 comments: false
 ---
 
@@ -29,9 +32,9 @@ Agile organizational methodologies such as **SCRUM** or Kanban are
 a matter of course for me - but I am also familiar with PRINCE2 for corporate 
 projects.
 
-In my profession, a profound knowledge of **software architectures and design**, 
-**patterns and best practices** as well as the ability to technically 
-organize and document development processes is of great importance.
+In my profession it is very important to have a profound knowledge of 
+**software architectures and design**, **patterns and best practices** as well 
+as the ability to technically organize and document development processes.
 
 ### Interests
 
