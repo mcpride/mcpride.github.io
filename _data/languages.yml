@@ -1,6 +1,8 @@
 - lang: de
   name: Deutsch
   posttitle: Diese Nachricht auf Deutsch lesen...
+  postcurrenttitle: Aktuelle Sprachauswahl dieser Nachricht -> Deutsch
 - lang: en
   name: English
   posttitle: Read this post in english...
+  postcurrenttitle: Current language selection of this post -> English

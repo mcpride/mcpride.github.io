@@ -1,7 +1,7 @@
 ---
 layout: post-list
 title: All Posts
-excerpt: "A List of Posts"
+excerpt: "List of all posts in english"
 comments: false
 lang: en
 ---

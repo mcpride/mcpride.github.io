@@ -2,9 +2,9 @@
 layout: post
 title:  "How to write meaningful unit tests"
 date:   18-01-11 12:30:00
-excerpt: "Prognose für Bitcoin-Kurskorrektur im Januar 2018."
+excerpt: "How to write meaningful unit tests."
 feature:
-tags: [unittests, testing, development, c#, posts]
+tags: [unittests, testing, development, c#]
 comments: true
 lang: en
 ref: howto-write-meaningful-unittests
@@ -40,7 +40,7 @@ This consists of the following 3 phases of a test scenario:
 <tr><th><b>ARRANGE</b></th>
 <td>Precondition of the test. Resources are aggregated and the <b>SUT</b> (System Under Test) is put into a particular state.</td></tr>
 <tr><th><b>ACT</b></th>
-<td>The execution of the test functionality. Here, the input state, which was produced by <b>ARRANGE</b>, is transferred to an output state, which is then tested in <b>ASSERT</b></td></tr>
+<td>The execution of the test functionality. Here, the input state, which was produced by <b>ARRANGE</b>, is transferred to an output state, which is then checked in <b>ASSERT</b></td></tr>
 <tr><th><b>ASSERT</b></th>
 <td>The inspection of the results of the <b>ACT</b> phase. Here, the current status is checked against an expected target state.</td></tr>
 </tbody></table>
@@ -120,3 +120,29 @@ Several approaches use the "Gherkin" speech pattern whose keywords can be mapped
 | **Arrange** | Given            | Gegeben sei / Angenommen |
 | **Act**     | When             | Wenn                     |
 | **Assert**  | Then             | Dann                     |
+
+- Example which uses my test framework [MS.TestPlatform](https://github.com/mcpride/MS.TestPlatform) (see also: [BasicCalculatorSpecification.cs](https://github.com/mcpride/MS.TestPlatform/blob/master/Examples/Calculator.Core/Specifications/BasicCalculatorSpecification.cs)):
+
+```csharp
+using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+using MS.TestPlatform.UnitTestFramework.Specifications;
+
+namespace Calculator.Core.Specifications
+{
+    [TestClass]
+    [SpecificationDescription("As a user I want to perform mathematical calculations so that my head doesn't hurt.")]
+    public class BasicCalculatorSpecification : Specification
+    {
+        [TestMethod]
+        [ScenarioDescription("Add two to a calculator with zero on the accumulator.")]
+        public void AddTwoToACalculatorWithZeroOnTheAccumulator()
+        {
+            Given("a calculator with zero on the accumulator", x => x.State.Calculator = new BasicCalculator(0))
+                .When("I add two to the accumulator", x => x.State.Calculator.Add(2))
+                .Then("the accumulator should show two", x => x.State.Calculator.Accumulator == 2);
+        }
+
+        //...
+    }
+}
+```

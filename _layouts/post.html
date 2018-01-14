@@ -22,7 +22,7 @@ layout: compress
                     {% for post in posts %}
                     {% assign language = site.data.languages | where:"lang", post.lang | first %}
                     {% if page.lang == post.lang %}
-                    <a href="" title="{{ language.name }}" class="lng-sel">
+                    <a href="" title="{{ language.postcurrenttitle }}" class="lng-sel">
                         <span class="term">{{ language.name }}</span>
                     </a>
                     {% else %}
