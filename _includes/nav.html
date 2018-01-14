@@ -99,7 +99,20 @@
     		  {% endfor %}
 				</ul>
 			</li>
-			<!--
+			<li>
+                <a href="#">Tags</a>
+                <ul class="dl-submenu">
+                {% for link in site.data.tagsnavigation %}
+                {% if link.url contains 'http' %}
+                    {% assign domain = '' %}
+                    {% else %}
+                    {% assign domain = site.url %}
+                {% endif %}
+                <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.title }}</a></li>
+                {% endfor %}
+                </ul>
+            </li>
+                <!--
       <li>
 				<a href="#">Pages</a>
 				<ul class="dl-submenu">

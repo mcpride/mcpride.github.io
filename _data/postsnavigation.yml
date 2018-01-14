@@ -1,8 +1,4 @@
-# Site navigation links
-
-- title: Alle Nachrichten auf deutsch
+- title: Alle Nachrichten auf Deutsch
   url: /posts/de/
 - title: All posts in english
   url: /posts/en/
-- title: Tags
-  url: /tags/
