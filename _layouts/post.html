@@ -17,14 +17,19 @@ layout: compress
             {% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}
             {% assign counter=0 %}{% for post in posts%}{% assign counter=counter | plus:1 %}{% endfor %}
             {% if counter > 1 %}
-            <div class="entry-meta">
-                <span class="entry-tags">
+            <div class="entry-lng">
+                <span class="entry-lng">
                     {% for post in posts %}
-                    {% unless page.lang == post.lang %}
-                    <a href="{{ post.url }}" title="in {{ post.lang }}" class="tag">
-                        <span class="term">{{ post.lang }}</span>
+                    {% assign language = site.data.languages | where:"lang", post.lang | first %}
+                    {% if page.lang == post.lang %}
+                    <a href="" title="{{ language.name }}" class="lng-sel">
+                        <span class="term">{{ language.name }}</span>
                     </a>
-                    {% endunless %}
+                    {% else %}
+                    <a href="{{ post.url }}" title="{{ language.posttitle }}" class="lng">
+                            <span class="term">{{ language.name }}</span>
+                        </a>
+                    {% endif %}
                     {% endfor %}
                 </span>
             </div>

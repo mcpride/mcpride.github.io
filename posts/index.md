@@ -1,7 +1,8 @@
 ---
-layout: post-list
-title: Alle Posts
-excerpt: "Liste aller Posts"
+layout: page
+title: All posts
+excerpt: "List of all posts"
 comments: false
-lang: de
 ---
+[Auf deutsch](/posts/de/){: .btn}
+[In english](/posts/en/){: .btn}
