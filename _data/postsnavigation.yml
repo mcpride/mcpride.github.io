@@ -1,6 +1,8 @@
 # Site navigation links
 
-- title: All posts
-  url: /posts/
-- title: All tags
+- title: Alle Posts in deutsch
+  url: /posts/de/
+- title: All posts in english
+  url: /posts/en/
+- title: Tags
   url: /tags/

@@ -11,6 +11,8 @@ tag:
 - dotnet
 - c#
 comments: true
+lang: en
+ref: project-feature-toggles
 ---
 
 The source code of this project can be found here: [MS.Features](https://github.com/mcpride/MS.Features)

@@ -14,6 +14,21 @@ layout: compress
     <!-- Header -->
     <header class="header" role="banner">
         <div class="wrapper animated fadeIn">
+            {% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}
+            {% assign counter=0 %}{% for post in posts%}{% assign counter=counter | plus:1 %}{% endfor %}
+            {% if counter > 1 %}
+            <div class="entry-meta">
+                <span class="entry-tags">
+                    {% for post in posts %}
+                    {% unless page.lang == post.lang %}
+                    <a href="{{ post.url }}" title="in {{ post.lang }}" class="tag">
+                        <span class="term">{{ post.lang }}</span>
+                    </a>
+                    {% endunless %}
+                    {% endfor %}
+                </span>
+            </div>
+            {% endif %}
             <div class="content">
                 <div class="post-title {% if page.feature %} feature {% endif %}">
                     <h1>{{ page.title }}</h1>
@@ -27,7 +42,11 @@ layout: compress
                     {% if page.project %}
                     <a class="btn zoombtn" href="{{site.url}}/projects/">
                     {% else %}
+                    {% if page.lang %}
+                    <a class="btn zoombtn" href="{{site.url}}/posts/{{ page.lang }}/">
+                    {% else %}
                     <a class="btn zoombtn" href="{{site.url}}/posts/">
+                    {% endif %}
                     {% endif %}
                         <i class="fa fa-chevron-left"></i>
                     </a>
