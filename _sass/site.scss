@@ -235,7 +235,7 @@ header .entry-lng {
 	}
 }
 header .entry-meta {
-	display: none; // hide header meta on small screens
+	display: block; //none -> hide header meta on small screens
 	@media #{$notsmall} {
 		display: block;
 	}
