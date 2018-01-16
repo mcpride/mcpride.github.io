@@ -1,17 +1,23 @@
-	<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
-		<button class="dl-trigger">Open Menu</button>
+    
+    {% if page.lang %}
+        {% assign navlang = page.lang %}
+    {% else %}
+        {% assign navlang = site.locale %}
+    {% endif %}
+    <nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+		<button class="dl-trigger">{{ site.data.messages.locales[navlang].open_menu }}</button>
 		<ul class="dl-menu">
-			<li><a href="{{ site.url }}/">Home</a></li>
+			<li><a href="{{ site.url }}/{{ navlang }}">{{ site.data.messages.locales[navlang].home }}</a></li>
 			<li>
-				<a href="#">About</a>
+				<a href="#">{{ site.data.messages.locales[navlang].about }}</a>
 				<ul class="dl-submenu">
 					<li>
 						<img src="{{ site.url }}/{{ site.logo }}" alt="{{ site.title }} photo" class="author-photo">
 						<p>{{ site.author }}</p>
 						<h4>{{ site.title }}</h4>
-						<p>{{ site.description }}</p>
+						<p>{{ site.data.messages.locales[navlang].site_description }}</p>
 					</li>
-					<li><a href="{{ site.url }}/about/"><span class="btn btn-inverse">More...</span></a></li>
+					<li><a href="{{ site.url }}/about/"><span class="btn btn-inverse">{{ site.data.messages.locales[navlang].btn_more }}</span></a></li>
 					{% if site.email %}<li>
                         <a href="mailto:{{ site.email }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-envelope-square"></i> Email</a>
                     </li>{% endif %}
@@ -87,22 +93,35 @@
 				</ul><!-- /.dl-submenu -->
 			</li>
 			<li>
-				<a href="#">Posts</a>
+                <a href="#">{{ site.data.messages.locales[navlang].languages }}</a>
 				<ul class="dl-submenu">
-    			{% for link in site.data.postsnavigation %}
+    			{% for link in site.data.navigation.locales[navlang].languages %}
+                    {% if link.url contains 'http' %}
+                        {% assign domain = '' %}
+                        {% else %}
+                        {% assign domain = site.url %}
+                    {% endif %}
+                    <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.title }}</a></li>
+    		    {% endfor %}
+				</ul>
+			</li>
+			<li>
+				<a href="#">{{ site.data.messages.locales[navlang].posts }}</a>
+				<ul class="dl-submenu">
+    			{% for link in site.data.navigation.locales[navlang].posts %}
     		    {% if link.url contains 'http' %}
     		        {% assign domain = '' %}
     		        {% else %}
     		        {% assign domain = site.url %}
     		    {% endif %}
     		    <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.title }}</a></li>
-    		  {% endfor %}
+    		    {% endfor %}
 				</ul>
 			</li>
 			<li>
-                <a href="#">Tags</a>
+                <a href="#">{{ site.data.messages.locales[navlang].tags }}</a>
                 <ul class="dl-submenu">
-                {% for link in site.data.tagsnavigation %}
+                {% for link in site.data.navigation.locales[navlang].tags %}
                 {% if link.url contains 'http' %}
                     {% assign domain = '' %}
                     {% else %}
@@ -112,11 +131,11 @@
                 {% endfor %}
                 </ul>
             </li>
-                <!--
-      <li>
-				<a href="#">Pages</a>
+             <!--
+            <li>
+				<a href="#">{{ site.data.messages.locales[navlang].pages }}</a>
 				<ul class="dl-submenu">
-    			{% for link in site.data.pagesnavigation %}
+    			{% for link in site.data.navigation.locales[navlang].pages %}
     		    {% if link.url contains 'http' %}
     		        {% assign domain = '' %}
     		        {% else %}
@@ -128,9 +147,9 @@
 			</li>
 			-->
 			<li>
-				<a href="#">Projects</a>
+				<a href="#">{{ site.data.messages.locales[navlang].projects }}</a>
 				<ul class="dl-submenu">
-    			{% for link in site.data.projectsnavigation %}
+    			{% for link in site.data.navigation.locales[navlang].projects %}
     		    {% if link.url contains 'http' %}
     		        {% assign domain = '' %}
     		        {% else %}
@@ -140,7 +159,7 @@
     		  {% endfor %}
 				</ul>
 			</li>
-			{% for link in site.data.navigation %}
+			{% for link in site.data.navigation.locales[navlang].links %}
 		    {% if link.url contains 'http' %}
 		        {% assign domain = '' %}
 		        {% else %}
