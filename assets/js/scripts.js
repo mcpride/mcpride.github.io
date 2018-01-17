@@ -1,9 +1,3 @@
-// dl-menu options
-$(function() {
-  $( '#dl-menu' ).dlmenu({
-    animationClasses : { classin : 'dl-animate-in', classout : 'dl-animate-out' }
-  });
-});
 // Need this to show animation when go back in browser
 window.onunload = function() {};
 

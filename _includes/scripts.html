@@ -1,14 +1,16 @@
     <!-- JS -->
     <script src="{{ site.url }}/assets/js/jquery-1.12.0.min.js"></script>
-    {% if navlang == 'de' %}
-    <script src="{{ site.url }}/assets/js/jquery.dlmenu.de.min.js"></script>
-    {% else %}
     <script src="{{ site.url }}/assets/js/jquery.dlmenu.min.js"></script>
-    {% endif %}
     <script src="{{ site.url }}/assets/js/jquery.goup.min.js"></script>
     <script src="{{ site.url }}/assets/js/jquery.magnific-popup.min.js"></script>
     <script src="{{ site.url }}/assets/js/jquery.fitvid.min.js"></script>
+    {% if navlang == 'de' %}
+    <script src="{{ site.url }}/assets/js/dlmenu.de.js"></script>
+    {% else %}
+    <script src="{{ site.url }}/assets/js/dlmenu.en.js"></script>
+    {% endif %}
     <script src="{{ site.url }}/assets/js/scripts.js"></script>
+
     {% if site.google.analytics %}
     <!-- Asynchronous Google Analytics snippet -->
     <script>
