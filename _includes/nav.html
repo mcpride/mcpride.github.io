@@ -1,4 +1,3 @@
-    
     {% if page.lang %}
         {% assign navlang = page.lang %}
     {% else %}
@@ -11,7 +10,7 @@
 			<li>
 				<a href="#">{{ site.data.messages.locales[navlang].about }}</a>
 				<ul class="dl-submenu">
-					<li>
+                    <li>
 						<img src="{{ site.url }}/{{ site.logo }}" alt="{{ site.title }} photo" class="author-photo">
 						<p>{{ site.author }}</p>
 						<h4>{{ site.title }}</h4>
