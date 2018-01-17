@@ -25,7 +25,7 @@ Meine ersten Erfahrungen in Softwareentwicklung machte ich bereits in den
 
 Anfang der 90'er erweiterte ich meine Erfahrungen mit C, C++, Delphi, 
 Java - aber auch mit Exoten wie Prolog oder Assembler.
-Lange Zeit arbeitete ich als VB and **Delphi** Programmierer.
+Lange Zeit arbeitete ich als VB- und **Delphi**-Programmierer.
 Als das .NET Framework mit **C#** herauskam, begann ich, auf diese
 Plattform und Sprache umzusteigen, welche bis heute mein Berufsleben dominiert.
 
@@ -45,5 +45,5 @@ wie z.B. **NodeJS**, JavaScript (**Typescript**, Coffeescript), Java, Ruby, Go.
 
 Auf diesen Github-Seiten möchte ich meine Gedanken zu interessanten Themen wie 
 z.B. Softwareentwicklung, **Blockchain** and **Kryptowährungen**, 
-**deep learning**, **big/smart data**, Fotografie usw. teilen and und meine 
+**Deep Learning**, **Big/Smart Data**, Fotografie usw. teilen and und meine 
 eigenen Projekte beschreiben. 
