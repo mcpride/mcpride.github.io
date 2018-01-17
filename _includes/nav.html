@@ -6,7 +6,7 @@
     <nav id="dl-menu" class="dl-menuwrapper" role="navigation">
 		<button class="dl-trigger">{{ site.data.messages.locales[navlang].open_menu }}</button>
 		<ul class="dl-menu">
-			<li><a href="{{ site.url }}/{{ navlang }}">{{ site.data.messages.locales[navlang].home }}</a></li>
+			<li><a href="{{ site.url }}/{{ navlang }}/">{{ site.data.messages.locales[navlang].home }}</a></li>
 			<li>
 				<a href="#">{{ site.data.messages.locales[navlang].about }}</a>
 				<ul class="dl-submenu">
@@ -16,7 +16,7 @@
 						<h4>{{ site.title }}</h4>
 						<p>{{ site.data.messages.locales[navlang].site_description }}</p>
 					</li>
-					<li><a href="{{ site.url }}/about/"><span class="btn btn-inverse">{{ site.data.messages.locales[navlang].btn_more }}</span></a></li>
+					<li><a href="{{ site.url }}/about/{{ navlang }}/"><span class="btn btn-inverse">{{ site.data.messages.locales[navlang].btn_more }}</span></a></li>
 					{% if site.email %}<li>
                         <a href="mailto:{{ site.email }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-envelope-square"></i> Email</a>
                     </li>{% endif %}
