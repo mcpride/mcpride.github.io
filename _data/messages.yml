@@ -1,0 +1,41 @@
+locales:
+  # English translation
+  # -------------------
+  en: &DEFAULT_EN
+    about: "About"
+    site_description: "My personal pages."
+    open_menu: "Open Menu"
+    btn_more: "More..."
+    posts: "Posts"
+    pages: "Pages"
+    projects: "Projects"
+    tags: "Tags"
+    home: "Home"
+    languages: "Languages"
+    lang_name: English
+    post_title: Read this post in English...
+    post_current_title: Current language selection of this post -> English
+
+  en_US:
+    <<: *DEFAULT_EN     # use English translation for en_US
+  en_UK:
+    <<: *DEFAULT_EN     # use English translation for en_UK
+
+  # German translation
+  # -------------------
+  de: &DEFAULT_DE
+    <<: *DEFAULT_EN     # load English values as default
+    about: "&Uuml;ber"
+    site_description: "Meine pers&ouml;nlichen Seiten."
+    open_menu: "Men&uuml; &ouml;ffnen"
+    btn_more: "Mehr..."
+    posts: "Artikel"
+    pages: "Seiten"
+    projects: "Projekte"
+    home: "Startseite"
+    languages: "Sprachen"
+    lang_name: Deutsch
+    post_title: Diesen Artikel auf Deutsch lesen...
+    post_current_title: Aktuelle Sprachauswahl dieses Artikels -> Deutsch
+  de_DE:
+    <<: *DEFAULT_DE     # use German translation for de_DE

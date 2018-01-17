@@ -1,2 +1,31 @@
-# Site navigation links
-
+locales:
+  en:
+    languages:
+      - title: "Zu Deutsch wechseln"
+        url: /de/
+    posts:
+      - title: "All posts"
+        url: /posts/en/
+    tags:
+      - title: Tags of all posts
+        url: /tags/en/
+    projects:
+      - title: All projects
+        url: /projects/
+    pages:
+    links:
+  de:
+    languages:
+      - title: "Switch to English"
+        url: /en/
+    posts:
+      - title: "Alle Artikel"
+        url: /posts/de/
+    tags:
+      - title: Tags aller Artikel
+        url: /tags/de/
+    projects:
+      - title: Alle Projekte
+        url: /projects/    
+    pages:
+    links:

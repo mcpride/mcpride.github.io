@@ -1,6 +1,11 @@
 ---
 layout: post-list
-title: All Posts
-excerpt: "A List of Posts"
+title: All posts
+excerpt: "List of all posts"
 comments: false
 ---
+[Artikel auf Deutsch](/posts/de/){: .btn}
+[Posts in English](/posts/en/){: .btn}
+
+----------------
+
