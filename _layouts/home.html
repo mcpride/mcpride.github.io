@@ -47,5 +47,19 @@ layout: compress
         </div>
     </header>
     {% include scripts.html %}
+    {% if page.lang %}
+    {% else %}
+    <script type="text/javascript">
+        $( document ).ready(function(){
+            var userLang = navigator.language || navigator.userLanguage;
+            if (userLang == "de") {
+                window.location.href = "{{ site.url }}/de/"
+            }
+            else {
+                window.location.href = "{{ site.url }}/en/"
+            }
+        });
+    </script>
+    {% endif %}
 </body>
 </html>
