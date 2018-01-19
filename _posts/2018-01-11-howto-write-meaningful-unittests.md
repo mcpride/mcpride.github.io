@@ -5,6 +5,7 @@ date:   18-01-11 12:30:00
 excerpt: "How to write meaningful unit tests."
 feature:
 tags: [unittests, testing, development, c#]
+categories: [posts, development]
 comments: true
 lang: en
 ref: howto-write-meaningful-unittests

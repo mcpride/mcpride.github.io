@@ -4,6 +4,7 @@ title:  "Feature Toggles"
 date:   2016-02-17
 excerpt: "A simple feature toggling framework for .net."
 project: true
+categories: [projects, development]
 tag:
 - features 
 - toggles

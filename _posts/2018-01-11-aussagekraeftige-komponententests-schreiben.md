@@ -5,6 +5,7 @@ date:   18-01-11 12:30:00
 excerpt: "Aussagekräftige Komponententests schreiben."
 feature:
 tags: [komponententests, testen, entwicklung, c#]
+categories: [posts, development]
 comments: true
 lang: de
 ref: howto-write-meaningful-unittests
