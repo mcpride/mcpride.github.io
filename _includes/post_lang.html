@@ -1,0 +1,20 @@
+{% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}
+{% assign counter=0 %}{% for post in posts%}{% assign counter=counter | plus:1 %}{% endfor %}
+{% if counter > 1 %}
+<div class="entry-lng">
+    <span class="entry-lng">
+        {% for post in posts %}
+        {% assign language =site.data.messages.locales[post.lang] %}
+        {% if navlang == post.lang %}
+        <a href="" title="{{ language.post_current_title }}" class="lng-sel">
+            <span class="term">{{ language.lang_name }}</span>
+        </a>
+        {% else %}
+        <a href="{{ post.url }}" title="{{ language.post_title }}" class="lng">
+                <span class="term">{{ language.lang_name }}</span>
+            </a>
+        {% endif %}
+        {% endfor %}
+    </span>
+</div>
+{% endif %}

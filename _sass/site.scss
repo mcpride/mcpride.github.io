@@ -33,6 +33,12 @@ body {
 *::before {
 	box-sizing: border-box;
 }
+.invisible {
+	visibility: hidden;
+	margin: 0;
+	padding: 0;
+	font-size: 0%;
+}
 .header {
 	height: 100%;
 	position: relative;
@@ -193,6 +199,11 @@ body {
 	}
 }
 header .entry-lng {
+	display: block;
+	float: right;
+	position: relative;
+}
+body .entry-lng {
 	display: block;
 	float: right;
 	position: relative;

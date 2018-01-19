@@ -14,7 +14,9 @@ locales:
     languages: "Languages"
     lang_name: "English"
     post_title: "Read this post in English..."
+    page_title: "Read this page in English..."
     post_current_title: "Current language selection of this post -> English"
+    page_current_title: "Current language selection of this page -> English"
     back: "Back"
 
   en_US:
@@ -37,7 +39,9 @@ locales:
     languages: "Sprachen"
     lang_name: "Deutsch"
     post_title: "Diesen Artikel auf Deutsch lesen..."
+    page_title: "Diese Seite auf Deutsch lesen..."
     post_current_title: "Aktuelle Sprachauswahl dieses Artikels -> Deutsch"
+    page_current_title: "Aktuelle Sprachauswahl dieser Seite -> Deutsch"
     back: "Zur&uuml;ck"
   de_DE:
     <<: *DEFAULT_DE     # use German translation for de_DE

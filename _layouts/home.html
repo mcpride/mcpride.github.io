@@ -14,35 +14,36 @@ layout: compress
     <!-- Header -->
     <header class="header flex" role="banner">
         <div class="container animated fadeIn">
+            {% include site_lang.html %}
             <div class="row">
-                    <a href="{{ site.url }}/{{ navlang }}/">
-                        <img src="{{ site.url }}/{{ site.logo }}" class="img-circle zoombtn animated rotateIn">
+                <a href="{{ site.url }}/{{ navlang }}/">
+                    <img src="{{ site.url }}/{{ site.logo }}" class="img-circle zoombtn animated rotateIn">
+                </a>
+                <h3 class="title">
+                    <a class="zoombtn" href="{{ site.url }}/{{ navlang }}/">
+                        <p style="font-size:1.2rem;font-weight:300">{{ site.title }}</p>
                     </a>
-                    <h3 class="title">
-                        <a class="zoombtn" href="{{ site.url }}/{{ navlang }}/">
-                        	<p style="font-size:1.2rem;font-weight:300">{{ site.title }}</p>
-			            </a>
-                    </h3>
-                    <hr class="hr-line">
-                    <h3 class="title">
-                        <a href="{{ site.url }}/{{ navlang }}/">
-                        	<p style="font-size:1rem;font-weight:300">{{ site.author }}</p>
-                        	<p style="font-size:1rem;font-weight:300">{{ site.bio }}</p>
-                        </a>
-                    </h3>
-                    {% include social-links.html %}
-                  <hr class="hr-line">
-                  <h3 class="title">
-                         <a class="btn zoombtn" href="{{ site.url }}/about/{{ navlang }}/">
-                            {{ site.data.messages.locales[navlang].about }}
-                         </a>
-                         <a class="btn zoombtn" href="{{ site.url }}/posts/{{ navlang }}/">
-                            {{ site.data.messages.locales[navlang].posts }}
-                         </a>
-                         <a class="btn zoombtn" href="{{ site.url }}/projects">
-                            {{ site.data.messages.locales[navlang].projects }}
-                         </a>
-                 </h3>
+                </h3>
+                <hr class="hr-line">
+                <h3 class="title">
+                    <a href="{{ site.url }}/{{ navlang }}/">
+                        <p style="font-size:1rem;font-weight:300">{{ site.author }}</p>
+                        <p style="font-size:1rem;font-weight:300">{{ site.bio }}</p>
+                    </a>
+                </h3>
+                {% include social-links.html %}
+                <hr class="hr-line">
+                <h3 class="title">
+                    <a class="btn zoombtn" href="{{ site.url }}/about/{{ navlang }}/">
+                        {{ site.data.messages.locales[navlang].about }}
+                    </a>
+                    <a class="btn zoombtn" href="{{ site.url }}/posts/{{ navlang }}/">
+                        {{ site.data.messages.locales[navlang].posts }}
+                    </a>
+                    <a class="btn zoombtn" href="{{ site.url }}/projects">
+                        {{ site.data.messages.locales[navlang].projects }}
+                    </a>
+                </h3>
             </div>
         </div>
     </header>
