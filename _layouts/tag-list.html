@@ -28,7 +28,11 @@ layout: compress
 
                 <ul class="entry-meta inline-list">
                   {% for item in stags %}
-                  {% assign tposts=site.tags[item] | where:"lang", navlang %}
+                  {% if page.lang %}
+                    {% assign tposts=site.tags[item] | where:"lang", page.lang %}
+                  {% else %}
+                    {% assign tposts=site.tags[item] %}
+                  {% endif %}
                     <li>
                       <a href="#{{ item }}" class="tag">
                         <span class="term">{{ item }}</span>
@@ -39,7 +43,11 @@ layout: compress
                 </ul>
                 
                 {% for item in stags %}
-                  {% assign tposts=site.tags[item] | where:"lang", navlang %}
+                  {% if page.lang %}
+                    {% assign tposts=site.tags[item] | where:"lang", page.lang %}
+                  {% else %}
+                    {% assign tposts=site.tags[item] %}
+                  {% endif %}
                   <article>
                   <h2 id="{{ item }}" class="tag-heading">{{ item }}</h2>
                     <ul>
