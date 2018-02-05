@@ -87,7 +87,7 @@ Test class name = Name of class to test + Suffix "Tests"    (e.g. `CalculatorTes
 
 Test method name = Name of method to test... + Suffix "Test"
 
-Conclusion: Not enough meaningful and differentiable if several test scenarios for the method must be covered.
+**Conclusion:** Not enough meaningful and differentiable if several test scenarios for the method must be covered.
 {: .notice}
 
 ### Recommendation by Roy Osherove ("The Art Of Unit Testing")
