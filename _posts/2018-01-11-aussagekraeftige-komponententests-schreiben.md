@@ -55,7 +55,7 @@ Vorteile:
    * Testmethoden, die versuchen, zu viele verschiedene Dinge auf einmal zu testen.
 
 >Vermeide, mehrere ACT / ASSERT Phasen innerhalb einer Prüfmethode zu kombinieren!
-{:title="Attention"}
+{: .notice title="Attention"}
 
 ```csharp
 public class CalculatorTests
