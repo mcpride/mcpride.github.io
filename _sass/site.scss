@@ -41,7 +41,7 @@ body {
 }
 .header {
 	height: 100%;
-	position: relative;
+	position: absolute;
 	width: 100%;
 	min-height: 300px;
 	text-align: left;
@@ -140,6 +140,7 @@ body {
 }
 // entry lng
 .entry-lng {
+	z-index: 1000;
 	@include font-rem(12);
 	text-transform: uppercase;
 	color: lighten($color_tuatara,60);
