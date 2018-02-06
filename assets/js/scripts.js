@@ -48,4 +48,8 @@ $(document).ready(function() {
     // make it unique to apply your CSS animations just to this exact popup
     mainClass: 'mfp-fade'
   });
+
+  particlesJS.load('particles-js', '/assets/js/particles.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
 });
