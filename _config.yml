@@ -1,17 +1,35 @@
-# Site
-title:              McPride's thougths
-author:             Marco Stolze
-bio:                'Software architect in Berlin, Germany.'
-description:        "My personal pages."
-reading_time:       true
-words_per_minute:   200
-logo:               'assets/img/logo.png'
-background:         'assets/img/placeholder-big8.jpg'
-tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
+# Site settings
+title: McPride's thougths
+subtitle:
+author: Marco Stolze
+bio: 'Software architect in Berlin, Germany.'
+avatar: assets/img/favicons/apple-icon-114x114.png
+email:
+description: My personal pages.
+baseurl: # the subpath of your site, e.g. /blog
 locale:             en
 locales:            [de, en]
 url:                https://mcpride.github.io
+street_address:
+city: Berlin
+state:
+zip_code:
+country: Germany
+phone:
 
+# Social settings
+500px_url:
+facebook_url: http://facebook.com/marco.stolze.73
+github_url: https://github.com/mcpride
+gitlab_url: https://gitlab.com/u/mcpride
+googleplus_url: https://plus.google.com/101037539053106314238
+instagram_url:
+linkedin_url: https://www.linkedin.com/in/mstolze/
+pinterest_url:
+slack_url:
+twitter_url: https://twitter.com/tweetpride
+
+# Build settings
 # Jekyll
 permalink:          /:categories/:year/:month/:day/:title/
 markdown:           kramdown
@@ -22,47 +40,10 @@ kramdown:
   entity_output:    as_char
   toc_levels:       1..6
   enable_coderay:   false
-mathjax:            true
+mathjax:            false
 sass:
   sass_dir:         _sass
   style:            compressed
-
-# Comments
-disqus_shortname:   mcpride
-
-# Social
-# if you don't have any of social below, comment the line.
-#google:
-  #plus:            #username
-  #analytics:
-  #verify:
-  #ad-client:
-  #ad-slot:
-#bing-verify:
-#email:
-twitter:            tweetpride
-facebook:           marco.stolze.73
-github-url:         mcpride
-#stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
-#linkedin:          username
-#xing:              username
-#instagram:          username
-#lastfm:            username
-#tumblr:            username
-#medium:            '@username'
-#pinterest:         username
-#foursquare:        username
-#steam:              username
-#dribbble:          username
-#youtube:           username
-#youtube-channel:   channel
-#soundcloud:        username
-#weibo:             username
-#flickr:            username
-#codepen:           username
-#keybase:           username
-#xmpp:              username@server.com
-#hackernews:        username
 
 # Gems
 plugins:
@@ -72,8 +53,5 @@ plugins:
   - jekyll-gist
   - jekyll-admin
 
-jekyll-mentions:
-    base_url: https://github.com
-
 # Exclude list
-exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile, _backup]
+exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile, _draft]

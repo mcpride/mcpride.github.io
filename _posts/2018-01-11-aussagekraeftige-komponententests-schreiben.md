@@ -3,7 +3,8 @@ layout: post
 title:  "Aussagekräftige Komponententests"
 date:   18-01-11 12:30:00
 excerpt: "Aussagekräftige Komponententests schreiben."
-feature:
+image:
+thumb: /assets/img/thumbs/WP_20161019_18_03_23_Rich.jpg
 tags: [komponententests, testen, entwicklung, c#]
 categories: [posts, development]
 comments: true

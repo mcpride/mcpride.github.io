@@ -3,7 +3,7 @@ layout: post
 title:  "How to write meaningful unit tests"
 date:   18-01-11 12:30:00
 excerpt: "How to write meaningful unit tests."
-feature:
+image:
 tags: [unittests, testing, development, c#]
 categories: [posts, development]
 comments: true

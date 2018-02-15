@@ -3,7 +3,7 @@ layout: page
 title: Über...
 tags: [über]
 date: 2017-12-31
-feature: /assets/img/20161211162843_03.jpg
+image: /assets/img/20161211162843_03.jpg
 lang: de
 ref: about
 comments: false

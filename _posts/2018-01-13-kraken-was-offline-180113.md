@@ -3,7 +3,8 @@ layout: post
 title:  "Kraken was offline"
 date:   2018-01-13 19:00:00
 excerpt: "Crypto exchange Kraken.com was more than 2 days offline!"
-feature: /assets/img/Kraken-725x322.jpg
+image: /assets/img/wide/Kraken-725x322.jpg
+thumb: /assets/img/thumb/Kraken-725x322.jpg
 tags: [bitcoin, cryptocurrencies, kraken]
 categories: [posts, cryptocurrencies]
 comments: true

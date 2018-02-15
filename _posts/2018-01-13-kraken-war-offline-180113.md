@@ -3,7 +3,8 @@ layout: post
 title:  "Kraken war offline"
 date:   2018-01-13 15:00:00
 excerpt: "Kryptowährungsbörse Kraken.com war mehr als 2 Tage offline!"
-feature: /assets/img/Kraken-725x322.jpg
+image: /assets/img/wide/Kraken-725x322.jpg
+thumb: /assets/img/thumbs/Kraken-725x322.jpg
 tags: [bitcoin, kryptowährungen, kraken]
 categories: [posts, cryptocurrencies]
 comments: true
