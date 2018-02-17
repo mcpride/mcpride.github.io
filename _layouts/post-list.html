@@ -27,7 +27,8 @@
                     {% if post.project == null %}
                     <article>
                         {% if post.thumb %}
-                        <a href="{{ site.url }}{{ post.url }}" class="image"><img src="{{ site.url }}{{ post.thumb }}" alt="{{ site.data.messages.locales[navlang].btn_more }}" /></a>
+                        {% if post.thumb contains 'http' %}{% assign domain_thumb = '' %}{% else %}{% assign domain_thumb = site.url %}{% endif %}
+                        <a href="{{ site.url }}{{ post.url }}" class="image"><img src="{{ domain_thumb }}{{ post.thumb }}" alt="{{ site.data.messages.locales[navlang].btn_more }}" /></a>
                         {% endif %}
                         <h5>{{ post.date | date_to_string }}</h5>
                         <h3>{{ post.title }}</h3>
