@@ -4,7 +4,7 @@ title:  "Aussagekräftige Komponententests"
 date:   18-01-11 12:30:00
 excerpt: "Aussagekräftige Komponententests schreiben."
 image:
-thumb: /assets/img/unittest_goal.jpg
+thumb: https://blog.maximerouiller.com/posts/files/mycodecantfail.jpg
 tags: [komponententests, testen, entwicklung, c#]
 categories: [posts, development]
 comments: true
