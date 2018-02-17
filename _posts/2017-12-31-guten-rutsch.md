@@ -6,7 +6,7 @@ excerpt: "Das Jahr 2017 neigt sich dem Ende entgegen und meine persönlichen Git
 # image: https://www.berlin.de/binaries/asset/image_assets/3297047/source/1444503366/667x500/
 image: /assets/img/bonfire.jpg
 thumb: /assets/img/thumbs/bonfire.jpg
-tags: [silvester, 2017, allgemein]
+tags: [silvester, allgemein]
 categories: [posts, common]
 comments: true
 lang: de
