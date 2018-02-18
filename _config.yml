@@ -29,6 +29,9 @@ pinterest_url:
 slack_url:
 twitter_url: https://twitter.com/tweetpride
 
+# Comments
+disqus_shortname:   mcpride
+
 # Build settings
 # Jekyll
 permalink:          /:categories/:year/:month/:day/:title/
