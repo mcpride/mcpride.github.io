@@ -111,7 +111,7 @@ Nutzt mehr einen verhaltensgetriebenen (Behavior Driven (BD(D)) Stil! Teile der 
 
 z.B.: `Divide_by_Zero_should_throw_a_DivideByZeroException_error`
 
-**Fazit:** Sehr feinkörnig und aussagekräftig. Der zu testende Rahmen wird detailliert beschrieben und zwingt den Entwickler dazu, nur diesen in der Testmethode zu testen.
+~> **Fazit:** Sehr feinkörnig und aussagekräftig. Der zu testende Rahmen wird detailliert beschrieben und zwingt den Entwickler dazu, nur diesen in der Testmethode zu testen.
 {: .notice}
 
 ## Verhaltensgetriebene Tests
