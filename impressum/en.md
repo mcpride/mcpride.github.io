@@ -3,6 +3,7 @@ layout: page
 title: German Impressum
 comments: false
 lang: en
+ref: impressum
 ---
 
 ### Haftung für Inhalte

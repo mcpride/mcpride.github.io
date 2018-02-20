@@ -3,6 +3,7 @@ locales:
     languages:
       - title: "Zu Deutsch wechseln"
         url: /de/
+        lang: de
     posts:
       - title: "All posts"
         url: /posts/en/
@@ -18,6 +19,7 @@ locales:
     languages:
       - title: "Switch to English"
         url: /en/
+        lang: en
     posts:
       - title: "Alle Artikel"
         url: /posts/de/
