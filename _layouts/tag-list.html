@@ -21,56 +21,62 @@ layout: compress
 
                 {% include collecttags.html %}
 
-
-                {% if page.lang %}
-                {% assign posts=site.posts | where:"lang", page.lang %}
-                {% else %}
-                    {% assign posts=site.posts %}
-                {% endif %}
-
-                <ul class="icons">
-                {% for item in stags %}
+                {% assign asize = 0 %}
+                {% for stag in stags %}
                     {% if page.lang %}
-                        {% assign tposts=site.tags[item] | where:"lang", page.lang %}
+                        {% assign ltags=site.tags[stag] | where:"lang", page.lang %}
                     {% else %}
-                        {% assign tposts=site.tags[item] %}
+                        {% assign ltags=site.tags[stag] %}
                     {% endif %}
-                    <li>
-                        <a href="#{{ item }}" class="tag">
-                            <span class="term">{{ item }}</span>
-                            <span class="count">({{ tposts.size }})</span>
-                        </a>
-                    </li>
+                    {% assign asize = asize | plus: ltags.size %}
                 {% endfor %}
-                </ul>
 
-
-
-                    {% for item in stags %}
+                <section>
+                    <ul class="icons">
+                    {% for stag in stags %}
                         {% if page.lang %}
-                            {% assign tposts=site.tags[item] | where:"lang", page.lang %}
+                            {% assign ltags=site.tags[stag] | where:"lang", page.lang %}
                         {% else %}
-                            {% assign tposts=site.tags[item] %}
+                            {% assign ltags=site.tags[stag] %}
                         {% endif %}
-                        <section>
-                            <header class="major">
-                                <h2 id="{{ item }}">{{ item }}</h2>
-                            </header>
-                            <div class="features">
-                            {% for post in tposts %}
-                                {% if post.title != null %}
-                                <article>
-                                    <div class="content">
-                                        <h5>{{ post.date | date_to_string }}</h5>
-                                        <h3><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
-                                        <p>{{ post.excerpt }}</p>
-                                    </div>
-                                </article>
-                                {% endif %}
-                            {% endfor %}
+                        {% assign rel_tag_size = ltags.size | times: 4.0 | divided_by: asize | plus: 0.75 %}
+                        <li>
+                            <a href="#{{ stag }}" style="text-decoration: none; border-bottom:none">
+                                <span style="white-space: nowrap; font-size: {{ rel_tag_size }}em; padding: 0.2em;">
+                                    {{ stag }}
+                                    <span>({{ ltags.size }})</span>
+                                </span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </section>
+
+            {% for item in stags %}
+                {% if page.lang %}
+                    {% assign tposts=site.tags[item] | where:"lang", page.lang %}
+                {% else %}
+                    {% assign tposts=site.tags[item] %}
+                {% endif %}
+                <section>
+                    <header class="major">
+                        <h2 id="{{ item }}">{{ item }}</h2>
+                    </header>
+                    <div class="features">
+                    {% for post in tposts %}
+                        {% if post.title != null %}
+                        <article>
+                            <div class="content">
+                                <h5>{{ post.date | date_to_string }}</h5>
+                                <h3><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+                                <p>{{ post.excerpt }}</p>
                             </div>
-                        </section>
-                    {% endfor %}                
+                        </article>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                </section>
+            {% endfor %}                
             </div>
         </div>
 

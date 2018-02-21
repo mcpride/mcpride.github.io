@@ -27,7 +27,7 @@ layout: compress
                     {% endif %}
                     
                     {% for post in posts %} 
-                    {% if post.project == null %}
+                    <!--{% if post.project == null %}-->
                     <article>
                         {% if post.thumb %}
                         {% if post.thumb contains 'http' %}{% assign domain_thumb = '' %}{% else %}{% assign domain_thumb = site.url %}{% endif %}
@@ -40,7 +40,7 @@ layout: compress
                             <li><a href="{{ site.url }}{{ post.url }}" class="button">{{ site.data.messages.locales[navlang].btn_more }}</a></li>
                         </ul>
                    </article>
-                    {% endif %}
+                    <!--{% endif %}-->
                     {% endfor %}
                 </div>
 
