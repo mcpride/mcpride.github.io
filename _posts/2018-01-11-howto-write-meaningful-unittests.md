@@ -5,7 +5,7 @@ date:   18-01-11 12:30:00
 excerpt: "How to write meaningful unit tests."
 image:
 thumb: /assets/img/thumbs/AAA.jpg
-tags: [unittests, testing, development, c#]
+tags: [unittests, testing, development, csharp]
 categories: [posts, development]
 comments: true
 lang: en

@@ -5,7 +5,7 @@ date:   2018-01-13 15:00:00
 excerpt: "Kryptowährungsbörse Kraken.com war mehr als 2 Tage offline!"
 image: /assets/img/wide/Kraken-725x322.jpg
 thumb: /assets/img/thumbs/Kraken-725x322.jpg
-tags: [bitcoin, kryptowährungen, kraken]
+tags: [bitcoin, kryptowaehrungen, kraken]
 categories: [posts, cryptocurrencies]
 comments: true
 lang: de
