@@ -18,15 +18,15 @@ country: Germany
 phone:
 
 # Social settings
-500px_url:
+# 500px_url:
 facebook_url: http://facebook.com/marco.stolze.73
 github_url: https://github.com/mcpride
 gitlab_url: https://gitlab.com/u/mcpride
 googleplus_url: https://plus.google.com/101037539053106314238
-instagram_url:
+# instagram_url:
 linkedin_url: https://www.linkedin.com/in/mstolze/
-pinterest_url:
-slack_url:
+# pinterest_url:
+# slack_url:
 twitter_url: https://twitter.com/tweetpride
 
 # Comments
@@ -57,4 +57,4 @@ plugins:
   - jekyll-admin
 
 # Exclude list
-exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile, _draft]
+exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile, _draft, _gentags.rb]
