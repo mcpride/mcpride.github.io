@@ -20,12 +20,12 @@ layout: compress
                 <!-- Content -->
                 <section>
                 	<header class="main">
-                        % if site.reading_time %}
+                        {% if site.reading_time %}
                         <p class="reading-time">
                             {% include read-time.html %}
                         </p>
                         {% endif %}
-                            <h1>{{ page.title }}</h1>
+                        <h1>{{ page.title }}</h1>
                     </header>
 
                     {% if page.image %}
