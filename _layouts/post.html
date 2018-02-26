@@ -20,7 +20,9 @@ layout: compress
                 <!-- Content -->
                 <section>
                 	<header class="main">
-                        <p>{{ post.date | date_to_string }}</p>
+                        {% if page.date %}
+                        <p>{{ page.date | date_to_string }}</p>
+                        {% endif %}
                         {% if site.reading_time %}
                         <p class="reading-time">
                             {% include read-time.html %}
