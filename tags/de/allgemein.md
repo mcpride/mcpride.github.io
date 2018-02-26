@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: allgemein
 lang: de
-ref: allgemein
+ref: tag-allgemein
 ---

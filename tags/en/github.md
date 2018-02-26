@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: github
 lang: en
-ref: github
+ref: tag-github
 ---

@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: ssh
 lang: en
-ref: ssh
+ref: tag-ssh
 ---

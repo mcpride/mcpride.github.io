@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: kraken
 lang: de
-ref: kraken
+ref: tag-kraken
 ---

@@ -1,6 +1,6 @@
 ---
 layout: tag-page
-tag: git
+tag: liquid
 lang: de
-ref: tag-git
+ref: tag-liquid
 ---

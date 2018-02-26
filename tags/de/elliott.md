@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: elliott
 lang: de
-ref: elliott
+ref: tag-elliott
 ---

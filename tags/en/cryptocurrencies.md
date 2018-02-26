@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: cryptocurrencies
 lang: en
-ref: cryptocurrencies
+ref: tag-cryptocurrencies
 ---

@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: fibonacci
 lang: de
-ref: fibonacci
+ref: tag-fibonacci
 ---

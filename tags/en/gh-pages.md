@@ -1,6 +1,6 @@
 ---
 layout: tag-page
-tag: bitcoin
+tag: gh-pages
 lang: en
-ref: tag-bitcoin
+ref: tag-gh-pages
 ---

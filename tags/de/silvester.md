@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: silvester
 lang: de
-ref: silvester
+ref: tag-silvester
 ---

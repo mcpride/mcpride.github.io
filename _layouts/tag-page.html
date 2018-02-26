@@ -19,10 +19,10 @@ layout: compress
 
                 {{ content }}
 
-                {% assign tposts=site.tags[page.ref] | where:"lang", page.lang %}
+                {% assign tposts=site.tags[page.tag] | where:"lang", page.lang %}
                 <section>
                     <header class="major">
-                        <h2 id="{{ page.ref }}">{{ page.ref }}</h2>
+                        <h2 id="{{ page.tag }}">{{ page.tag }}</h2>
                     </header>
                     <div class="posts">
                     {% for post in tposts %}

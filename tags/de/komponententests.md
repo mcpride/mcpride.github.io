@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: komponententests
 lang: de
-ref: komponententests
+ref: tag-komponententests
 ---

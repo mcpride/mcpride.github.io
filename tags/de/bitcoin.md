@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: bitcoin
 lang: de
-ref: bitcoin
+ref: tag-bitcoin
 ---

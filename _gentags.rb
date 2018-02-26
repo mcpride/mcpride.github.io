@@ -27,8 +27,9 @@ langs.each do |lang|
 		File.write File.join("tags/#{lang}", "#{tag}.md"), <<-EOF
 ---
 layout: tag-page
+tag: #{tag}
 lang: #{lang}
-ref: #{tag}
+ref: tag-#{tag}
 ---
 	EOF
 	end

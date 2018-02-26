@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: testing
 lang: en
-ref: testing
+ref: tag-testing
 ---

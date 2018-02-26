@@ -1,6 +1,6 @@
 ---
 layout: tag-page
-tag: bitcoin
+tag: liquid
 lang: en
-ref: tag-bitcoin
+ref: tag-liquid
 ---

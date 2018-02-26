@@ -1,6 +1,6 @@
 ---
 layout: tag-page
-tag: git
+tag: jekyll
 lang: de
-ref: tag-git
+ref: tag-jekyll
 ---

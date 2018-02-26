@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: git
 lang: en
-ref: git
+ref: tag-git
 ---

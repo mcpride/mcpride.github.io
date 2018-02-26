@@ -1,6 +1,6 @@
 ---
 layout: tag-page
-tag: git
+tag: gh-pages
 lang: de
-ref: tag-git
+ref: tag-gh-pages
 ---

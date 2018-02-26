@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: csharp
 lang: en
-ref: csharp
+ref: tag-csharp
 ---

@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: kryptowaehrungen
 lang: de
-ref: kryptowaehrungen
+ref: tag-kryptowaehrungen
 ---

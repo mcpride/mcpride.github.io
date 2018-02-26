@@ -1,6 +1,6 @@
 ---
 layout: tag-page
-tag: bitcoin
+tag: jekyll
 lang: en
-ref: tag-bitcoin
+ref: tag-jekyll
 ---

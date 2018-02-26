@@ -1,5 +1,6 @@
 ---
 layout: tag-page
+tag: muster
 lang: de
-ref: muster
+ref: tag-muster
 ---
