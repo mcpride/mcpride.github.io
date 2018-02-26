@@ -4,6 +4,8 @@ title:  "A Markdown TOC package for Atom"
 date:   2016-02-17
 excerpt: "Generate a markdown TOC (table of contents) in atom editor using 'Markdown-TOC' and 'Remarkable'"
 feature: http://og.github.com/atom-mark/atom-mark@1200x630.png
+image:
+thumb:
 project: true
 categories: [projects, development]
 tag:
