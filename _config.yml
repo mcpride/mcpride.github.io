@@ -32,6 +32,9 @@ twitter_url: https://twitter.com/tweetpride
 # Comments
 disqus_shortname:   mcpride
 
+reading_time:       true
+words_per_minute:   200
+
 # Build settings
 # Jekyll
 permalink:          /:categories/:year/:month/:day/:title/
