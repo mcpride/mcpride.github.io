@@ -1,12 +1,15 @@
 {% if page.tags.size > 0 %}
-<span>Tags:&nbsp;</span>
 <ul class="icons">
-{% for ptag in page.tags %}
+    <li>
+        <span>Tags:&nbsp;</span>
+    </li>
+    {% for ptag in page.tags %}
     <li>
         <a href="{{ site.url }}/tags/{{ navlang }}/{{ ptag }}" style="text-decoration: none; border-bottom:none">
             <span>{{ ptag }}</span>
         </a>
     </li>
-{% endfor %}
+    {% endfor %}
 </ul>
+</span>
 {% endif %}
