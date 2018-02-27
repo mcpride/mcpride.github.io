@@ -30,4 +30,33 @@ Dieses Konzept wendete ich nun wieder bei der Neugestaltung meiner Seiten an und
 
 ## Startseite
 
-Im Wurzelverzeichnis meiner Github-Seiten habe ich eine Markdown-Seite `index.md` plaziert, die Jekyll unter Zuhilfename des angegebenen Templates `home.html` rendert.
+OK, los geht's
+
+Im Wurzelverzeichnis meiner Github-Seiten habe ich eine Markdown-Seite `index.md` plaziert, die Jekyll unter Zuhilfename des angegebenen Layout-Templates `home.html` zu einer `index.html` rendert. Diese `index.md` habe ich nun 2-mal kopiert und die Kopien gemäß meiner unterstützten Sprachen `de.md` und `en.md` benannt. Jekyll rendert diese Dateien nun zu `/de/index.html` und `/en/index.html`, womit ich nun die Basis für Sprachspezifische URL's habe. 
+OK, näcchster Schritt! Um nun Übersetzung anbieten zu können, muss ich in den Layout-Templates erkennen können, welche Sprache auf der jeweiligen Seite aktiv ist. Das erledige ich über einen entprechenden Tag-Eintrag in den Markdown-Dateien. Ich habe mein Sprach-Tag kurz und knackig `lang` genannt.
+Während die `index.md` als einzige Datei kein `lang`-Tag bekommt, werden alle anderen Markdown-Dateien damit ausgestattet, z.B.:
+
+* de.md
+```
+---
+layout: home
+title: Hauptseite
+comments: false
+lang: de
+--- 
+```
+
+* en.md
+```
+---
+layout: home
+title: Home
+comments: false
+lang: en
+---
+```
+
+>Zu erwähnen sei hier, dass für eine erfolgreiche Umsetzung der Mehrsprachigkeit eine konsequente Trennung von Template und Inhalt (Markdown-Dateien) notwendig ist, da Inhalte im Gegensatz zur Gestaltung je Sprache mehrfach zu pflegen sind! 
+
+Nun kann ich über die Auswertung des `lang`-Tags Übersetzung in den Templates einbauen. Das betrifft im wesentlichen Überschriften, Navigationseinträge, und andere wiederkehrende Informationen (abhängig vom Theme). Mein `home.html`-Layout bindet z.B. die Views (_includes) `head.html`, `banner.html` oder `sidebar.html` ein, in denen ich solche Übersetzungen vornehme.
+In `head.html`, welches als erstes in alle Seiten eingebunden wird habe ich noch ein kleines Liguid-Konstrukt platziert, welches mir immer die Standardsprache in einer Variable `navlang` speichert.
