@@ -32,7 +32,7 @@ folgende Requirements habe ich für die Mehrsprachigkeit aufgestellt:
 
 ## Startseite
 
-OK, los geht's!
+Los geht's!
 
 Im Wurzelverzeichnis meiner Github-Seiten habe ich eine Markdown-Seite `index.md` plaziert, die Jekyll unter Zuhilfename des angegebenen Layout-Templates `home.html` zu einer `index.html` rendert. Diese `index.md` habe ich nun 2-mal kopiert und die Kopien gemäß meiner unterstützten Sprachen `de.md` und `en.md` benannt. Jekyll rendert diese Dateien nun zu `/de/index.html` und `/en/index.html`, womit ich nun die Basis für sprachspezifische URL's habe. 
 
@@ -151,9 +151,11 @@ In den Templates kann ich dann wie im nachfolgenden Beispiel auf die lokalisiert
 
 Dieser Eintrag gibt für die englisch Repräsentation `Home` und für die deutsche `Startseite` zurück.
 
+Mit dieser Vorgehensweise folge ich der Idee von [Tuan Anh](https://tuananh.org/2014/08/13/localization-with-jekyll/)'s Blogeintrag.
+
+## Navigation
+
 ## Weitere Inhalte
-
-
 
 ## Posts
 
