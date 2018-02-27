@@ -11,6 +11,10 @@ Dir.glob(File.join('_posts','*.md')).each do |file|
 end
 langs = langs.map{ |lang| lang.downcase }.uniq
 
+messages = YAML.load_file("_data/messages.yml")
+
+fcount = 0
+
 langs.each do |lang|
 	tags = []
 	Dir.glob(File.join('_posts','*.md')).each do |file|
@@ -24,13 +28,21 @@ langs.each do |lang|
 		end
 	end
 	tags.map{ |tag| tag.downcase if tag.is_a? String }.uniq.each do |tag|
-		File.write File.join("tags/#{lang}", "#{tag}.md"), <<-EOF
+		tag_file = File.join("tags/#{lang}", "#{tag}.md")
+		puts "Writing file '#{tag_file}' for tag '#{tag}' in language '#{lang}'..." 
+		pretitle = messages['locales'][lang]['tagged_as']
+		File.write tag_file, <<-EOF
 ---
 layout: tag-page
+title: "#{pretitle}: #{tag}"  
 tag: #{tag}
 lang: #{lang}
 ref: tag-#{tag}
 ---
 	EOF
+	fcount = fcount + 1
 	end
 end
+
+puts "#{fcount} files written!"
+
