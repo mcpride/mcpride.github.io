@@ -99,7 +99,61 @@ deutschsprachige Benutzer auf die deutschen Seiten, für alle anderen auf die en
 
 ## Übersetzungen
 
+Für Strings in einzelnen Sprachen habe ich mir eine Yaml-Datei namens `messages.yml` im `_data`-Unterverzeichnis erstellt. Darin werden alle zu lokalisierenden Strings - gegliedert nach Sprache - eingetragen:
+
+```
+locales:
+  # English translation
+  # -------------------
+  en: &DEFAULT_EN
+    about: "About"
+    site_description: "My personal pages."
+    btn_more: "More..."
+    posts: "Blog"
+    pages: "Pages"
+    projects: "Projects"
+    tags: "Tags"
+    home: "Home"
+    languages: "Languages"
+    lang_name: "English"
+    post_title: "Read this post in English..."
+    page_title: "Read this page in English..."
+
+  en_US:
+    <<: *DEFAULT_EN     # use English translation for en_US
+  en_UK:
+    <<: *DEFAULT_EN     # use English translation for en_UK
+
+  # German translation
+  # -------------------
+  de: &DEFAULT_DE
+    <<: *DEFAULT_EN     # load English values as default
+    about: "&Uuml;ber"
+    site_description: "Meine pers&ouml;nlichen Seiten."
+    btn_more: "Mehr..."
+    posts: "Blog"
+    pages: "Seiten"
+    projects: "Projekte"
+    home: "Startseite"
+    languages: "Sprachen"
+    lang_name: "Deutsch"
+    post_title: "Diesen Artikel auf Deutsch lesen..."
+    page_title: "Diese Seite auf Deutsch lesen..."
+  de_DE:
+    <<: *DEFAULT_DE     # use German translation for de_DE
+```
+
+In den Templates kann ich dann wie im nachfolgenden Beispiel auf die lokalisierten Strings zugreifen:
+
+```
+{{ site.data.messages.locales[navlang].home }}
+```
+
+Dieser Eintrag gibt für die englisch Repräsentation `Home` und für die deutsche `Startseite` zurück.
+
 ## Weitere Inhalte
+
+
 
 ## Posts
 
