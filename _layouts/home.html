@@ -29,15 +29,11 @@ layout: compress
 
     {% include footer.html %}
 
-    {% if page.lang %}
-    {% else %}
+    {% unless page.lang %}
     <script type="text/javascript">
         $( document ).ready(function(){
             var userLang = navigator.language || navigator.userLanguage;
-            if (userLang == "de") {
-                window.location.href = "{{ site.url }}/de/"
-            }
-            else if (userLang == "de-DE") {
+            if ((userLang == "de") || (userLang == "de-DE")) {
                 window.location.href = "{{ site.url }}/de/"
             }
             else {
@@ -45,7 +41,7 @@ layout: compress
             }
         });
     </script>
-    {% endif %}
+    {% endunless %}
 
 </body>
 
