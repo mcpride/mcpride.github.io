@@ -21,9 +21,11 @@ layout: compress
 
                 {% assign tposts=site.tags[page.tag] | where:"lang", page.lang %}
                 <section>
+                    <!--
                     <header class="major">
                         <h2 id="{{ page.tag }}">{{ page.tag }}</h2>
                     </header>
+                    -->
                     <div class="posts">
                     {% for post in tposts %}
                         {% if post.title != null %}
