@@ -8,7 +8,6 @@ email:
 description: My personal pages.
 baseurl: # the subpath of your site, e.g. /blog
 locale:             en
-locales:            [de, en]
 url:                https://mcpride.github.io
 street_address:
 city: Berlin
