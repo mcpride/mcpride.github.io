@@ -44,6 +44,6 @@ Als Universalist erweitere ich stetig mein Wissen über andere Entwicklungsplatt
 wie z.B. **NodeJS**, JavaScript (**Typescript**, Coffeescript), Java, Ruby, Go.
 
 Auf diesen Github-Seiten möchte ich meine Gedanken zu interessanten Themen wie 
-z.B. Softwareentwicklung, **Blockchain** and **Kryptowährungen**, 
-**Deep Learning**, **Big/Smart Data**, Fotografie usw. teilen and und meine 
+z.B. Softwareentwicklung, **Blockchain** und **Kryptowährungen**, 
+**Deep Learning**, **Big/Smart Data**, Fotografie usw. teilen und meine 
 eigenen Projekte beschreiben. 
