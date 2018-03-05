@@ -41,7 +41,7 @@ Im Wurzelverzeichnis meiner Github-Seiten habe ich eine Markdown-Seite `index.md
 OK, nächster Schritt! 
 
 Um nun Übersetzung anbieten zu können, muss ich in den Layout-Templates erkennen können, welche Sprache auf der jeweiligen Seite aktiv ist. Das erledige ich über einen entprechendes Attribut im Header in den Markdown-Dateien. Ich habe mein Sprach-Attribut kurz und knackig `lang` genannt.
-Während die `index.md` als einzige Datei kein `lang`-attribut bekommt, werden alle anderen Markdown-Dateien damit ausgestattet, z.B.:
+Während die `index.md` als einzige Datei kein `lang`-Attribut bekommt, werden alle anderen Markdown-Dateien damit ausgestattet, z.B.:
 
 * de.md
 
@@ -63,7 +63,7 @@ lang: en
 ---
 ```
 
->Zu erwähnen sei hier, dass für eine erfolgreiche Umsetzung der Mehrsprachigkeit eine konsequente Trennung von Template und Inhalt (Markdown-Dateien) notwendig ist, da Inhalte im Gegensatz zur Gestaltung je Sprache mehrfach zu pflegen sind! 
+>Für eine erfolgreiche Umsetzung der Mehrsprachigkeit ist eine konsequente Trennung von Template und Inhalt (Markdown-Dateien) notwendig, da Inhalte im Gegensatz zur Gestaltung je Sprache mehrfach zu pflegen sind! 
 
 Nun kann ich über die Auswertung des `lang`-Attributs Übersetzung in den Templates einbauen. Das betrifft im wesentlichen Überschriften, Navigationseinträge und andere wiederkehrende Informationen (abhängig vom Theme). Mein `home.html`-Layout bindet z.B. die Views (_includes) `head.html`, `banner.html` oder `sidebar.html` ein, in denen ich solche Übersetzungen vornehme.
 In `head.html`, welches als erstes in alle Seiten eingebunden wird habe ich noch ein kleines Liquid-Konstrukt platziert, welches mir immer eine gültige Sprache in einer Variable `navlang` speichert und notfalls auf die in der _config.yml eingestellte Standardsprache zurückfällt, falls `page.lang` nicht gesetzt wurde (navlang - "Navigation language", weil ich die Variable ursprünglich für die Navigations-Verweise eingeführt hatte).
@@ -151,7 +151,7 @@ In den Templates kann ich dann wie im nachfolgenden Beispiel auf die lokalisiert
 {{ "{{ site.data.messages.locales[navlang].home " }}}}
 ```
 
-Dieser Eintrag gibt für die englisch Repräsentation `Home` und für die deutsche `Startseite` zurück.
+Dieser Eintrag gibt für die englische Repräsentation `Home` und für die deutsche `Startseite` zurück.
 
 
 ## Weitere Inhalte
@@ -222,7 +222,7 @@ locales:
         url: /tags/de/
 ```  
 
-Eine Besonderheit gibt es beim Wechsel der Sprache. In einer Anforderung hatte ich formuliert, dass man zwischen Inhalten, die sowohl in der einen als auch in einer anderen Sprache vorliegen, leicht umgeschalten kann. Wenn ich also z.B. in der Liste aller deutschen Posts bin und nun per Menüeintrag zu Englisch wechsele, dann soll natürlich die Liste aller englischen Posts und nicht etwa die englische Startseite angezeigt werden. Gleiches gilt für `tags`, `about`, `impressum` sowie für Posts, die ich in eine andere Sprache übersetzt habe.
+Eine Besonderheit gibt es beim Wechsel der Sprache. In einer Anforderung hatte ich formuliert, dass man zwischen Inhalten, die sowohl in der einen als auch in einer anderen Sprache vorliegen, leicht umschalten kann. Wenn ich also z.B. in der Liste aller deutschen Posts bin und nun per Menüeintrag zu Englisch wechsele, dann soll die Liste aller englischen Posts und nicht etwa die englische Startseite angezeigt werden. Gleiches gilt für `tags`, `about`, `impressum` sowie für Posts, die ich in eine andere Sprache übersetzt habe.
 
 Für einen möglichst generischen Ansatz habe ich dazu in den Markdown-Dateien eine weitere Metainformation eingefügt - einen "Language referer" namens `ref`. So hat z.B. die Liste aller Posts in allen angebotenen Sprachen den gleichen Referer `post-list`:
 
@@ -238,6 +238,7 @@ ref: post-list
 ```
 
 * Datei `/posts/en.md`:
+
 ```
 ---
 layout: post-list
@@ -275,7 +276,7 @@ Bei nicht übersetzten Inhalten bleibt dieses Attribut einfach leer.
 
 Nun kann ich im Template `sidebar.html` entscheiden, ob ich beim Umschalten der Sprache zum übersetzten Inhalt oder zur Startseite umleiten will.
 
-Dazu ermittle ich zunächst alle Seiten und Posts und schaue dann, ob in der Zielsprache ein Inhalt mit dem gleichen Referrer vorliegt. 
+Dazu ermittle ich zunächst alle Seiten und Posts und schaue dann, ob in der Zielsprache ein Inhalt mit dem gleichen Referer vorliegt. 
 Ansonsten trage ich einfach nur die Startseite in der anderen Sprache ein.
 
 ```
@@ -296,9 +297,9 @@ Ansonsten trage ich einfach nur die Startseite in der anderen Sprache ein.
 
 ## Posts
 
-Wie zuvor erwähnt, unterstützen auch meine Posts die sprachabhängige Darstellung, indem sie alle ein `lang`-Attribut sowie wahlweise ein `ref`-Tag mitführen. Nun soll es aber darum gehen, wie ich in den Post- und Taglisten nur die zur Sprache zugehörigen Posts aufliste.
+Wie zuvor erwähnt, unterstützen auch meine Posts die sprachabhängige Darstellung, indem sie alle ein `lang`-Attribut sowie wahlweise ein `ref`-Attribut mitführen. Nun soll es aber darum gehen, wie ich in den Post- und Taglisten nur die zur Sprache zugehörigen Posts aufliste.
 
-Bei den Post-Listen ist das relativ einfach umgesetzt, indem ich alle Posts dahingehend filtere, ob sie mit der aktuellen Spracheinstellung übereinstimmen.
+Bei den Artikel-Listen (post lists) ist das relativ einfach umgesetzt, indem ich alle Posts dahingehend filtere, ob sie mit der aktuellen Spracheinstellung übereinstimmen.
 
 * Datei `post-list.html`:
 
@@ -324,7 +325,7 @@ Bei den Post-Listen ist das relativ einfach umgesetzt, indem ich alle Posts dahi
 
 Für die Tag-Liste hatte ich zunächst nur eine Seite vorgesehen, die im Kopf die Tags aller in der jeweiligen Sprache verfügbaren Posts auflistet und darunter eine nach diesen Tags gruppierte Liste der zugehörigen Posts. Diese Liste wurde jedoch mit steigender Anzahl von Tags selbst bei wenigen Artikeln schnell groß und unübersichtlich.
 
-Nun habe ich die Tag-Listen-Seiten dahingehend weiterentwickelt, dass diese nur eine Tag-Cloud anzeigt und jeder Tag-Eintrag zu einer sprachabhängigen eigenen Seite weiterleitet welche dann alle Artikel auflistet, die dem Tag ud der Sprache zugeordnet sind. Dabei habe ich die Ideen von Jo Vandeginste aus seinem Artikel [Add a tag cloud to my Jekyll site](http://jovandeginste.github.io/2016/05/04/add-a-tag-cloud-to-my-jekyll-site.html) aufgegriffen und für die mehrsprachige Verwendung weiterentwickelt.
+Nun habe ich die Tag-Listen-Seiten dahingehend weiterentwickelt, dass diese nur eine Tag-Cloud anzeigt und jeder Tag-Eintrag zu einer sprachabhängigen eigenen Seite weiterleitet, welche dann alle Artikel auflistet, die dem Tag ud der Sprache zugeordnet sind. Dabei habe ich die Ideen von Jo Vandeginste aus seinem Artikel [Add a tag cloud to my Jekyll site](http://jovandeginste.github.io/2016/05/04/add-a-tag-cloud-to-my-jekyll-site.html) aufgegriffen und für mehrsprachige Verwendung weiterentwickelt.
 
 Die in `tag-list.html` eingebundene Include-Datei `collecttags.html` aggregiert mir die Tags:
 
@@ -363,7 +364,7 @@ Die Berechnng des Faktors für die Größendarstellung der Tags in `tag-list.htm
 {% endfor %}{% endraw %}
 ```
 
-Darstellung der Tag-cCoud in `tag-list.html`:
+Darstellung der Tag-Cloud in `tag-list.html`:
 
 ```
 {% raw %}{% for stag in stags %}
@@ -414,7 +415,7 @@ Auszug aus dem zugehörigen Layout-Template `tag-page.html`:
 ...{% endraw %}
 ```
 
-Eine solche Seite pro Tag und Sprache anzulegen ist zwar ein Kompromiss, ist aber per Hand schnell getan. Noch einfacher ist es, wenn man diese Arbeit mit einem Script automatisiert:
+Eine solche Seite pro Tag und Sprache anzulegen ist zwar ein zusätzlicher Schritt, "per Hand" aber schnell getan. Noch einfacher ist es, wenn man diese Arbeit mit einem Script automatisiert:
 
 Inhalt der Datei `_gentags.rb`:
 
