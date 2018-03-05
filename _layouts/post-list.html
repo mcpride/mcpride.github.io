@@ -3,29 +3,21 @@ layout: compress
 ---
 <!DOCTYPE HTML>
 <html>
-
 {% include head.html %}
-
 <body>
-
     <!-- Wrapper -->
     <div id="wrapper">
-
         <!-- Main -->
         <div id="main">
             <div class="inner">
-
                 {% include header.html %}
-
                 {{ content }}
-
                 <div class="posts">
                     {% if page.lang %}
                         {% assign posts=site.posts | where:"lang", page.lang %}
                     {% else %}
                         {% assign posts=site.posts %}
                     {% endif %}
-                    
                     {% for post in posts %} 
                     <!--{% if post.project == null %}-->
                     <article>
@@ -45,13 +37,8 @@ layout: compress
                 </div>
             </div>
         </div>
-
         {% include sidebar.html %}
-
     </div>
-
     {% include footer.html %}
-
 </body>
-
 </html>

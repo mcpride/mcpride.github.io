@@ -20,6 +20,10 @@ locales:
     post_current_title: "Current language selection of this post -> English"
     page_current_title: "Current language selection of this page -> English"
     back: "Back"
+    reading_time: "Reading time"
+    minute: "minute"
+    minutes: "minutes"
+    menu: "Menu"
 
   en_US:
     <<: *DEFAULT_EN     # use English translation for en_US
@@ -46,5 +50,9 @@ locales:
     post_current_title: "Aktuelle Sprachauswahl dieses Artikels -> Deutsch"
     page_current_title: "Aktuelle Sprachauswahl dieser Seite -> Deutsch"
     back: "Zur&uuml;ck"
+    reading_time: "Lesezeit"
+    minute: "Minute"
+    minutes: "Minuten"
+    menu: "Menü"
   de_DE:
     <<: *DEFAULT_DE     # use German translation for de_DE

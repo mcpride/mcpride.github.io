@@ -1,17 +1,6 @@
 <!-- Sidebar -->
   <div id="sidebar">
     <div class="inner">
-
-        {% if site.avatar %}
-        <!--<section class="alt">
-          <span class="author-image" >
-              <img src="{{ '' | absolute_url }}{{ site.avatar }}" />
-          </span>
-        </section>-->
-        {% endif %}
-
-      
-      
       <!-- Search -->
         <!--
         <section id="search" class="alt">
@@ -20,11 +9,10 @@
           </form>
         </section>
         -->
-
       <!-- Menu -->
         <nav id="menu">
           <header class="major">
-            <h2>Menu</h2>
+            <h2>{{ site.data.messages.locales[navlang].menu }}</h2>
           </header>
           <ul>
             <li><a href="{{ '' | absolute_url }}{{ navlang }}/">{{ site.data.messages.locales[navlang].home }}</a></li>
@@ -68,41 +56,11 @@
             </li>
           </ul>
         </nav>
-
-      <!-- Section -->
-        <!--
-        <section>
-          <header class="major">
-            <h2>Ante interdum</h2>
-          </header>
-          <div class="mini-posts">
-            <article>
-              <a href="#" class="image"><img src="assets/images/pic07.jpg" alt="" /></a>
-              <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-            </article>
-            <article>
-              <a href="#" class="image"><img src="assets/images/pic08.jpg" alt="" /></a>
-              <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-            </article>
-            <article>
-              <a href="#" class="image"><img src="assets/images/pic09.jpg" alt="" /></a>
-              <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-            </article>
-          </div>
-          <ul class="actions">
-            <li><a href="#" class="button">More</a></li>
-          </ul>
-        </section>
-        -->
-
       <!-- Section -->
         <section>
           <header class="major">
             <h2>Get in touch</h2>
           </header>
-        <!--
-          <p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-        -->
         <ul class="icons">
             {% if site.twitter_url %}
             <li><a href="{{ site.twitter_url }}" class="icon fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
@@ -161,7 +119,6 @@
             </li>
           </ul>
         </section>
-
       <!-- Footer -->
         <footer id="footer">
           <p class="copyright">&copy; Marco Stolze. All rights reserved. <br />
@@ -170,6 +127,5 @@
             <a href="{{ '' | absolute_url }}impressum/{{ navlang }}/">Impressum</a>
           </p>
         </footer>
-
     </div>
   </div>

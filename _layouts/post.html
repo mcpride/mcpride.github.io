@@ -1,25 +1,19 @@
----
-layout: compress
+--- 
+layout: compress 
 ---
 <!DOCTYPE HTML>
 <html>
-
 {% include head.html %}
-
 <body>
-
     <!-- Wrapper -->
     <div id="wrapper">
-
         <!-- Main -->
         <div id="main">
             <div class="inner">
-
                 {% include header.html %}
-
                 <!-- Content -->
                 <section>
-                	<header class="main">
+                    <header class="main">
                         {% if page.date %}
                         <p>{{ page.date | date_to_string }}</p>
                         {% endif %}
@@ -28,29 +22,26 @@ layout: compress
                             {% include read-time.html %}
                         </p>
                         {% endif %}
-                        <!--
-                        <h1>{{ page.title }}</h1>
-                        -->
                     </header>
-
                     {% if page.image %}
-                	<span class="image main"><img src="{{ page.image | absolute_url }}" alt="" /></span>
+                    <span class="image main">
+                        <img src="{{ page.image | absolute_url }}" alt="" />
+                    </span>
                     {% endif %}
-
                     {{ content }}
                 </section>
-                <br />
-                {% include page-tags.html %}
-                {% if page.comments and site.disqus_shortname %}<section id="disqus_thread" class="animated fadeInUp"></section><!-- /#disqus_thread -->{% endif %}
+                <br /> 
+                {% include page-tags.html %} 
+                {% if page.comments and site.disqus_shortname %}
+                <section id="disqus_thread"
+                    class="animated fadeInUp"></section>
+                <!-- /#disqus_thread -->
+                {% endif %}
             </div>
-          </div>
-
-          {% include sidebar.html %}
-
-      </div>
-
-      {% include footer.html %}
-
+        </div>
+        {% include sidebar.html %}
+    </div>
+    {% include footer.html %}
 </body>
 
 </html>
