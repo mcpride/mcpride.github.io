@@ -45,7 +45,7 @@ Während die `index.md` als einzige Datei kein `lang`-Attribut bekommt, werden a
 
 * de.md
 
-```
+``` markdown
 ---
 layout: home
 title: Hauptseite
@@ -55,7 +55,7 @@ lang: de
 
 * en.md
 
-```
+``` markdown
 ---
 layout: home
 title: Home
@@ -70,7 +70,7 @@ In `head.html`, welches als erstes in alle Seiten eingebunden wird habe ich noch
 
 * head.html
 
-```
+``` html
 {% raw %}{% if page.lang %}
 	{% assign navlang = page.lang %}
 {% else %}
@@ -79,7 +79,7 @@ In `head.html`, welches als erstes in alle Seiten eingebunden wird habe ich noch
 ```
 Somit habe ich auch für die `index.md`, bei der das `lang`-Attribut nicht gesetzt ist, eine gültige Spracheinstellung und kann den Umstand, dass ich hier `lang` nicht gesetzt habe, geschickt für die Erfüllung einer weiteren Anforderung nutzen - die automatische Weiterleitung auf den Inhalt mit der vom Benutzer bevorzugten Sprache. Dazu habe ich in das `home.html`-Template folgendes eingebaut:
 
-```
+``` html
 {% raw %}{% unless page.lang %}
 <script type="text/javascript">
     $( document ).ready(function(){
@@ -103,7 +103,7 @@ deutschsprachige Benutzer auf die deutschen Seiten, für alle anderen auf die en
 
 Für Strings in einzelnen Sprachen habe ich mir - der Idee von [Tuan Anh](https://tuananh.org/2014/08/13/localization-with-jekyll/)'s Blogeintrag folgend - eine Yaml-Datei namens `messages.yml` im `_data`-Unterverzeichnis erstellt. Darin werden alle zu lokalisierenden Strings - gegliedert nach Sprache - eingetragen:
 
-```
+``` yaml
 locales:
   # English translation
   # -------------------
@@ -147,7 +147,7 @@ locales:
 
 In den Templates kann ich dann wie im nachfolgenden Beispiel auf die lokalisierten Strings zugreifen:
 
-```
+``` html
 {{ "{{ site.data.messages.locales[navlang].home " }}}}
 ```
 
@@ -182,13 +182,13 @@ Die gleiche Vorgehensweise wende ich auch bei `posts`, `tags` sowie `impressum` 
 
 Natürlich ist in den Templates (layouts/Includes) nun darauf zu achten, dass Verweise, die zu sprachlich relevanten Ressourcen führen, die `navlang`-Variable verarbeiten. So binden z.B. fast alle meine Layouts die Datei `header.html` ein, in der gleich zu Beginn der Seitentitel mit einem Link zur Startseite gesetzt wird:
 
-```
+``` html
 {% raw %}<a href="{{ site.url }}/{{ navlang }}/" class="logo"><strong>{{ site.title }}</strong></a>{% endraw %}
 ```
 
 Ebenso verfahre ich mit anderen Dateien, z.B. mit `banner.html`:
 
-```
+``` html
 {% raw %}<ul class="actions">
   <li><a href="{{ site.url }}/about/{{ navlang }}/" class="button big">{{ site.data.messages.locales[navlang].btn_more }}</a></li>
 </ul>{% endraw %}
@@ -196,7 +196,7 @@ Ebenso verfahre ich mit anderen Dateien, z.B. mit `banner.html`:
 
 Die zentrale Rolle der Seitennavigation übernimmt in meinen Seiten eine Sidebar, die in allen Templates eingebunden ist. Ihren Inhalt steuere ich über eine im `_data`-Ordner liegende Yaml-Datei namens `navigation.yml`. Dort sind nach Sprache und Inhalt gegliederte Menütitel und zugehörige Links hinterlegt, die im Template `sidebar.html` verarbeitet werden.
 
-```
+``` yaml
 locales:
   en:
     languages:
@@ -228,7 +228,7 @@ Für einen möglichst generischen Ansatz habe ich dazu in den Markdown-Dateien e
 
 * Datei `/posts/de.md`:
 
-```
+``` markdown
 ---
 layout: post-list
 title: Alle Artikel
@@ -239,7 +239,7 @@ ref: post-list
 
 * Datei `/posts/en.md`:
 
-```
+``` markdown
 ---
 layout: post-list
 title: All posts
@@ -252,7 +252,7 @@ Auch Posts können solch einen eindeutigen Identifizierer tragen. Dieser Artikel
 
 * Deutsch:
 
-```
+``` markdown
 ---
 layout: post
 title:  "Mehrsprachige Seiten mit Jekyll ohne Plugin"
@@ -263,7 +263,7 @@ ref: post-localized-jekyll-pages-without-plugin
 
 * Englisch:
 
-```
+``` markdown
 ---
 layout: post
 title:  "Localized jekyll pages without plugin"
@@ -279,7 +279,7 @@ Nun kann ich im Template `sidebar.html` entscheiden, ob ich beim Umschalten der 
 Dazu ermittle ich zunächst alle Seiten und Posts und schaue dann, ob in der Zielsprache ein Inhalt mit dem gleichen Referer vorliegt. 
 Ansonsten trage ich einfach nur die Startseite in der anderen Sprache ein.
 
-```
+``` html
 {% raw %}<ul>
   {% assign lang_ref_pages=site.pages | where:"ref", page.ref %}
   {% assign lang_ref_posts=site.posts | where:"ref", page.ref %}
@@ -303,7 +303,7 @@ Bei den Artikel-Listen (post lists) ist das relativ einfach umgesetzt, indem ich
 
 * Datei `post-list.html`:
 
-```
+``` html
 {% raw %}<div class="posts">
     {% if page.lang %}
         {% assign posts=site.posts | where:"lang", page.lang %}
@@ -329,7 +329,7 @@ Nun habe ich die Tag-Listen-Seiten dahingehend weiterentwickelt, dass diese nur 
 
 Die in `tag-list.html` eingebundene Include-Datei `collecttags.html` aggregiert mir die Tags:
 
-```
+``` html
 {% raw %}{% if page.lang %}
     {% assign sposts=site.posts | where:"lang", page.lang %}
 {% else %}
@@ -352,7 +352,7 @@ Die in `tag-list.html` eingebundene Include-Datei `collecttags.html` aggregiert 
 
 Die Berechnng des Faktors für die Größendarstellung der Tags in `tag-list.html`:
 
-```
+``` html
 {% raw %}{% assign asize = 0 %}
 {% for stag in stags %}
     {% if page.lang %}
@@ -366,7 +366,7 @@ Die Berechnng des Faktors für die Größendarstellung der Tags in `tag-list.htm
 
 Darstellung der Tag-Cloud in `tag-list.html`:
 
-```
+``` html
 {% raw %}{% for stag in stags %}
     {% if page.lang %}
         {% assign ltags=site.tags[stag] | where:"lang", page.lang %}
@@ -389,7 +389,7 @@ Diese Vorgehensweise bedingt, dass für alle Tags in der jeweiligen Sprache glei
 
 Inhalt der Datei `/tags/en/jekyll.md` als Beispiel:
 
-```
+``` markdown
 ---
 layout: tag-page
 title: "Tagged as: jekyll"  
@@ -401,7 +401,7 @@ ref: tag-jekyll
 
 Auszug aus dem zugehörigen Layout-Template `tag-page.html`:
 
-```
+``` html
 {% raw %}{% assign tposts=site.tags[page.tag] | where:"lang", page.lang %}
 ...
 {% for post in tposts %}
@@ -419,7 +419,7 @@ Eine solche Seite pro Tag und Sprache anzulegen ist zwar ein zusätzlicher Schri
 
 Inhalt der Datei `_gentags.rb`:
 
-```
+``` ruby
 {% raw %}require 'yaml'
 
 langs = []
