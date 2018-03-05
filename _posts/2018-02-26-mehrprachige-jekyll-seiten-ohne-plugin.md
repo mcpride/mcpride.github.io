@@ -70,7 +70,7 @@ In `head.html`, welches als erstes in alle Seiten eingebunden wird habe ich noch
 
 * head.html
 
-``` html
+``` liquid
 {% raw %}{% if page.lang %}
 	{% assign navlang = page.lang %}
 {% else %}
@@ -147,7 +147,7 @@ locales:
 
 In den Templates kann ich dann wie im nachfolgenden Beispiel auf die lokalisierten Strings zugreifen:
 
-``` html
+``` liquid
 {{ "{{ site.data.messages.locales[navlang].home " }}}}
 ```
 
@@ -279,7 +279,7 @@ Nun kann ich im Template `sidebar.html` entscheiden, ob ich beim Umschalten der 
 Dazu ermittle ich zunächst alle Seiten und Posts und schaue dann, ob in der Zielsprache ein Inhalt mit dem gleichen Referer vorliegt. 
 Ansonsten trage ich einfach nur die Startseite in der anderen Sprache ein.
 
-``` html
+``` liquid
 {% raw %}<ul>
   {% assign lang_ref_pages=site.pages | where:"ref", page.ref %}
   {% assign lang_ref_posts=site.posts | where:"ref", page.ref %}
@@ -329,7 +329,7 @@ Nun habe ich die Tag-Listen-Seiten dahingehend weiterentwickelt, dass diese nur 
 
 Die in `tag-list.html` eingebundene Include-Datei `collecttags.html` aggregiert mir die Tags:
 
-``` html
+``` liquid
 {% raw %}{% if page.lang %}
     {% assign sposts=site.posts | where:"lang", page.lang %}
 {% else %}
@@ -352,7 +352,7 @@ Die in `tag-list.html` eingebundene Include-Datei `collecttags.html` aggregiert 
 
 Die Berechnng des Faktors für die Größendarstellung der Tags in `tag-list.html`:
 
-``` html
+``` liquid
 {% raw %}{% assign asize = 0 %}
 {% for stag in stags %}
     {% if page.lang %}
