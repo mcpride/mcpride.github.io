@@ -85,7 +85,7 @@ Diese Stylesheet-Datei muss noch in die Jekyll-Templates zentral eingebunden wer
 
 ## Schritt 4: Markiere die Codeschnipsel mit dem gewünschten Highlighter
 
-Um die Syntaxhervorhebung für die Codeschnipsel Artikeln/Seiten zu aktivieren, muss man sie mit dem gewüschten Higlighter-/Lexer-Namen markieren. Diesen schreibt man in den Markdown-Dateien direkt neben den eröffnenden Marker für einen Codeblock - nachfolgend ein Beispiel für `html`:
+Um die Syntaxhervorhebung für die Codeschnipsel in Artikeln/Seiten zu aktivieren, muss man sie mit dem gewünschten Higlighter-/Lexer-Namen markieren. Diesen schreibt man in den Markdown-Dateien direkt neben den eröffnenden Marker für einen Codeblock - nachfolgend ein Beispiel für `html`:
 
     ``` html
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
