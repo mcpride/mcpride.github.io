@@ -19,13 +19,13 @@ Die Menge darstellbarer Indikatoren ist jedoch an den Lizenztyp gebunden und au�
 
 ## Kennsu Pine?
 
-TradingView stellt dazu eigene Skriptsprache `Pine Script` sowie einen integrierten Skript-Editor zur Verfügung. Dieses Scripting erlaubt es dem Benutzer, die Anzeige der technischen Indikatoren und andere Funktionen anzupassen. Nähere Informationen gibt's z.B. unter [PINE SCRIPT LANGUAGE REFERENCE MANUAL](https://www.tradingview.com/study-script-reference/ oder [Pine Script Tutorial](https://www.tradingview.com/wiki/Pine_Script_Tutorial).
+TradingView stellt dazu eigene Skriptsprache `Pine Script` sowie einen integrierten Skript-Editor zur Verfügung. Dieses Scripting erlaubt es dem Benutzer, die Anzeige der technischen Indikatoren und andere Funktionen anzupassen. Nähere Informationen gibt's z.B. unter [PINE SCRIPT LANGUAGE REFERENCE MANUAL](https://www.tradingview.com/study-script-reference/) oder [Pine Script Tutorial](https://www.tradingview.com/wiki/Pine_Script_Tutorial).
 
 ## Indikatoren
 
 Die Berechnung und Darstellung der Indikatoren `RSI` und `stochastischer RSI` ähneln sich, weswegen sie gute Kandidaten für das Zusammenfassen auf einem Panel sind.
 
-Der Relative-Strength-Index (RSI) ist ein oszilierender Indikator, der auf Veränderungen der Marktkurse mit Auf- und Abwärtsbewegungen reagiert und mit dem sich die Stärke des aktuellen Marktes leichter beurteilen lässt. So gilt z.B. Messwert von 70 oder darüber als überkauft und signalisiert einen potenziellen Kursrückgang, ein Wert von 30 oder darunter hingegen als überverkauft, was einen potenziellen Kursanstieg signalisiert. Weitere Details findet man z.B. hier: [Der Relative-Stärke-Index (RSI)](https://www.oanda.com/lang/de/forex-trading/learn/trading-tools-strategies/rsi).
+Der Relative-Strength-Index (RSI) ist ein Indikator, der auf Veränderungen der Marktkurse mit Auf- und Abwärtsbewegungen reagiert und mit dem sich die Stärke des aktuellen Marktes leichter beurteilen lässt. So gilt z.B. ein Messwert von 70 oder darüber als überkauft und signalisiert einen potenziellen Kursrückgang, ein Wert von 30 oder darunter hingegen als überverkauft, was einen potenziellen Kursanstieg signalisiert. Weitere Details findet man z.B. hier: [Der Relative-Stärke-Index (RSI)](https://www.oanda.com/lang/de/forex-trading/learn/trading-tools-strategies/rsi).
 
 ![Relative-Strength-Index](/assets/img/rsi.jpg)
 
@@ -68,7 +68,7 @@ h3 = hline(30)
 fill(h2, h3, color=#6A5ACD, transp=90)
 ```
 
-Es kann in der Tradingview-Chartansicht direkt in den Pine-Editor kopiert werden und mit `Add to Chart` der aktuellen Chartansicht hinzugefügt werden:
+Es kann in der Tradingview-Chartansicht direkt in den Pine-Editor kopiert und mit `Add to Chart` der aktuellen Chartansicht hinzugefügt werden:
 
 ![stochastischer RSI](/assets/img/pine-editor.jpg) 
 
