@@ -25,9 +25,11 @@ layout: compress
                             <h5>{{ post.date | date_to_string }}</h5>
                             <h3><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
                             <p>{{ post.excerpt }}</p>
+							<!--
                             <ul class="actions">
                                 <li><a href="{{ site.url }}{{ post.url }}" class="button">{{ site.data.messages.locales[navlang].btn_more }}</a></li>
                             </ul>
+							-->
                         </article>
                         {% endif %}
                     {% endfor %}
