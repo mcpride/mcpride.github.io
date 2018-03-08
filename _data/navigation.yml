@@ -14,6 +14,8 @@ locales:
       - title: All projects
         url: /projects/
     pages:
+      - title: Smart-on-FHIR tutorial
+        url: https://mcpride.github.io/smart-on-fhir-tutorial/    
     links:
   de:
     languages:
@@ -30,4 +32,6 @@ locales:
       - title: Alle Projekte
         url: /projects/    
     pages:
+      - title: Smart-on-FHIR-Tutorial
+        url: https://mcpride.github.io/smart-on-fhir-tutorial/    
     links:
