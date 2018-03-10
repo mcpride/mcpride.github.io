@@ -30,7 +30,7 @@ layout: compress
                         {% else %}
                             {% assign ltags=site.tags[stag] %}
                         {% endif %}
-                        {% assign rel_tag_size = ltags.size | times: 4.0 | divided_by: asize | plus: 0.75 %}
+                        {% assign rel_tag_size = ltags.size | times: 7.0 | divided_by: asize | plus: 0.85 %}
                         <li>
                             <a href="{{ site.url }}/tags/{{ navlang }}/{{ stag }}" style="text-decoration: none; border-bottom:none">
                                 <span style="white-space: nowrap; font-size: {{ rel_tag_size }}em; padding: 0.2em;">
