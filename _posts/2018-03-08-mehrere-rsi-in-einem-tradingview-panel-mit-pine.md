@@ -25,13 +25,13 @@ TradingView stellt dazu eigene Skriptsprache `Pine Script` sowie einen integrier
 
 Die Berechnung und Darstellung der Indikatoren `RSI` und `stochastischer RSI` ähneln sich, weswegen sie gute Kandidaten für das Zusammenfassen auf einem Panel sind.
 
-Der Relative-Strength-Index (RSI) ist ein Indikator, der auf Veränderungen der Marktkurse mit Auf- und Abwärtsbewegungen reagiert und mit dem sich die Stärke des aktuellen Marktes leichter beurteilen lässt. So gilt z.B. ein Messwert von 70 oder darüber als überkauft und signalisiert einen potenziellen Kursrückgang, ein Wert von 30 oder darunter hingegen als überverkauft, was einen potenziellen Kursanstieg signalisiert. Weitere Details findet man z.B. hier: [Der Relative-Stärke-Index (RSI)](https://www.oanda.com/lang/de/forex-trading/learn/trading-tools-strategies/rsi).
+Der `Relative-Strength-Index (RSI)` ist ein Indikator, der auf Veränderungen der Marktkurse mit Auf- und Abwärtsbewegungen reagiert und mit dem sich die Stärke des aktuellen Marktes leichter beurteilen lässt. So gilt z.B. ein Messwert von 70 oder darüber als überkauft und signalisiert einen potenziellen Kursrückgang, ein Wert von 30 oder darunter hingegen als überverkauft, was einen potenziellen Kursanstieg signalisiert. Weitere Details findet man z.B. hier: [Der Relative-Stärke-Index (RSI)](https://www.oanda.com/lang/de/forex-trading/learn/trading-tools-strategies/rsi).
 
 ![Relative-Strength-Index](/assets/img/rsi.jpg)
 
 Beim `stochastischen RSI` liegen die Schwellwerte für obengenannte Signale bei über 80 bzw. unter 20. Näheres erfährt man z.B. hier: [Stochastik-Oszillatoren](https://www.oanda.com/lang/de/forex-trading/learn/trading-tools-strategies/stochastic).
 
-![stochastischer RSI](/assets/img/stoch-rsi.jpg) 
+![Stochastischer RSI](/assets/img/stoch-rsi.jpg) 
 
 ## Die Script-Lösung
 
@@ -70,11 +70,11 @@ fill(h2, h3, color=#6A5ACD, transp=90)
 
 Es kann in der Tradingview-Chartansicht direkt in den Pine-Editor kopiert und mit `Add to Chart` der aktuellen Chartansicht hinzugefügt werden:
 
-![stochastischer RSI](/assets/img/pine-editor.jpg) 
+![Pine-Editor](/assets/img/pine-editor.jpg) 
 
 Als Ergebnis erhält man ein neues Panel, welches wie folgt aussieht:
 
-![stochastischer RSI](/assets/img/combined-rsi.jpg) 
+![Kombinierter (stochastischer) RSI](/assets/img/combined-rsi.jpg) 
 
  
 
