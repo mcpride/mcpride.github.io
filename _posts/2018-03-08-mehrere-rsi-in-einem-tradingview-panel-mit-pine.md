@@ -2,7 +2,7 @@
 layout: post
 title:  "Mehrere RSI-Indikatoren in Tradingview in einem Panel bündeln"
 date:   2018-03-08 12:00:00
-excerpt: "Die Berechnung und Darstellung der Indikatoren `RSI` und `stochastischer RSI` ähneln sich, weswegen sie gute Kandidaten für das Zusammenfassen auf einem Panel sind."
+excerpt: "Die Berechnung und Darstellung der Indikatoren `RSI` und `stochastischer RSI` ähneln sich, weswegen sie gute Kandidaten für das Zusammenfassen auf einem Tradingview-Panel sind."
 image:
 thumb: /assets/img/thumbs/combined-rsi.jpg
 tags: [bitcoin, kryptowaehrungen, tradingview, pine, rsi]

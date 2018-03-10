@@ -2,7 +2,7 @@
 layout: post
 title:  "Bundle multiple RSI indicatores in one tradingview panel"
 date:   2018-03-08 12:00:00
-excerpt: ""
+excerpt: "The calculation and presentation of the indicators RSI and stochastic RSI are similar, which makes them good candidates for grouping on a tradingview panel."
 image:
 thumb: /assets/img/thumbs/combined-rsi.jpg
 tags: [bitcoin, cryptocurrencies, tradingview, pine, rsi]
