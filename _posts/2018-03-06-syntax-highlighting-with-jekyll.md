@@ -14,7 +14,7 @@ ref: post-syntax-highlighting-with-jekyll
 
 [Github pages](https://pages.github.com/) support source code syntax highlighting by the gem 
 [Rouge](https://github.com/jneen/rouge), which can improve the readability of code snippets in a blog or page.
-[Rouge](https://github.com/jneen/rouge) has been the default highlighter for [Jekyll](https://jekyllrb.com/) since version 3. The following steps explains how you can add syntax highlighting with rouge to your Github / Jekyll site with [Rouge](https://github.com/jneen/rouge).
+[Rouge](https://github.com/jneen/rouge) has been the default highlighter for [Jekyll](https://jekyllrb.com/) since version 3. The following steps explains how you can add syntax highlighting to your Github / Jekyll site with [Rouge](https://github.com/jneen/rouge).
 
 ## Step 1: Integrate the gems Kramdown and Rouge
 
