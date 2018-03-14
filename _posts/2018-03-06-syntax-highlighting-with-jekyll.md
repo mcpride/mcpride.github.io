@@ -88,15 +88,12 @@ This stylesheet file has to be integrated into the Jekyll templates centrally - 
 To enable syntax highlighting for the code snippets in articles / pages, you have to mark them with the desired higlighter / lexer name. This one has to be written in the markdown files next to the opening marker for a code block. Here is an example for `html` code:
 
     ``` html
-    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
     <html>
       <head>
-      <meta http-equiv="content-type" content="text/html; charset=windows-1250">
-      <meta name="generator" content="PSPad editor, www.pspad.com">
-      <title></title>
+		<title>
+		</title>
       </head>
       <body>
-    
       </body>
     </html>
     ```

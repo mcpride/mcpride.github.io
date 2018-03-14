@@ -88,15 +88,12 @@ Diese Stylesheet-Datei muss noch in die Jekyll-Templates zentral eingebunden wer
 Um die Syntaxhervorhebung für die Codeschnipsel in Artikeln/Seiten zu aktivieren, muss man sie mit dem gewünschten Higlighter-/Lexer-Namen markieren. Diesen schreibt man in den Markdown-Dateien direkt neben den eröffnenden Marker für einen Codeblock - nachfolgend ein Beispiel für `html`:
 
     ``` html
-    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
     <html>
       <head>
-      <meta http-equiv="content-type" content="text/html; charset=windows-1250">
-      <meta name="generator" content="PSPad editor, www.pspad.com">
-      <title></title>
+		<title>
+		</title>
       </head>
       <body>
-    
       </body>
     </html>
     ```
