@@ -1,5 +1,5 @@
 ---
-layout: tag-page
+layout: post-list
 title: "Tagged as: csharp"  
 tag: csharp
 lang: en

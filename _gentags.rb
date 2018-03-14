@@ -33,7 +33,7 @@ langs.each do |lang|
 		pretitle = messages['locales'][lang]['tagged_as']
 		File.write tag_file, <<-EOF
 ---
-layout: tag-page
+layout: post-list
 title: "#{pretitle}: #{tag}"  
 tag: #{tag}
 lang: #{lang}

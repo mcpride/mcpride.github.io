@@ -1,5 +1,5 @@
 ---
-layout: tag-page
+layout: post-list
 title: "Tagged as: bitcoin"  
 tag: bitcoin
 lang: en

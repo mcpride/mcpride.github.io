@@ -1,5 +1,5 @@
 ---
-layout: tag-page
+layout: post-list
 title: "Getagged als: testen"  
 tag: testen
 lang: de

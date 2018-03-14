@@ -1,5 +1,5 @@
 ---
-layout: tag-page
+layout: post-list
 title: "Getagged als: jekyll"  
 tag: jekyll
 lang: de
