@@ -26,7 +26,7 @@ gem install kramdown rouge
 
 ## Schritt 2: Konfigurieren
 
-In der Konfigurationsdatei `_config.yml` sollten folgende Einstellugen vorgenommen werden:
+In der Konfigurationsdatei `_config.yml` sollten folgende Einstellungen vorgenommen werden:
 
 ``` yaml
 markdown: kramdown
@@ -39,7 +39,7 @@ kramdown:
 
 ## Schritt 3: Bestimme den Style
 
-Über das CLI-Tool `rougify` von `Rouge` kann man sich alle unterstützen Themes für die Syntax-Hervorhebung auflisten lassen:
+Über das CLI-Tool `rougify` von `Rouge` kann man sich alle unterstützten Themes für die Syntax-Hervorhebung auflisten lassen:
 
 ``` shell
 rougify help style
