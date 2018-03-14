@@ -1,5 +1,5 @@
 ---
-layout: tag-page
+layout: post-list
 title: "Tagged as: liquid"  
 tag: liquid
 lang: en
