@@ -154,7 +154,6 @@ In den Templates kann ich dann wie im nachfolgenden Beispiel auf die lokalisiert
 
 Dieser Eintrag gibt für die englische Repräsentation `Home` und für die deutsche `Startseite` zurück.
 
-
 ## Weitere Inhalte
 
 Um in der sprachlichen Abgrenzung konsistent zu bleiben, müssen neben der "Hauptseite" auch alle sonstigen darstellbaren Seiten je Sprache dupliziert werden. Hier muss man sich nun entscheiden, ob man die sprachliche der inhaltlichen Abgrenzung vorzieht oder umgekehrt. Auch wenn es in der URL konsistenter erscheint, zunächst nach Sprache zu splitten und dann erst nach Inhalt, wie z.B. `/de/about` oder `/en/tags`, so ziehe ich eine inhaltliche Clusterung - wie meist bei der Softwareentwicklung - vor, sodas z.B. `/about` nun in `/about/de` und `/about/en` gesplittet wird. Das erreiche ich, indem ich meine ursprüngliche `/about.md`-Datei in eine `/about/de.md` und eine `/about/en.md` kopiere und danach die entprechenden `lang`-Tag sowie weitere Attribute setze. Nun kann ich auch den Inhalt der jeweiligen Sprache anpassen.
@@ -193,7 +192,7 @@ Ebenso verfahre ich mit anderen Dateien, z.B. mit `banner.html`:
 {% raw %}<ul class="actions">
   <li><a href="{{ site.url }}/about/{{ navlang }}/" class="button big">{{ site.data.messages.locales[navlang].btn_more }}</a></li>
 </ul>{% endraw %}
-```  
+```
 
 Die zentrale Rolle der Seitennavigation übernimmt in meinen Seiten eine Sidebar, die in allen Templates eingebunden ist. Ihren Inhalt steuere ich über eine im `_data`-Ordner liegende Yaml-Datei namens `navigation.yml`. Dort sind nach Sprache und Inhalt gegliederte Menütitel und zugehörige Links hinterlegt, die im Template `sidebar.html` verarbeitet werden.
 
@@ -221,7 +220,7 @@ locales:
     tags:
       - title: Tags aller Artikel
         url: /tags/de/
-```  
+```
 
 Eine Besonderheit gibt es beim Wechsel der Sprache. In einer Anforderung hatte ich formuliert, dass man zwischen Inhalten, die sowohl in der einen als auch in einer anderen Sprache vorliegen, leicht umschalten kann. Wenn ich also z.B. in der Liste aller deutschen Posts bin und nun per Menüeintrag zu Englisch wechsele, dann soll die Liste aller englischen Posts und nicht etwa die englische Startseite angezeigt werden. Gleiches gilt für `tags`, `about`, `impressum` sowie für Posts, die ich in eine andere Sprache übersetzt habe.
 
@@ -296,7 +295,7 @@ Ansonsten trage ich einfach nur die Startseite in der anderen Sprache ein.
 </ul>{% endraw %}
 ```
 
-## Posts
+## Artikel (Posts)
 
 Wie zuvor erwähnt, unterstützen auch meine Posts die sprachabhängige Darstellung, indem sie alle ein `lang`-Attribut sowie wahlweise ein `ref`-Attribut mitführen. Nun soll es aber darum gehen, wie ich in den Post- und Taglisten nur die zur Sprache zugehörigen Posts aufliste.
 
@@ -472,9 +471,9 @@ puts "#{fcount} files written!"{% endraw %}
 
 >Hinweis: Das Skript setzt das Vorhandensein der sprachabhängigen Verzeichnisse voraus - z.B. `tags/en` oder `tags/de`!
 
-## Sourcecode
+## Quellcode
 
-Alle hier vorgestellten Praktiken und den Sourccode könnt ihr in meinem Git-Repository zu diesen Jekyll-Seiten auf Github finden:
+Alle hier vorgestellten Praktiken und den Quellcode findet ihr in meinem Git-Repository zu diesen Jekyll-Seiten auf Github:
 
 [https://github.com/mcpride/mcpride.github.io](https://github.com/mcpride/mcpride.github.io)
 
