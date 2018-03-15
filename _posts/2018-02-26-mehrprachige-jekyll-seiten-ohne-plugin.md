@@ -50,7 +50,7 @@ Während die `index.md` als einzige Datei kein `lang`-Attribut bekommt, werden a
 layout: home
 title: Hauptseite
 lang: de
---- 
+---
 ```
 
 * en.md
@@ -66,7 +66,7 @@ lang: en
 >Für eine erfolgreiche Umsetzung der Mehrsprachigkeit ist eine konsequente Trennung von Template und Inhalt (Markdown-Dateien) notwendig, da Inhalte im Gegensatz zur Gestaltung je Sprache mehrfach zu pflegen sind! 
 
 Nun kann ich über die Auswertung des `lang`-Attributs Übersetzung in den Templates einbauen. Das betrifft im wesentlichen Überschriften, Navigationseinträge und andere wiederkehrende Informationen (abhängig vom Theme). Mein `home.html`-Layout bindet z.B. die Views (_includes) `head.html`, `banner.html` oder `sidebar.html` ein, in denen ich solche Übersetzungen vornehme.
-In `head.html`, welches als erstes in alle Seiten eingebunden wird habe ich noch ein kleines Liquid-Konstrukt platziert, welches mir immer eine gültige Sprache in einer Variable `navlang` speichert und notfalls auf die in der _config.yml eingestellte Standardsprache zurückfällt, falls `page.lang` nicht gesetzt wurde (navlang - "Navigation language", weil ich die Variable ursprünglich für die Navigations-Verweise eingeführt hatte).
+In `head.html`, welches als erstes in alle Seiten eingebunden wird habe ich noch ein kleines Liquid-Konstrukt platziert, welches mir immer eine gültige Sprache in einer Variable `navlang` speichert und notfalls auf die in der `_config.yml` eingestellte Standardsprache zurückfällt, falls `page.lang` nicht gesetzt wurde (navlang - "Navigation language", weil ich die Variable ursprünglich für die Navigations-Verweise eingeführt hatte).
 
 * head.html
 
@@ -94,6 +94,7 @@ Somit habe ich auch für die `index.md`, bei der das `lang`-Attribut nicht geset
 </script>
 {% endunless %}{% endraw %}
 ```
+
 Wenn also `page.lang` nicht vorhanden ist, wird ein Weiterleitungsskript eingebettet, welches für
 deutschsprachige Benutzer auf die deutschen Seiten, für alle anderen auf die englischsprachige Repräsentation weiterleitet. 
 
