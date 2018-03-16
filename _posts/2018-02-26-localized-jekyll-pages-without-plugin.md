@@ -14,11 +14,11 @@ ref: post-localized-jekyll-pages-without-plugin
 
 ## Introduction
 
-Finally my personal pages with a fresh new look based on Andrew Branchichs' s[Editorial theme](https://html5up.net/editorial) are online. 
+Finally my personal pages with a fresh new look based on Andrew Branchichs's [Editorial theme](https://html5up.net/editorial) are online.
 
 Multi-language support was very important to me for the refactoring.
 Even though I like to post in german as a native speaker, I wanted to have the opportunity to write articles in english or optionally translate some articles into english.
-Already with the previous "Moon" theme variant I reviewed some Jekyll plugins for this, but found their application too complicated or inflexible and so I built up my own concept without using plugins. 
+Already with the previous "Moon" theme variant I reviewed some Jekyll plugins for this, but found their usage too complicated or inflexible and so I built up my own concept without using plugins.
 I used this concept again for the redesign of my pages and extended it.
 
 ## Requirements
@@ -28,7 +28,7 @@ I have the following requirements for multi-language support:
 1. It should be possible to publish posts and normal pages in different languages (German and English).
 1. The reader should be automatically forwarded to the content of his preferred language via homepage.
 1. A change of language should be possible via links.
-1. When selecting a language, only content in this language should be offered, i.e. content in different languages should not be mixed.
+1. When selecting a language, only content in this language should be offered, i.e. content in different languages shouldn't be mixed.
 1. For SEO optimization, content in different languages should also be represented by different URLs.
 1. It should be possible to easily switch between content in one language and that in another (e. g. translated articles) (referencing among each other).
 
@@ -36,12 +36,12 @@ I have the following requirements for multi-language support:
 
 Let's go!
 
-In the root directory of my github pages I have placed a markdown page `index.md` which Jekyll renders to an `index.html` using the given layout template `home.html`. I have now copied this `index.md` 2 times and named the copies according to my supported languages `de.md` and `en.md`. Jekyll renders these files to `/en/index.html` and `/en/index.html`, which gives me the basis for language-specific URLs.
+In the root directory of my github pages I have placed a markdown page `index.md` which Jekyll renders to an `index.html` using the given layout template `home.html`. I have now copied this `index.md` two times and named the copies according to my supported languages `de.md` and `en.md`. Jekyll renders these files to `/en/index.html` and `/en/index.html`, which gives me the basis for language-specific URLs.
 
 OK, next step!
 
-In order to be able to provide translation, I have to be able to recognize in the layout templates which language is active on the respective page. I do this via a corresponding attribute in the header of the markdown files. I have called my language attribute short and sweet `long`.
-While `index.md` is the only file that doesn't get a `long` attribute, all other markdown files are decorated with it, e.g.:
+In order to be able to provide translation, I have to recognize in the layout templates which language is active on the respective page. I do this via a corresponding attribute in the header of the markdown files. I have called my language attribute short and sweet `lang`.
+While `index.md` is the only file that doesn't get a `lang` attribute, all other markdown files are decorated with it, e.g.:
 
 * en.md
 
@@ -65,8 +65,8 @@ lang: de
 
 >For a successful implementation of multi-language support, a consistent separation of template and content (markdown files) is necessary, as content has to be maintained several times for each language in contrast to the design!
 
-Now I can build translation into the templates via the evaluation of the `lang` attribute. This mainly concerns headings, navigation entries and other recurring information (depending on the theme). E.g. my `home.html` layout integrates the views (_includes) `head.html`, `banner.html` or `sidebar.html`, in which I do such translations.
-In `head.html`, which is the first one to be included in all pages, I have placed a small liquid construct, which always stores a valid language id in a variable `navlang` and, if necessary, falls back to the default language set in `_config.yml` if `page.lang` was not set (navlang - "Navigation language" because I originally introduced the variable for navigation links).
+Now I can build translation in the template files via evaluation of the `lang` attribute. This mainly concerns headings, navigation entries and other recurring information (depending on the theme). E.g. my `home.html` layout integrates the views (_includes) `head.html`, `banner.html` and `sidebar.html`, in which I do such translations.
+In `head.html`, which is the first one to be included in all pages, I've placed a small liquid construct, which always stores a valid language id in a variable named `navlang` and, if necessary, falls back to the default language set in `_config.yml` if `page.lang` was not set (navlang - "Navigation Language" because I originally introduced the variable for navigation links).
 
 * head.html
 
@@ -78,7 +78,7 @@ In `head.html`, which is the first one to be included in all pages, I have place
 {% endif %}{% endraw %}
 ```
 
-So for the `index.md`, where the `lang` attribute is not set, I have a valid language setting and can use the fact that I have not set `lang` here to fulfill another requirement - the automatic forwarding to the content with the user-preferred language. For this purpose I have included the following in the `home.html` template:
+So for the `index.md`, where the `lang` attribute is not set, I have a valid language setting and can use the fact that I haven't set `lang` here to fulfill another requirement - the automatic forwarding to the content with the user-preferred language. For this purpose I have included the following script in the template `home.html`:
 
 ``` html
 {% raw %}{% unless page.lang %}
@@ -96,13 +96,13 @@ So for the `index.md`, where the `lang` attribute is not set, I have a valid lan
 {% endunless %}{% endraw %}
 ```
 
-So if `page.lang` is not available, a forwarding script is embedded, which will be used for german-speaking users to forward to the german pages, for all others to the english-speaking representation.
+It means - if `page.lang` is not available, a forwarding script is embedded, which will be used for german-speaking users to forward to the german pages, for all others to the english content.
 
 >Please note that some browsers return a 2-digit code, others return the complete language ISO code!
 
 ## Translations
 
-For strings in individual languages I have created a yaml file called `messages.yml` in the `_data` subdirectory - following the idea of [Tuan Anh](https://tuananh.org/2014/08/13/localization-with-jekyll/)'s blog entry. It contains all strings to be localized - structured by language:
+For strings in individual languages I've created a yaml file called `messages.yml` in the subdirectory `_data` - following the idea of [Tuan Anh](https://tuananh.org/2014/08/13/localization-with-jekyll/)'s blog entry. It contains all strings to be localized - structured by language:
 
 ``` yaml
 locales:
@@ -156,7 +156,7 @@ This entry returns `Home` for the english representation and `Startseite` for th
 
 ## Further contents
 
-In order to remain consistent in the language delimitation, all other displayable pages must also be duplicated per language in addition to the "main page". Here one must now decide whether one prefers the language separation to the content or vice versa. Even if it appears more consistent in the URL, split by language first and then by content, such as `/de/about` or `/en/tags`, I prefer content clustering - as usually in software development - so that e.g. `/about` is now split into `/about/de` and `/about/en`. I do this by copying my original `/about.md` file into a `/about/en.md` and a `/about/de.md` and then setting the corresponding `lang` tag and other attributes. Now I can also adapt the content to the respective language.
+In order to remain consistent in language segregation, all other displayable pages must also be duplicated per language in addition to the "main page". Here you have to decide now whether you prefer the language separation to the content or vice versa. Even if it appears more consistent in the URL, split by language first and then by content, such as `/de/about` or `/en/tags`, I prefer content clustering - as usually in software development - so that e.g. `/about` is now split into `/about/de` and `/about/en`. I do this by copying my original `/about.md` file into a `/about/en.md` and a `/about/de.md` and then setting the corresponding `lang` tag and other attributes. Now I can also adapt the content to the respective language.
 
 I also use the same procedure for `posts`, `tags` and `impressum`.
 
@@ -180,7 +180,7 @@ I also use the same procedure for `posts`, `tags` and `impressum`.
 
 ## Navigation
 
-Of course, you have to make sure in the templates (layouts/Includes) that references that lead to language-relevant resources process the `navlang` variable. For example, almost all my layouts include the file `header.html`, in which the page title is set right at the beginning with a link to the start page:
+Of course, in the templates (layouts/Includes) you have to make sure that references that link to language-relevant resources process the `navlang` variable. For example, almost all my layouts include the file `header.html`, in which page title is set at the beginning with a link to homepage:
 
 ``` html
 {% raw %}<a href="{{ site.url }}/{{ navlang }}/" class="logo"><strong>{{ site.title }}</strong></a>{% endraw %}
@@ -194,7 +194,7 @@ Likewise, I am going with other files, e.g. with `banner.html`:
 </ul>{% endraw %}
 ```
 
-The central role of page navigation in my pages is taken over by a sidebar, which is integrated in all templates. I control its content via a yaml file named `navigation.yml` in the `_data` folder. There you can find menu titles and related links sorted by language and content, which are processed in the template `sidebar.html`.
+The central role of page navigation in my pages is taken over by a sidebar, which is integrated in all templates. I control its content via a yaml file named `navigation.yml` in the folder `_data`. There you can find menu titles and related links sorted by language and content, which are processed in template `sidebar.html`.
 
 ``` yaml
 locales:
@@ -222,9 +222,9 @@ locales:
         url: /tags/de/
 ```
 
-There is a special feature when changing the language. In one of my requirements, I had stated that you can easily switch between content that exists in one language and another. For example, if I am in the list of all german posts and now switch to english by menu entry, then the list of all english posts and not the english homepage should be displayed. The same applies to `tags`, `about`, `impressum` as well as to posts that I have translated into another language.
+There is a special feature when changing the language. In one of my requirements, I had stated that you can easily switch between content that exists in one language and another. For example, if I am in the list of all german posts and now switch to english by menu entry, then the list of all english posts should be displayed and not the english homepage. The same applies to `tags`, `about`, `impressum` as well as to posts that I have translated into another language.
 
-For a more generic approach, I have added another meta-information to the markdown files - a "language referer" called `ref`. For example, the list of all posts in all offered languages has the same referer `post-list`:
+For a more generic approach, I've added another meta-information to the markdown files - a "language referer" called `ref`. For example, the list of all posts in all offered languages has the same referer `post-list`:
 
 * File `/posts/en.md`:
 
@@ -248,7 +248,7 @@ ref: post-list
 ---
 ```
 
-Posts can also contain such a unique identifier. This article has e.g. the referer `post-localized-jekyll-pages-without-plugin`, which I also use for a potential translation:
+Posts can also contain such a unique identifier. For example this post has the referer `post-localized-jekyll-pages-without-plugin`, which I also use for the translation:
 
 * English:
 
@@ -274,7 +274,7 @@ ref: post-localized-jekyll-pages-without-plugin
 
 For untranslated content, this attribute simply remains empty.
 
-Now I can decide in the template `sidebar.html` whether I want to redirect to the translated content or to the start page when switching the language.
+Now I can decide in the template `sidebar.html` whether I want to redirect to the translated content or to the homepage when switching the language.
 
 To do this, I first determine all pages and posts and then check whether there is content in the target language with the same referer.
 Otherwise I just enter the homepage in the other language.
@@ -297,7 +297,7 @@ Otherwise I just enter the homepage in the other language.
 
 ## Posts
 
-As mentioned before, my posts also support the language-dependent representation by carrying a `lang` attribute and optionally a `ref` attribute. But now it should be about how I list in the post and tag lists only the posts belonging to the language.
+As mentioned before, my posts also support a language-dependent representation by carrying a `lang` attribute and optionally a `ref` attribute. But now it should be about how I list only the posts belonging to the language in the post and tag lists.
 
 For the post lists, this is relatively easy to do by filtering all posts to see if they match the current language setting.
 
@@ -323,11 +323,11 @@ For the post lists, this is relatively easy to do by filtering all posts to see 
 
 ## Tags
 
-For the tag list I initially had only one page which in the header lists the tags of all posts available in the respective language and below it shows a list of the associated posts grouped by these tags. However, this list quickly became large and confusing with an increasing number of tags, even for a few articles.
+For the tag list I initially had just one page which in the header lists the tags of all posts available in the respective language and below it shows a list of the associated posts grouped by these tags. However, this list quickly became large and confusing with an increasing number of tags, even for a few articles.
 
-Now I have developed the tag list pages so that they only display a tag cloud and each tag entry is forwarded to a language-dependent page, which then lists all articles that are assigned to the tag and the language. I took the ideas of Jo Vandeginste from his article [Add a tag cloud to my Jekyll site](http://jovandeginste.github.io/2016/05/04/add-a-tag-cloud-to-my-jekyll-site.html) and developed them further for multi-language use.
+Now I have developed the tag list pages so that they only display a tag cloud and each tag entry forwards to a language-dependent page, which then lists all articles that are assigned to the tag and the language. I took these ideas of Jo Vandeginste from his article [Add a tag cloud to my Jekyll site](http://jovandeginste.github.io/2016/05/04/add-a-tag-cloud-to-my-jekyll-site.html) and developed them further for multi-language usage.
 
-The file `collecttags.html` included in `tag-list.html` aggregates the tags:
+The file `collecttags.html` - included in `tag-list.html` - aggregates the tags:
 
 ``` liquid
 {% raw %}{% if page.lang %}
@@ -392,7 +392,7 @@ Content of the file `/tags/en/jekyll.md` as an example:
 ``` markdown
 ---
 layout: tag-page
-title: "Tagged as: jekyll"  
+title: "Tagged as: jekyll"
 tag: jekyll
 lang: en
 ref: tag-jekyll
@@ -415,7 +415,7 @@ Excerpt from the corresponding layout template `tag-page.html`:
 ...{% endraw %}
 ```
 
-Creating such a page per tag and language is an additional step, but quickly done "by hand". It is even easier to automate this work with a script:
+Yes, I know - creating such a page per tag and language is an additional step, but quickly done "by hand". It is even easier to automate this work with a script:
 
 Content of the `_gentags.rb` file:
 
@@ -451,12 +451,12 @@ langs.each do |lang|
 	end
 	tags.map{ |tag| tag.downcase if tag.is_a? String }.uniq.each do |tag|
 		tag_file = File.join("tags/#{lang}", "#{tag}.md")
-		puts "Writing file '#{tag_file}' for tag '#{tag}' in language '#{lang}'..." 
+		puts "Writing file '#{tag_file}' for tag '#{tag}' in language '#{lang}'..."
 		pretitle = messages['locales'][lang]['tagged_as']
 		File.write tag_file, <<-EOF
 ---
 layout: tag-page
-title: "#{pretitle}: #{tag}"  
+title: "#{pretitle}: #{tag}"
 tag: #{tag}
 lang: #{lang}
 ref: tag-#{tag}
@@ -477,6 +477,6 @@ All practices presented here and the source code can be found in my git reposito
 
 [https://github.com/mcpride/mcpride.github.io](https://github.com/mcpride/mcpride.github.io)
 
-I hope I can give you some suggestions and solutions - good luck in imitating and improving!
+I hope I can give you some suggestions and solutions - good luck in adapting and improving!
 
 I always like to read constructive comments and suggestions ;-)
