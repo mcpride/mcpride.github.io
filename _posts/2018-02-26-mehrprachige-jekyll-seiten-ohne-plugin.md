@@ -14,7 +14,7 @@ ref: post-localized-jekyll-pages-without-plugin
 
 ## Einleitung
 
-Endlich sind meine persönlichen Seiten mit neuem frischem Look basierend auf Andrew Branchichs's [Editorial theme](https://html5up.net/editorial) online. 
+Endlich sind meine persönlichen Seiten mit neuem frischem Look basierend auf Andrew Banchich's [Editorial theme](https://html5up.net/editorial) online.
 
 Bei der Umgestaltung war mir Mehrsprachigkeit sehr wichtig.
 Auch wenn ich natürlich gerne in meiner deutschen Muttersprache poste, so wollte ich mir doch die Möglichkeit erhalten, auch englischsprachige Artikel zu verfassen bzw. optional einige Artikel ins Englische zu übersetzen.
