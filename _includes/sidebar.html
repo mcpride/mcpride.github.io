@@ -1,15 +1,15 @@
 <!-- Sidebar -->
   <div id="sidebar">
     <div class="inner">
-      <!-- Search -->
-        <!--
+
+        <!-- Search -->
         <section id="search" class="alt">
-          <form method="post" action="#">
+          <form method="get" action="{{ '' | absolute_url }}search/{{ navlang }}">
             <input type="text" name="query" id="query" placeholder="Search" />
           </form>
         </section>
-        -->
-      <!-- Menu -->
+
+        <!-- Menu -->
         <nav id="menu">
           <header class="major">
             <h2>{{ site.data.messages.locales[navlang].menu }}</h2>
