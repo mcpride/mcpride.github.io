@@ -1,5 +1,5 @@
 ---
-layout: compress
+xlayout: compress
 ---
 <!DOCTYPE HTML>
 <html>
@@ -12,8 +12,7 @@ layout: compress
                 <div class="inner">
                     {% include header.html %}
                     <section>
-                        <div class="search">
-                            <ul id="search-results"></ul>
+                        <div class="posts" id="search-results">
                         </div>
                     </section>
                 </div>
@@ -27,7 +26,8 @@ layout: compress
                     "{{ post.url | slugify }}": {
                         "title": "{{ post.title | xml_escape }}",
                         "author": "{{ post.author | xml_escape }}",
-                        "category": "{{ post.category | xml_escape }}",
+                        "categories": "{{ post.categories | join:' ' }}",
+                        "tags": "{{ post.tags | join:' ' }}",
                         "content": {{ post.excerpt | strip_html | strip_newlines | jsonify }},
                         "url": "{{ post.url | xml_escape }}"
                     }

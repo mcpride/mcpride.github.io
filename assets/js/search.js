@@ -7,13 +7,13 @@
 
       for (var i = 0; i < results.length; i++) {  // Iterate over the results
         var item = store[results[i].ref];
-        appendString += '<li><a href="' + item.url + '"><h3>' + item.title + '</h3></a>';
-        appendString += '<p>' + item.content.substring(0, 150) + '...</p></li>';
+        appendString += '<article><a href="' + item.url + '"><h3>' + item.title + '</h3></a>';
+        appendString += '<p>' + item.content.substring(0, 150) + '...</p></article>';
       }
 
       searchResults.innerHTML = appendString;
     } else {
-      searchResults.innerHTML = '<li>No results found</li>';
+      searchResults.innerHTML = '<article>No results found</article>';
     }
   }
 
@@ -41,7 +41,8 @@
       this.field('id');
       this.field('title', { boost: 10 });
       this.field('author');
-      this.field('category');
+      this.field('categories');
+      this.field('tags');
       this.field('content');
     });
 
@@ -50,7 +51,8 @@
         'id': key,
         'title': window.store[key].title,
         'author': window.store[key].author,
-        'category': window.store[key].category,
+        'categories': window.store[key].categories,
+        'tags': window.store[key].tags,
         'content': window.store[key].content
       });
 
