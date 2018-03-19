@@ -21,4 +21,13 @@
   <!--[if lte IE 8]><link rel="stylesheet" href="{{ 'assets/css/ie8.css' | relative_url }}" /><![endif]-->
   <link rel="stylesheet" href="{{ 'assets/css/syntax.css' | relative_url }}" />
   {% seo %}
+  {% if page.layout == "post" %}
+    <meta property="og:type" content="article" />
+    {% for tag in page.tags %}
+      <meta property="article:tag" content="{{ tag }}" />
+    {% endfor %}
+    {% for category in page.categories %}
+      <meta property="article:section" content="{{ category }}" />
+    {% endfor %}
+  {% endif %}
 </head>
