@@ -20,7 +20,6 @@
             <li>
               <span class="opener">{{ site.data.messages.locales[navlang].languages }}</span>
               <ul>
-                <!-- lang_ref_pages assembled in head.html -->
                 {% for link in site.data.navigation.locales[navlang].languages %}
                   {% assign ref_page=lang_ref_pages | where:"lang", link.lang | first %}
                   {% if ref_page %}
