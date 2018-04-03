@@ -1,8 +1,4 @@
-{% if page.lang %}
-{% assign navlang = page.lang %}
-{% else %}
-{% assign navlang = site.locale %}
-{% endif %}
+{% include lang-ref.html %}
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115916811-1"></script>
@@ -30,9 +26,6 @@
     {% endfor %}
   {% endif %}
   {% seo %}
-  {% assign lang_ref_pages=site.pages | where:"ref", page.ref %}
-  {% assign lang_ref_posts=site.posts | where:"ref", page.ref %}
-  {% assign lang_ref_pages = lang_ref_pages | concat: lang_ref_posts  | sort: 'lang' %}
   {% for link in site.data.navigation.locales[navlang].languages %}
     {% assign ref_page=lang_ref_pages | where:"lang", link.lang | first %}
     {% if ref_page %}
