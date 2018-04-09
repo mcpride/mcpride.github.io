@@ -14,14 +14,14 @@ ref: post-configure-https-for-iis-website-per-wix
 
 ## Einleitung
 
-Aufgrund von Cybersecurity-Betrachtungen hatte ich neulich die User Story umzusetzen, mithilfe eines bereits existierenden MSI-Installers für eine Intranet-Webanwendung beim Kunden nun auch gleich SSL-Verschlüsselung für die `Default Web Site` des IIS anzuschalten, wenn an einem vordefinierten Ort die entsprechende PKS-Datei für das Serverzertifikat gefunden wird. Die Konfiguration sollte aber auch nach der Deinstallation des MSI-Pakets bestehen bleiben.
+Aufgrund von Cybersecurity-Betrachtungen hatte ich neulich die User Story umzusetzen, mithilfe eines bereits existierenden MSI-Installers für eine Intranet-Webanwendung beim Kunden nun auch gleich SSL-Verschlüsselung für die `Default Web Site` des Internet Information Server(nachfolgend: IIS) anzuschalten, wenn an einem vordefinierten Ort die entsprechende PKS-Datei für das Serverzertifikat gefunden wird. Die Konfiguration sollte aber auch nach der Deinstallation des MSI-Pakets bestehen bleiben.
 
 ## Anforderungen im Detail
 
 1. Der MSI-Installer (WiX) installiert die Webanwendung im IIS unter der bereits vorhandenen `Default Web Site` (Port 80).
 1. Wird während der Installation in einem vordefinierten Verzeichnis ein valides Zertifikat gefunden (PKS-Datei mit festgelegtem Passwort), so wird die HTTPS-Bindung (Port 443) - falls noch nicht existierend - der `Default Web Site` hinzugefügt.
 1. Für die hinzugefügte HTTPS-Bindung wird das zuvor bereitgestellte Zertifikat benutzt.
-1. Wenn die Webanwendung per MSI deinstalliert wird, so soll zwar die Webanwendung aus der IIS `Default Web Site` entfernt werden - nicht jedoch die `Default Web Site` selbst. Ebenso soll deren Serverzertifikat und die HTTPS-Bindung erhalten bleiben.
+1. Wenn die Webanwendung per MSI deinstalliert wird, so soll zwar die Webanwendung aus der `Default Web Site` des IIS entfernt werden - nicht jedoch die `Default Web Site` selbst. Ebenso soll deren Serverzertifikat und die HTTPS-Bindung erhalten bleiben.
 1. Eine erneute Installation soll eine schon vorhandene HTTPS-Bindung nicht überschreiben.
 
 ## Die Lösung
@@ -78,7 +78,7 @@ Will man jedoch die `Default Web Site` nicht nur referenzieren sondern auch konf
 
 ### Konfiguration der `Default Web Site` des IIS
 
-Um diese konfigurieren zu können, muss ich sie nun doch in eine Komponente packen. Außerdem benötige ich noch die Information, wo sich der IIS-Rootfolder (normalerweise `c:\inetpub\wwwroot`) befindet:
+Um diese konfigurieren zu können, muss man sie nun doch in eine Komponente packen. Außerdem benötigt man noch die Information, wo sich der IIS-Rootfolder (normalerweise `c:\inetpub\wwwroot`) befindet:
 
 ```xml
 <Property Id="IIS_ROOT">
@@ -117,7 +117,7 @@ Um diese konfigurieren zu können, muss ich sie nun doch in eine Komponente pack
 
 ```
 
-Würde man ein statisches Zertifikat mit ausliefern (entspricht nicht den Anforderungen!), so könnte man es einfach als Binary zur Kompilierzeit mit einfügen, z.B.:
+Würde man ein statisches Zertifikat mit ausliefern wollen (entspricht nicht den Anforderungen!), so könnte man es einfach als Binary deklarieren, z.B.:
 
 ```xml
 <Binary Id="certBinary" SourceFile="MyServer.cert.pfx"/>
@@ -153,7 +153,7 @@ the existing IIS "Default Web Site" with ssl. -->
 </Component>
 ```
 
-Damit die `Default Web Site` bei der Deinstallation nicht gelöscht wird, habe ich die Komponente um folgende Tags erweitert:
+Damit die `Default Web Site` bei der Deinstallation nicht gelöscht wird, muss man die Komponente um folgende Tags erweitern:
 
 * `Permanent="yes"` und `NeverOverwrite="yes"`
 
@@ -192,7 +192,9 @@ will be removed on uninstall. -->
 
 ### Externes Zertifikat installieren
 
-Im vorangegangenen Schritt haben wir ein mitgeliefertes Serverzertifikat installiert, was für Webanwendungen, die in populären Browsern ausgeführt werden jedoch nicht besonders sinnvoll ist, da ein solch statisches Zertifikat nicht die Qualität hat, dass diese Webbrowser der Verbindung vertrauen. Nehmen wir also an, dass für diesen Webbrowser ein spezielles Zertifikat namens `MyServerCert.pfx` mit einem vorgegebenen Passwort erstellt und im folgenden vereinbarten Verzeichnis abgelegt wurde:
+Im vorangegangenen Schritt haben wir ein statisches Serverzertifikat mmitgeliefert, was für Webanwendungen, die in populären Browsern ausgeführt werden, jedoch nicht besonders sinnvoll ist, da ein solch statisches Zertifikat nicht die Qualität hat, dass diese Webbrowser der Verbindung vertrauen (Zerifikat muss überprüfbare Informationen zum Server enthalten). 
+
+Nehmen wir also an, dass für diesen Webbrowser ein spezielles Zertifikat namens `MyServerCert.pfx` mit einem vorgegebenen Passwort erstellt und im folgenden vereinbarten Verzeichnis abgelegt wurde:
 
 ```
 c:\ProgramData\MyCompany\Certificates\
@@ -241,12 +243,12 @@ will be removed on uninstall. -->
 </Component>
 ```
 
-Statt des Binärschlüssels muss nun also der Zertifikatspfad angegeben werden! Außerdem muss man `Overwrite` auf `no` setzen, sonst klappt's nicht!
+Statt des Binärschlüssels muss nun also der Zertifikatspfad angegeben werden! Außerdem muss man `Overwrite` auf `no` setzen, sonst schlägt die Installation fehl.
 
 ### Optionale Komponente
 
 Zum Schluss muss nun noch die Anforderung erfüllt werden, dass die Konfiguration nur erfolgt, wenn ein Zertifikat gefunden wurde.
-Dazu suchen wir zunächst mal danach und setzen eine Property:
+Dazu suchen wir zunächst mal nach der Datei `MyServerCert.pfx` und setzen eine Property `SERVERCERT`:
 
 ```xml
 <Property Id="SERVERCERT">
