@@ -93,7 +93,7 @@ Um diese konfigurieren zu können, muss man sie nun doch in eine Komponente pack
             Name="SourceDir">
     <Directory  Id="WWWROOT"
                 Name="wwwroot" />
-</Directory
+</Directory>
 
 <CustomAction Id="SetWWRootDirFromIIS"
                 Return="check"
@@ -304,7 +304,7 @@ Nachfolgender Pseudocode fasst die Schritte nochmals zusammen:
                     Name="SourceDir">
             <Directory  Id="WWWROOT"
                         Name="wwwroot" />
-        </Directory
+        </Directory>
     ...
         <ComponentGroup Id="IIS">
             <!-- ATTENTION: This component configures 
