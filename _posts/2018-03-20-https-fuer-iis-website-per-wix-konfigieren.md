@@ -76,7 +76,7 @@ Man schreibt also in etwa Folgendes:
 
 Will man jedoch die `Default Web Site` nicht nur referenzieren sondern auch konfigurieren, dann muss eine andere Vorgehensweise her!
 
-### Konfiguration der `Default Web Site` des IIS
+### Konfiguration der "Default Web Site" des IIS
 
 Um diese konfigurieren zu können, muss man sie nun doch in eine Komponente packen. Außerdem benötigt man noch die Information, wo sich der IIS-Rootfolder (normalerweise `c:\inetpub\wwwroot`) befindet:
 
@@ -192,7 +192,7 @@ will be removed on uninstall. -->
 
 ### Externes Zertifikat installieren
 
-Im vorangegangenen Schritt haben wir ein statisches Serverzertifikat mmitgeliefert, was für Webanwendungen, die in populären Browsern ausgeführt werden, jedoch nicht besonders sinnvoll ist, da ein solch statisches Zertifikat nicht die Qualität hat, dass diese Webbrowser der Verbindung vertrauen (Zerifikat muss überprüfbare Informationen zum Server enthalten). 
+Im vorangegangenen Schritt haben wir ein statisches Serverzertifikat mitgeliefert, was für Webanwendungen, die in populären Browsern ausgeführt werden, jedoch nicht besonders sinnvoll ist, da ein solch statisches Zertifikat nicht die Qualität hat, dass diese Webbrowser der Verbindung vertrauen (Zerifikat muss überprüfbare Informationen zum Server enthalten). 
 
 Nehmen wir also an, dass für diesen Webbrowser ein spezielles Zertifikat namens `MyServerCert.pfx` mit einem vorgegebenen Passwort erstellt und im folgenden vereinbarten Verzeichnis abgelegt wurde:
 
@@ -270,7 +270,7 @@ Die Konfiguration `Default Web Site` wird also nur ausgeführt, wenn die Datei g
 
 ## Zusammenfassung
 
-Nachfolgender Pseudocode fasst die Schritte nochmals zusammen:
+Nachfolgender Pseudocode fasst die vorgestellten Schritte und Fragmente nochmals zusammen:
 
 ```xml
 <?xml version="1.0" encoding="Windows-1252"?>
@@ -360,6 +360,20 @@ Nachfolgender Pseudocode fasst die Schritte nochmals zusammen:
                 </iis:WebAppPool>
             </Component>
         </ComponentGroup>
+    ...
+        <InstallUISequence>
+            <Custom Action="SetWWRootDirFromIIS"
+                    After="AppSearch">
+                (MaintenanceMode="Modify" OR NOT INSTALLED) AND IIS_ROOT
+            </Custom>
+        </InstallUISequence>
+
+        <InstallExecuteSequence>
+            <Custom Action="SetWWRootDirFromIIS"
+                    After="AppSearch">
+                (MaintenanceMode="Modify" OR NOT INSTALLED) AND IIS_ROOT
+            </Custom>
+        </InstallExecuteSequence>
     ...
     </Product>
 </Wix>

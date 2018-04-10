@@ -477,6 +477,6 @@ Alle hier vorgestellten Praktiken und den Quellcode findet ihr in meinem Git-Rep
 
 [https://github.com/mcpride/mcpride.github.io](https://github.com/mcpride/mcpride.github.io)
 
-Ich hoffe, ich kann kann hiermit ein paar Anregungen und Lösungsvorschläge geben - viel Erfolg beim nach- und bessermachen! 
+Ich hoffe, ich kann kann hiermit ein paar Anregungen und Lösungsvorschläge geben - viel Erfolg beim Nach- und Bessermachen! 
 
 Konstruktive Kommentare und Anregungen lese ich immer gerne ;-)
