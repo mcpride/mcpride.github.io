@@ -28,7 +28,7 @@ Aufgrund von Cybersecurity-Betrachtungen hatte ich neulich die User Story umzuse
 
 ### Vorbetrachtungen
 
-Wenn man per Windows Installer Toolkit (WiX) einen MSI-Installer für eine Webanwendung baut, die in eine bereits vorhandene IIS WebSite installiert werden soll, dann sollte man diese nicht als Komponente im WiX-Code anlegen, sondern die vorhandene Website (nachfolgend gleichzusetzen mit `Default Web Site`) außerhalb der Komponenten definieren, damit man sie in den den Komponenten der Webanwendung referenzieren kann. Dadurch vermeidet man, dass die IIS-Website bei der Deinstallation entfernt wird:
+Wenn man per Windows Installer Toolkit (WiX) einen MSI-Installer für eine Webanwendung baut, die in eine bereits vorhandene IIS-Website installiert werden soll, dann sollte man diese nicht als Komponente im WiX-Code anlegen, sondern die vorhandene Website (nachfolgend gleichzusetzen mit `Default Web Site`) außerhalb von Komponenten definieren, damit man sie in den Komponenten der Webanwendung referenzieren kann. Dadurch vermeidet man, dass die IIS-Website bei der Deinstallation entfernt wird:
 
 Man schreibt also in etwa Folgendes:
 
