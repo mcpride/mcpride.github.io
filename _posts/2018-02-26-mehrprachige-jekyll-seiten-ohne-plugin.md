@@ -2,6 +2,7 @@
 layout: post
 title:  "Mehrsprachige Seiten mit Jekyll ohne Plugin"
 date:   2018-02-25 21:00:00
+date_modified: 2018-04-16 12:00:00
 excerpt: "Wie ich Mehrsprachigkeit bei meinen Github-Seiten umgesetzt habe."
 image: /assets/img/wide/jekyll-logo-l10n.jpg
 thumb: /assets/img/thumbs/jekyll-logo-l10n.jpg
