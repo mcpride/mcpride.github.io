@@ -1,36 +1,37 @@
 ---
 layout: post
-title:  "HTTPS für IIS-Webseite per WiX konfigurieren"
+title:  "Configure HTTPS for IIS website by WiX setup"
 date:   2018-03-20 19:00:00
-excerpt: 'Der Artikel beschreibt, wie man mithilfe eines WiX-MSI-Installers beim Installieren einer Webanwendung die SSL-Verschlüsselung für die "Default Web Site" des IIS mit einem bereitgestellten Zertifikat konfigurieren kann.'
+date_modified: 2018-04-17 12:00:00
+excerpt: 'This article describes how to use a WiX MSI installer to configure SSL encryption for the default web site of IIS with a provided certificate when installing a web application.'
 image:
 thumb: /assets/img/thumbs/wisl.jpg
-tags: [entwicklung, msi, wix, iis, https, ssl, zertifikate]
+tags: [development, msi, wix, iis, https, ssl, certificates]
 categories: [posts, development]
 comments: true
 lang: de
-ref: post-configure-https-for-iis-website-per-wix
+ref: post-configure-https-for-iis-website-by-wix
 ---
 
-## Einleitung
+## Introduction
 
-Aufgrund von Cybersecurity-Betrachtungen hatte ich neulich die User Story umzusetzen, mithilfe eines bereits existierenden MSI-Installers für eine Intranet-Webanwendung beim Kunden nun auch gleich SSL-Verschlüsselung für die `Default Web Site` des Internet Information Server(nachfolgend: IIS) anzuschalten, wenn an einem vordefinierten Ort die entsprechende PKS-Datei für das Serverzertifikat gefunden wird. Die Konfiguration sollte aber auch nach der Deinstallation des MSI-Pakets bestehen bleiben.
+Due to cybersecurity considerations, I recently had to implement a user story, using an existing MSI installer for an intranet web application at the customer's site, to enable SSL encryption for the Internet Information Server's `Default Web Site` (hereinafter: IIS) when the corresponding PKS file for the server certificate is found at a predefined location. However, the configuration should remain after uninstalling the MSI package.
 
-## Anforderungen im Detail
+## Detailed requirements
 
-1. Der MSI-Installer (WiX) installiert die Webanwendung im IIS unter der bereits vorhandenen `Default Web Site` (Port 80).
-1. Wird während der Installation in einem vordefinierten Verzeichnis ein valides Zertifikat gefunden (PKS-Datei mit festgelegtem Passwort), so wird die HTTPS-Bindung (Port 443) - falls noch nicht existierend - der `Default Web Site` hinzugefügt.
-1. Für die hinzugefügte HTTPS-Bindung wird das zuvor bereitgestellte Zertifikat benutzt.
-1. Wenn die Webanwendung per MSI deinstalliert wird, so soll zwar die Webanwendung aus der `Default Web Site` des IIS entfernt werden - nicht jedoch die `Default Web Site` selbst. Ebenso soll deren Serverzertifikat und die HTTPS-Bindung erhalten bleiben.
-1. Eine erneute Installation soll eine schon vorhandene HTTPS-Bindung nicht überschreiben.
+1. The MSI installer (WiX) installs the web application in IIS under the existing `Default Web Site` (port 80).
+1. If a valid certificate is found during the installation in a predefined directory (PKS file with defined password), the HTTPS binding (port 443) - if not already existing - is added to the `Default Web Site`.
+1. The previously provided certificate is used for the added HTTPS binding.
+1. If the web application is uninstalled via MSI, the web application should be removed from the `Default Web Site` of IIS, but not the `Default Web Site` itself. Their server certificate and the HTTPS binding should also be preserved.
+1. Reinstallation should not overwrite an existing HTTPS binding.
 
-## Die Lösung
+## The solution
 
-### Vorbetrachtungen
+### Introspection
 
-Wenn man per Windows Installer Toolkit (WiX) einen MSI-Installer für eine Webanwendung baut, die in eine bereits vorhandene IIS-Website installiert werden soll, dann sollte man diese nicht als Komponente im WiX-Code anlegen, sondern die vorhandene Website (nachfolgend gleichzusetzen mit `Default Web Site`) außerhalb von Komponenten definieren, damit man sie in den Komponenten der Webanwendung referenzieren kann. Dadurch vermeidet man, dass die IIS-Website bei der Deinstallation entfernt wird:
+If you are building an MSI installer for a web application using the Windows Installer Toolkit (WiX) that you want to install on an existing IIS Web site, then you should not create it as a component in the WiX code, but define the existing website (hereinafter referred to as `Default Web Site`) outside of components so that you can reference it in other components of the installer. This prevents the IIS website from being removed during uninstallation:
 
-Man schreibt also in etwa Folgendes:
+So you write something like this:
 
 ```xml
 <?xml version="1.0" encoding="Windows-1252"?>
@@ -74,11 +75,11 @@ Man schreibt also in etwa Folgendes:
 </Wix>
 ```
 
-Will man jedoch die `Default Web Site` nicht nur referenzieren sondern auch konfigurieren, dann muss eine andere Vorgehensweise her!
+However, if you do not just want to reference the `Default Web Site` but also configure it, you have to do it another way!
 
-### Konfiguration der "Default Web Site" des IIS
+### Configuration of the "Default Web Site" of IIS
 
-Um diese konfigurieren zu können, muss man sie nun doch in eine Komponente packen. Außerdem benötigt man noch die Information, wo sich der IIS-Rootfolder (normalerweise `c:\inetpub\wwwroot`) befindet:
+To configure them, you now have to pack them into a component. You also need to know where the IIS root folder is located (usually `c:\inetpub\wwwwroot`):
 
 ```xml
 <Property Id="IIS_ROOT">
@@ -117,13 +118,13 @@ Um diese konfigurieren zu können, muss man sie nun doch in eine Komponente pack
 
 ```
 
-Würde man ein statisches Zertifikat mit ausliefern wollen (entspricht nicht den Anforderungen!), so könnte man es einfach als Binary deklarieren, z.B.:
+If you would like to deliver a static certificate (does not meet the requirements!), you could simply declare it as binary, e.g.:
 
 ```xml
 <Binary Id="certBinary" SourceFile="MyServer.cert.pfx"/>
 ```
 
-Somit ließe sich folgende Komponente zusammenstellen:
+Thus, the following component could be put together:
 
 ```xml
 <!-- ATTENTION: This component configures 
@@ -153,7 +154,7 @@ the existing IIS "Default Web Site" with ssl. -->
 </Component>
 ```
 
-Damit die `Default Web Site` bei der Deinstallation nicht gelöscht wird, muss man die Komponente um folgende Tags erweitern:
+So that the `Default Web Site` is not deleted during uninstallation, you have to extend the component by the following tags:
 
 * `Permanent="yes"` und `NeverOverwrite="yes"`
 
@@ -190,25 +191,25 @@ will be removed on uninstall. -->
 </Component>
 ```
 
-### Externes Zertifikat installieren
+### Install an external certificate
 
-Im vorangegangenen Schritt haben wir ein statisches Serverzertifikat mitgeliefert, was für Webanwendungen, die in populären Browsern ausgeführt werden, jedoch nicht besonders sinnvoll ist, da ein solch statisches Zertifikat nicht die Qualität hat, dass diese Webbrowser der Verbindung vertrauen (Zerifikat muss überprüfbare Informationen zum Server enthalten). 
+In the previous step, we provided a static server certificate, which is not particularly useful for web applications running in popular browsers, since such a static certificate does not have the quality that these web browsers trust the connection (certificate must contain verifiable information about the server).
 
-Nehmen wir also an, dass für diesen Webbrowser ein spezielles Zertifikat namens `MyServerCert.pfx` mit einem vorgegebenen Passwort erstellt und im folgenden vereinbarten Verzeichnis abgelegt wurde:
+Let's assume that a special certificate named `MyServerCert.pfx` was created for this web browser with a default password and stored in the following agreed directory:
 
 ```
 c:\ProgramData\MyCompany\Certificates\
 ```
 
-Somit müssen wir unseren WiX-Komponenten-Code wie folgt modifizieren:
+So we need to modify our WiX component code as follows:
 
-* entferne folgende Zeile wieder:
+* remove the following line again:
 
 ```xml
 <Binary Id="certBinary" SourceFile="MyServer.cert.pfx"/>
 ```
 
-* Ändere die Komponentendefinition (iis:Certificate):
+* Change the component definition (iis:Certificate):
 
 ```xml
 <!-- ATTENTION: This component configures 
@@ -243,12 +244,12 @@ will be removed on uninstall. -->
 </Component>
 ```
 
-Statt des Binärschlüssels muss nun also der Zertifikatspfad angegeben werden! Außerdem muss man `Overwrite` auf `no` setzen, sonst schlägt die Installation fehl.
+Instead of the binary key, the certificate path must now be specified! You also have to set `Overwrite` to `no`, otherwise the installation will fail.
 
-### Optionale Komponente
+### Optional component
 
-Zum Schluss muss nun noch die Anforderung erfüllt werden, dass die Konfiguration nur erfolgt, wenn ein Zertifikat gefunden wurde.
-Dazu suchen wir zunächst mal nach der Datei `MyServerCert.pfx` und setzen eine Property `SERVERCERT`:
+Finally, the requirement must now be fulfilled that the configuration only takes place if a certificate was found.
+For this we first look for the file `MyServerCert.pfx` and set a property `SERVERCERT`.:
 
 ```xml
 <Property Id="SERVERCERT">
@@ -260,17 +261,17 @@ Dazu suchen wir zunächst mal nach der Datei `MyServerCert.pfx` und setzen eine 
 </Property>
 ```
 
-Dann setzen wir für die Installation der Komponente eine Bedingung:
+Then we set a condition for the installation of the component:
 
 ```xml
 <Condition><![CDATA[SERVERCERT <> ""]]></Condition>
 ```
 
-Die Konfiguration `Default Web Site` wird also nur ausgeführt, wenn die Datei gefunden und somit die Property gefüllt wurde!
+The configuration of the `Default Web Site` will only be executed if the file was found and the property was filled!
 
-## Zusammenfassung
+## Summary
 
-Nachfolgender Pseudocode fasst die vorgestellten Schritte und Fragmente nochmals zusammen:
+The following pseudocode summarizes the presented steps and fragments again:
 
 ```xml
 <?xml version="1.0" encoding="Windows-1252"?>
