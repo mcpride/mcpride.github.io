@@ -29,10 +29,11 @@ layout: compress
                         <img src="{{ page.image | absolute_url }}" alt="" />
                     </span>
                     {% endif %}
-                    <h1 style="font-size: 0px; margin: 0px;">{{ page.title }}</h1>
+                    <h1 id="top" style="font-size: 0px; margin: 0px;">{{ page.title }}</h1>
                     {{ content }}
                 </section>
-                <br /> 
+                <br />
+                <!--<a href="#top" class="button">{{ site.data.messages.locales[navlang].go_to_top }}</a>-->
                 {% include page-tags.html %} 
                 {% if page.comments and site.disqus_shortname %}
                 <section id="disqus_thread"

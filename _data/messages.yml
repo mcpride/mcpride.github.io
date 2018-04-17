@@ -27,6 +27,7 @@ locales:
     minutes: "minutes"
     menu: "Menu"
     get_in_touch: "Get in touch"
+    go_to_top: "to top"
 
   en_US:
     <<: *DEFAULT_EN     # use English translation for en_US
@@ -60,5 +61,6 @@ locales:
     minutes: "Minuten"
     menu: "Menü"
     get_in_touch: "Kontakt aufnehmen"
+    go_to_top: "Zum Anfang"
   de_DE:
     <<: *DEFAULT_DE     # use German translation for de_DE
