@@ -12,6 +12,20 @@ lang: en
 ref: post-localized-jekyll-pages-without-plugin
 ---
 
+<!-- MDTOC maxdepth:6 firsth1:2 numbering:1 flatten:0 bullets:0 updateOnSave:1 -->
+
+1. [Introduction](#introduction)   
+2. [Requirements](#requirements)   
+3. [Homepage](#homepage)   
+4. [Translations](#translations)   
+5. [Further contents](#further-contents)   
+6. [Navigation](#navigation)   
+7. [Posts](#posts)   
+8. [Tags](#tags)   
+9. [Source code](#source-code)   
+
+<!-- /MDTOC -->
+
 ## Introduction
 
 Finally my personal pages with a fresh new look based on Andrew Banchich's [Editorial theme](https://html5up.net/editorial) are online.
@@ -310,8 +324,8 @@ For the post lists, this is relatively easy to do by filtering all posts to see 
     {% else %}
         {% assign posts=site.posts %}
     {% endif %}
-    
-    {% for post in posts %} 
+
+    {% for post in posts %}
     <article>
         ...
         <h3><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
@@ -442,9 +456,9 @@ langs.each do |lang|
 	Dir.glob(File.join('_posts','*.md')).each do |file|
 		yaml_s = File.read(file).split(/^---$/)[1]
 		yaml_h = YAML.sload(yaml_s)
-		if yaml_h['lang'] != nil && yaml_h['lang'] == lang 
+		if yaml_h['lang'] != nil && yaml_h['lang'] == lang
 			tags_h = yaml_h['tags']
-			if tags_h != nil 
+			if tags_h != nil
 				tags += tags_h
 			end
 		end
