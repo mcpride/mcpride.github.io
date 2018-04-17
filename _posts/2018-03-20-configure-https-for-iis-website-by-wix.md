@@ -9,9 +9,22 @@ thumb: /assets/img/thumbs/wisl.jpg
 tags: [development, msi, wix, iis, https, ssl, certificates]
 categories: [posts, development]
 comments: true
-lang: de
+lang: en
 ref: post-configure-https-for-iis-website-by-wix
 ---
+
+<!-- MDTOC maxdepth:6 firsth1:2 numbering:1 flatten:0 bullets:0 updateOnSave:1 -->
+
+1. [Introduction](#introduction)   
+2. [Detailed requirements](#detailed-requirements)   
+3. [The solution](#the-solution)   
+&emsp;3.1. [Introspection](#introspection)   
+&emsp;3.2. [Configuration of the "Default Web Site" of IIS](#configuration-of-the-default-web-site-of-iis)   
+&emsp;3.3. [Install an external certificate](#install-an-external-certificate)   
+&emsp;3.4. [Optional component](#optional-component)   
+4. [Summary](#summary)   
+
+<!-- /MDTOC -->
 
 ## Introduction
 
@@ -38,7 +51,7 @@ So you write something like this:
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension">
     <Product  ...>
-    ... 
+    ...
         <iis:WebSite Id="DefaultWebSite"
                      Description="Default Web Site"
                      Directory="INSTALLDIR">
@@ -65,7 +78,7 @@ So you write something like this:
                 <iis:WebAppPool Id="MyAppPool"
                                 Name="MyAppPool"
                                 MaxCpuUsage="75"
-                                ManagedRuntimeVersion="v4.0" 
+                                ManagedRuntimeVersion="v4.0"
                                 ManagedPipelineMode="Integrated">
                 </iis:WebAppPool>
             </Component>
@@ -127,7 +140,7 @@ If you would like to deliver a static certificate (does not meet the requirement
 Thus, the following component could be put together:
 
 ```xml
-<!-- ATTENTION: This component configures 
+<!-- ATTENTION: This component configures
 the existing IIS "Default Web Site" with ssl. -->
 <Component Id="InstallHttps"
         Guid="..."
@@ -159,10 +172,10 @@ So that the `Default Web Site` is not deleted during uninstallation, you have to
 * `Permanent="yes"` und `NeverOverwrite="yes"`
 
 ```xml
-<!-- ATTENTION: This component configures 
-the existing IIS "Default Web Site" with ssl. 
-It must be marked with Permanent="yes"! 
-Otherwise the IIS "Default Web Site" 
+<!-- ATTENTION: This component configures
+the existing IIS "Default Web Site" with ssl.
+It must be marked with Permanent="yes"!
+Otherwise the IIS "Default Web Site"
 will be removed on uninstall. -->
 <Component Id="InstallHttps"
         Guid="..."
@@ -212,10 +225,10 @@ So we need to modify our WiX component code as follows:
 * Change the component definition (iis:Certificate):
 
 ```xml
-<!-- ATTENTION: This component configures 
-the existing IIS "Default Web Site" with ssl. 
-It must be marked with Permanent="yes"! 
-Otherwise the IIS "Default Web Site" 
+<!-- ATTENTION: This component configures
+the existing IIS "Default Web Site" with ssl.
+It must be marked with Permanent="yes"!
+Otherwise the IIS "Default Web Site"
 will be removed on uninstall. -->
 <Component Id="InstallHttps"
         Guid="..."
@@ -278,7 +291,7 @@ The following pseudocode summarizes the presented steps and fragments again:
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension">
     <Product  ...>
-    ... 
+    ...
         <Property Id="SERVERCERT">
             <DirectorySearch Id="FindServerCertificate"
                     Path="[CommonAppDataFolder]\MyCompany\Certificates"
@@ -286,7 +299,7 @@ The following pseudocode summarizes the presented steps and fragments again:
                 <FileSearch Name="MyServerCert.pfx" />
             </DirectorySearch>
         </Property>
-    ... 
+    ...
         <Property Id="IIS_ROOT">
             <RegistrySearch Id="FindInetPubFolder"
                             Root="HKLM"
@@ -294,13 +307,13 @@ The following pseudocode summarizes the presented steps and fragments again:
                             Name="PathWWWRoot"
                             Type="directory" />
         </Property>
-    ... 
+    ...
         <CustomAction Id="SetWWRootDirFromIIS"
                         Return="check"
                         Property="WWWROOT"
                         Value="[IIS_ROOT]"
                         Execute="firstSequence" />
-    ... 
+    ...
         <Directory  Id="TARGETDIR"
                     Name="SourceDir">
             <Directory  Id="WWWROOT"
@@ -308,10 +321,10 @@ The following pseudocode summarizes the presented steps and fragments again:
         </Directory>
     ...
         <ComponentGroup Id="IIS">
-            <!-- ATTENTION: This component configures 
-            the existing IIS "Default Web Site" with ssl. 
-            It must be marked with Permanent="yes"! 
-            Otherwise the IIS "Default Web Site" 
+            <!-- ATTENTION: This component configures
+            the existing IIS "Default Web Site" with ssl.
+            It must be marked with Permanent="yes"!
+            Otherwise the IIS "Default Web Site"
             will be removed on uninstall. -->
             <Component Id="InstallHttps"
                     Guid="..."
@@ -339,7 +352,7 @@ The following pseudocode summarizes the presented steps and fragments again:
                 <iis:CertificateRef Id='cert' />
             </iis:WebSite>
             </Component>
-    ... 
+    ...
             <Component  Directory="MyWebDir"
                         Id="MyWebComponent"
                         Guid="..."
@@ -356,7 +369,7 @@ The following pseudocode summarizes the presented steps and fragments again:
                 <iis:WebAppPool Id="MyAppPool"
                                 Name="MyAppPool"
                                 MaxCpuUsage="75"
-                                ManagedRuntimeVersion="v4.0" 
+                                ManagedRuntimeVersion="v4.0"
                                 ManagedPipelineMode="Integrated">
                 </iis:WebAppPool>
             </Component>

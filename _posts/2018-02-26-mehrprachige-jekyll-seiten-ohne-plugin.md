@@ -13,13 +13,27 @@ lang: de
 ref: post-localized-jekyll-pages-without-plugin
 ---
 
+<!-- MDTOC maxdepth:6 firsth1:2 numbering:1 flatten:0 bullets:0 updateOnSave:1 -->
+
+1. [Einleitung](#einleitung)   
+2. [Anforderungen](#anforderungen)   
+3. [Startseite](#startseite)   
+4. [Übersetzungen](#übersetzungen)   
+5. [Weitere Inhalte](#weitere-inhalte)   
+6. [Navigation](#navigation)   
+7. [Artikel (Posts)](#artikel-posts)   
+8. [Tags](#tags)   
+9. [Quellcode](#quellcode)   
+
+<!-- /MDTOC -->
+
 ## Einleitung
 
 Endlich sind meine persönlichen Seiten mit neuem frischem Look basierend auf Andrew Banchich's [Editorial theme](https://html5up.net/editorial) online.
 
 Bei der Umgestaltung war mir Mehrsprachigkeit sehr wichtig.
 Auch wenn ich natürlich gerne in meiner deutschen Muttersprache poste, so wollte ich mir doch die Möglichkeit erhalten, auch englischsprachige Artikel zu verfassen bzw. optional einige Artikel ins Englische zu übersetzen.
-Schon bei der vorherigen "Moon"-Theme-Variante schaute ich mir dazu einige Jekyll-Plugins an, fand deren Anwendung aber zu kompliziert oder unflexibel und so baute ich mir ein eigenes Konzept ohne Einsatz von Plugins zusammen. 
+Schon bei der vorherigen "Moon"-Theme-Variante schaute ich mir dazu einige Jekyll-Plugins an, fand deren Anwendung aber zu kompliziert oder unflexibel und so baute ich mir ein eigenes Konzept ohne Einsatz von Plugins zusammen.
 Dieses Konzept wendete ich nun wieder bei der Neugestaltung meiner Seiten an und baute es aus.
 
 ## Anforderungen
@@ -28,7 +42,7 @@ Folgende Requirements habe ich für die Mehrsprachigkeit aufgestellt:
 
 1. Es soll möglich sein, Posts und normale Seiten in verschiedenen Sprachen (deutsch und englisch) anzubieten.
 1. Der Leser soll über die Startseite automatisch auf den Inhalt seiner bevorzugten Sprache weitergeleitet werden.
-1. Ein Wechsel der Sprache soll über Verweise möglich sein. 
+1. Ein Wechsel der Sprache soll über Verweise möglich sein.
 1. Bei Auswahl einer Sprache sollen nur Inhalte in dieser Sprache angeboten werden, d.h. Inhalte in unterschiedlichen Sprachen sollen nicht vermischt werden.
 1. Zur SEO-Optimierung sollen Inhalte in verschiedenen Sprachen auch durch unterschiedliche URLs repräsentiert werden.
 1. Zwischen Inhalten, die sowohl in der einen als auch in einer anderen Sprache vorliegen (z.B. übersetzte Artikel), soll leicht umgeschaltet werden können (Referenzierung untereinander).
@@ -37,9 +51,9 @@ Folgende Requirements habe ich für die Mehrsprachigkeit aufgestellt:
 
 Los geht's!
 
-Im Wurzelverzeichnis meiner Github-Seiten habe ich eine Markdown-Seite `index.md` plaziert, die Jekyll unter Zuhilfenahme des angegebenen Layout-Templates `home.html` zu einer `index.html` rendert. Diese `index.md` habe ich nun 2-mal kopiert und die Kopien gemäß meiner unterstützten Sprachen `de.md` und `en.md` benannt. Jekyll rendert diese Dateien nun zu `/de/index.html` und `/en/index.html`, womit ich nun die Basis für sprachspezifische URL's habe. 
+Im Wurzelverzeichnis meiner Github-Seiten habe ich eine Markdown-Seite `index.md` plaziert, die Jekyll unter Zuhilfenahme des angegebenen Layout-Templates `home.html` zu einer `index.html` rendert. Diese `index.md` habe ich nun 2-mal kopiert und die Kopien gemäß meiner unterstützten Sprachen `de.md` und `en.md` benannt. Jekyll rendert diese Dateien nun zu `/de/index.html` und `/en/index.html`, womit ich nun die Basis für sprachspezifische URL's habe.
 
-OK, nächster Schritt! 
+OK, nächster Schritt!
 
 Um nun Übersetzung anbieten zu können, muss ich in den Layout-Templates erkennen können, welche Sprache auf der jeweiligen Seite aktiv ist. Das erledige ich über einen entprechendes Attribut im Header in den Markdown-Dateien. Ich habe mein Sprach-Attribut kurz und knackig `lang` genannt.
 Während die `index.md` als einzige Datei kein `lang`-Attribut bekommt, werden alle anderen Markdown-Dateien damit ausgestattet, z.B.:
@@ -64,7 +78,7 @@ lang: en
 ---
 ```
 
->Für eine erfolgreiche Umsetzung der Mehrsprachigkeit ist eine konsequente Trennung von Template und Inhalt (Markdown-Dateien) notwendig, da Inhalte im Gegensatz zur Gestaltung je Sprache mehrfach zu pflegen sind! 
+>Für eine erfolgreiche Umsetzung der Mehrsprachigkeit ist eine konsequente Trennung von Template und Inhalt (Markdown-Dateien) notwendig, da Inhalte im Gegensatz zur Gestaltung je Sprache mehrfach zu pflegen sind!
 
 Nun kann ich über die Auswertung des `lang`-Attributs Übersetzung in den Templates einbauen. Das betrifft im wesentlichen Überschriften, Navigationseinträge und andere wiederkehrende Informationen (abhängig vom Theme). Mein `home.html`-Layout bindet z.B. die Views (_includes) `head.html`, `banner.html` oder `sidebar.html` ein, in denen ich solche Übersetzungen vornehme.
 In `head.html`, welches als erstes in alle Seiten eingebunden wird habe ich noch ein kleines Liquid-Konstrukt platziert, welches mir immer eine gültige Sprache in einer Variable `navlang` speichert und notfalls auf die in der `_config.yml` eingestellte Standardsprache zurückfällt, falls `page.lang` nicht gesetzt wurde (navlang - "Navigation language", weil ich die Variable ursprünglich für die Navigations-Verweise eingeführt hatte).
@@ -97,7 +111,7 @@ Somit habe ich auch für die `index.md`, bei der das `lang`-Attribut nicht geset
 ```
 
 Wenn also `page.lang` nicht vorhanden ist, wird ein Weiterleitungsskript eingebettet, welches für
-deutschsprachige Benutzer auf die deutschen Seiten, für alle anderen auf die englischsprachige Repräsentation weiterleitet. 
+deutschsprachige Benutzer auf die deutschen Seiten, für alle anderen auf die englischsprachige Repräsentation weiterleitet.
 
 >Zu beachten ist dabei, dass einige Browser einen 2-stelligen, anderen jedoch den vollständigen Language-ISO-Code zurückgeben!
 
@@ -277,7 +291,7 @@ Bei nicht übersetzten Inhalten bleibt dieses Attribut einfach leer.
 
 Nun kann ich im Template `sidebar.html` entscheiden, ob ich beim Umschalten der Sprache zum übersetzten Inhalt oder zur Startseite umleiten will.
 
-Dazu ermittle ich zunächst alle Seiten und Posts und schaue dann, ob in der Zielsprache ein Inhalt mit dem gleichen Referer vorliegt. 
+Dazu ermittle ich zunächst alle Seiten und Posts und schaue dann, ob in der Zielsprache ein Inhalt mit dem gleichen Referer vorliegt.
 Ansonsten trage ich einfach nur die Startseite in der anderen Sprache ein.
 
 ``` liquid
@@ -311,8 +325,8 @@ Bei den Artikel-Listen (post lists) ist das relativ einfach umgesetzt, indem ich
     {% else %}
         {% assign posts=site.posts %}
     {% endif %}
-    
-    {% for post in posts %} 
+
+    {% for post in posts %}
     <article>
         ...
         <h3><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
@@ -320,7 +334,7 @@ Bei den Artikel-Listen (post lists) ist das relativ einfach umgesetzt, indem ich
     </article>
     {% endfor %}
 </div>{% endraw %}
-``` 
+```
 
 ## Tags
 
@@ -443,16 +457,16 @@ langs.each do |lang|
 	Dir.glob(File.join('_posts','*.md')).each do |file|
 		yaml_s = File.read(file).split(/^---$/)[1]
 		yaml_h = YAML.sload(yaml_s)
-		if yaml_h['lang'] != nil && yaml_h['lang'] == lang 
+		if yaml_h['lang'] != nil && yaml_h['lang'] == lang
 			tags_h = yaml_h['tags']
-			if tags_h != nil 
+			if tags_h != nil
 				tags += tags_h
 			end
 		end
 	end
 	tags.map{ |tag| tag.downcase if tag.is_a? String }.uniq.each do |tag|
 		tag_file = File.join("tags/#{lang}", "#{tag}.md")
-		puts "Writing file '#{tag_file}' for tag '#{tag}' in language '#{lang}'..." 
+		puts "Writing file '#{tag_file}' for tag '#{tag}' in language '#{lang}'..."
 		pretitle = messages['locales'][lang]['tagged_as']
 		File.write tag_file, <<-EOF
 ---
@@ -478,6 +492,6 @@ Alle hier vorgestellten Praktiken und den Quellcode findet ihr in meinem Git-Rep
 
 [https://github.com/mcpride/mcpride.github.io](https://github.com/mcpride/mcpride.github.io)
 
-Ich hoffe, ich kann kann hiermit ein paar Anregungen und Lösungsvorschläge geben - viel Erfolg beim Nach- und Bessermachen! 
+Ich hoffe, ich kann kann hiermit ein paar Anregungen und Lösungsvorschläge geben - viel Erfolg beim Nach- und Bessermachen!
 
 Konstruktive Kommentare und Anregungen lese ich immer gerne ;-)

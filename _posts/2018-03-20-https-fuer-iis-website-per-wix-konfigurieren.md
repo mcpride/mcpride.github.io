@@ -13,6 +13,19 @@ lang: de
 ref: post-configure-https-for-iis-website-by-wix
 ---
 
+<!-- MDTOC maxdepth:6 firsth1:2 numbering:1 flatten:0 bullets:0 updateOnSave:1 -->
+
+1. [Einleitung](#einleitung)   
+2. [Anforderungen im Detail](#anforderungen-im-detail)   
+3. [Die Lösung](#die-lösung)   
+&emsp;3.1. [Vorbetrachtungen](#vorbetrachtungen)   
+&emsp;3.2. [Konfiguration der "Default Web Site" des IIS](#konfiguration-der-default-web-site-des-iis)   
+&emsp;3.3. [Externes Zertifikat installieren](#externes-zertifikat-installieren)   
+&emsp;3.4. [Optionale Komponente](#optionale-komponente)   
+4. [Zusammenfassung](#zusammenfassung)   
+
+<!-- /MDTOC -->
+
 ## Einleitung
 
 Aufgrund von Cybersecurity-Betrachtungen hatte ich neulich die User Story umzusetzen, mithilfe eines bereits existierenden MSI-Installers für eine Intranet-Webanwendung beim Kunden nun auch gleich SSL-Verschlüsselung für die `Default Web Site` des Internet Information Server(nachfolgend: IIS) anzuschalten, wenn an einem vordefinierten Ort die entsprechende PKS-Datei für das Serverzertifikat gefunden wird. Die Konfiguration sollte aber auch nach der Deinstallation des MSI-Pakets bestehen bleiben.
@@ -38,7 +51,7 @@ Man schreibt also in etwa Folgendes:
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension">
     <Product  ...>
-    ... 
+    ...
         <iis:WebSite Id="DefaultWebSite"
                      Description="Default Web Site"
                      Directory="INSTALLDIR">
@@ -65,7 +78,7 @@ Man schreibt also in etwa Folgendes:
                 <iis:WebAppPool Id="MyAppPool"
                                 Name="MyAppPool"
                                 MaxCpuUsage="75"
-                                ManagedRuntimeVersion="v4.0" 
+                                ManagedRuntimeVersion="v4.0"
                                 ManagedPipelineMode="Integrated">
                 </iis:WebAppPool>
             </Component>
@@ -127,7 +140,7 @@ Würde man ein statisches Zertifikat mit ausliefern wollen (entspricht nicht den
 Somit ließe sich folgende Komponente zusammenstellen:
 
 ```xml
-<!-- ATTENTION: This component configures 
+<!-- ATTENTION: This component configures
 the existing IIS "Default Web Site" with ssl. -->
 <Component Id="InstallHttps"
         Guid="..."
@@ -159,10 +172,10 @@ Damit die `Default Web Site` bei der Deinstallation nicht gelöscht wird, muss m
 * `Permanent="yes"` und `NeverOverwrite="yes"`
 
 ```xml
-<!-- ATTENTION: This component configures 
-the existing IIS "Default Web Site" with ssl. 
-It must be marked with Permanent="yes"! 
-Otherwise the IIS "Default Web Site" 
+<!-- ATTENTION: This component configures
+the existing IIS "Default Web Site" with ssl.
+It must be marked with Permanent="yes"!
+Otherwise the IIS "Default Web Site"
 will be removed on uninstall. -->
 <Component Id="InstallHttps"
         Guid="..."
@@ -193,7 +206,7 @@ will be removed on uninstall. -->
 
 ### Externes Zertifikat installieren
 
-Im vorangegangenen Schritt haben wir ein statisches Serverzertifikat mitgeliefert, was für Webanwendungen, die in populären Browsern ausgeführt werden, jedoch nicht besonders sinnvoll ist, da ein solch statisches Zertifikat nicht die Qualität hat, dass diese Webbrowser der Verbindung vertrauen (Zerifikat muss überprüfbare Informationen zum Server enthalten). 
+Im vorangegangenen Schritt haben wir ein statisches Serverzertifikat mitgeliefert, was für Webanwendungen, die in populären Browsern ausgeführt werden, jedoch nicht besonders sinnvoll ist, da ein solch statisches Zertifikat nicht die Qualität hat, dass diese Webbrowser der Verbindung vertrauen (Zerifikat muss überprüfbare Informationen zum Server enthalten).
 
 Nehmen wir also an, dass für diesen Webbrowser ein spezielles Zertifikat namens `MyServerCert.pfx` mit einem vorgegebenen Passwort erstellt und im folgenden vereinbarten Verzeichnis abgelegt wurde:
 
@@ -212,10 +225,10 @@ Somit müssen wir unseren WiX-Komponenten-Code wie folgt modifizieren:
 * Ändere die Komponentendefinition (iis:Certificate):
 
 ```xml
-<!-- ATTENTION: This component configures 
-the existing IIS "Default Web Site" with ssl. 
-It must be marked with Permanent="yes"! 
-Otherwise the IIS "Default Web Site" 
+<!-- ATTENTION: This component configures
+the existing IIS "Default Web Site" with ssl.
+It must be marked with Permanent="yes"!
+Otherwise the IIS "Default Web Site"
 will be removed on uninstall. -->
 <Component Id="InstallHttps"
         Guid="..."
@@ -278,7 +291,7 @@ Nachfolgender Pseudocode fasst die vorgestellten Schritte und Fragmente nochmals
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
      xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension">
     <Product  ...>
-    ... 
+    ...
         <Property Id="SERVERCERT">
             <DirectorySearch Id="FindServerCertificate"
                     Path="[CommonAppDataFolder]\MyCompany\Certificates"
@@ -286,7 +299,7 @@ Nachfolgender Pseudocode fasst die vorgestellten Schritte und Fragmente nochmals
                 <FileSearch Name="MyServerCert.pfx" />
             </DirectorySearch>
         </Property>
-    ... 
+    ...
         <Property Id="IIS_ROOT">
             <RegistrySearch Id="FindInetPubFolder"
                             Root="HKLM"
@@ -294,13 +307,13 @@ Nachfolgender Pseudocode fasst die vorgestellten Schritte und Fragmente nochmals
                             Name="PathWWWRoot"
                             Type="directory" />
         </Property>
-    ... 
+    ...
         <CustomAction Id="SetWWRootDirFromIIS"
                         Return="check"
                         Property="WWWROOT"
                         Value="[IIS_ROOT]"
                         Execute="firstSequence" />
-    ... 
+    ...
         <Directory  Id="TARGETDIR"
                     Name="SourceDir">
             <Directory  Id="WWWROOT"
@@ -308,10 +321,10 @@ Nachfolgender Pseudocode fasst die vorgestellten Schritte und Fragmente nochmals
         </Directory>
     ...
         <ComponentGroup Id="IIS">
-            <!-- ATTENTION: This component configures 
-            the existing IIS "Default Web Site" with ssl. 
-            It must be marked with Permanent="yes"! 
-            Otherwise the IIS "Default Web Site" 
+            <!-- ATTENTION: This component configures
+            the existing IIS "Default Web Site" with ssl.
+            It must be marked with Permanent="yes"!
+            Otherwise the IIS "Default Web Site"
             will be removed on uninstall. -->
             <Component Id="InstallHttps"
                     Guid="..."
@@ -339,7 +352,7 @@ Nachfolgender Pseudocode fasst die vorgestellten Schritte und Fragmente nochmals
                 <iis:CertificateRef Id='cert' />
             </iis:WebSite>
             </Component>
-    ... 
+    ...
             <Component  Directory="MyWebDir"
                         Id="MyWebComponent"
                         Guid="..."
@@ -356,7 +369,7 @@ Nachfolgender Pseudocode fasst die vorgestellten Schritte und Fragmente nochmals
                 <iis:WebAppPool Id="MyAppPool"
                                 Name="MyAppPool"
                                 MaxCpuUsage="75"
-                                ManagedRuntimeVersion="v4.0" 
+                                ManagedRuntimeVersion="v4.0"
                                 ManagedPipelineMode="Integrated">
                 </iis:WebAppPool>
             </Component>
