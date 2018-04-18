@@ -55,8 +55,9 @@ Vorteile:
    * Überprüfungen vermischt mit Ausführungs-Code.
    * Testmethoden, die versuchen, zu viele verschiedene Dinge auf einmal zu testen.
 
-**Achtung:** Vermeide, mehrere ACT / ASSERT Phasen innerhalb einer Prüfmethode zu kombinieren!
-{: .notice title="Attention"}
+**Achtung:**\\
+Vermeide, mehrere ACT / ASSERT Phasen innerhalb einer Prüfmethode zu kombinieren!
+{: .notice--warning title="Achtung"}
 
 
 ```csharp
@@ -89,8 +90,9 @@ Testklassenname = Name der zu testenden Klasse + Suffix "Tests"    (z.B. `Calcul
 
 Testmethodenname = Name der zu testenden Methode... + Suffix "Test"
 
-**Fazit:** Zu wenig aussagekräftig und differenzierbar, wenn mehrere Testszenarien für die Methode abgedeckt werden müssen.
-{: .notice}
+**Fazit:**\\
+Zu wenig aussagekräftig und differenzierbar, wenn mehrere Testszenarien für die Methode abgedeckt werden müssen.
+{: .notice--danger}
 
 ### Empfehlung von Roy Osherove ("The Art Of Unit Testing")
 
@@ -102,8 +104,9 @@ Verwendung von Testmethodennamen, welche aus 3 Teilen bestehen, die durch Unters
 
 z.B.: `Divide_ZeroDivision_ThrowsException`.
 
-**Fazit:** Feinkörnig, aber sehr technisch, was zu Vorbehalten bei Nicht-Entwicklern führt (z.B. bei der Auswertung von Testberichten).
-{: .notice}
+**Fazit:**\\
+Feinkörnig, aber sehr technisch, was zu Vorbehalten bei Nicht-Entwicklern führt (z.B. bei der Auswertung von Testberichten).
+{: .notice--info}
 
 ### BD stylish
 
@@ -111,8 +114,9 @@ Nutzt mehr einen verhaltensgetriebenen (Behavior Driven (BD(D)) Stil! Teile der 
 
 z.B.: `Divide_by_Zero_should_throw_a_DivideByZeroException_error`
 
-~> **Fazit:** Sehr feinkörnig und aussagekräftig. Der zu testende Rahmen wird detailliert beschrieben und zwingt den Entwickler dazu, nur diesen in der Testmethode zu testen.
-{: .notice}
+**Fazit:**\\
+Sehr feinkörnig und aussagekräftig. Der zu testende Rahmen wird detailliert beschrieben und zwingt den Entwickler dazu, nur diesen in der Testmethode zu testen.
+{: .notice--success}
 
 ## Verhaltensgetriebene Tests
 

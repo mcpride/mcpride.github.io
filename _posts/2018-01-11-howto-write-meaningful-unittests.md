@@ -55,8 +55,9 @@ Benefits:
    * Assertions intermixed with "Act" code.
    * Test methods that try to test too many different things at once.
 
-**Attention:** Avoid to combine several ACT / ASSERT phases within a test method!
-{: .notice title="Attention"}
+**Attention:**\\
+Avoid to combine several ACT / ASSERT phases within a test method!
+{: .notice--warning title="Attention"}
 
 ```csharp
 public class CalculatorTests
@@ -88,8 +89,9 @@ Test class name = Name of class to test + Suffix "Tests"    (e.g. `CalculatorTes
 
 Test method name = Name of method to test... + Suffix "Test"
 
-**Conclusion:** Not enough meaningful and differentiable if several test scenarios for the method must be covered.
-{: .notice}
+**Conclusion:**\\
+Not enough meaningful and differentiable if several test scenarios for the method must be covered.
+{: .notice--danger}
 
 ### Recommendation by Roy Osherove ("The Art Of Unit Testing")
 
@@ -101,8 +103,9 @@ Test method name which consists of 3 parts, which are divided by underscores:
 
 e.g..: `Divide_ZeroDivision_ThrowsException`
 
-**Conclusion:** Fine-grained, but very technical, resulting in caveats by non-developers (for example, in evaluation of test reports).
-{: .notice}
+**Conclusion:**\\
+Fine-grained, but very technical, resulting in caveats by non-developers (for example, in evaluation of test reports).
+{: .notice--info}
 
 ### BD stylish
 
@@ -110,8 +113,9 @@ More Behavior Driven (BD(D)) style! Parts of the requirements should be used in 
 
 e.g.: `Divide_by_Zero_should_throw_a_DivideByZeroException_error`
 
-**Conlusion:** Very fine-grained and meaningful. The test fact is described in detail and will force the developer just to test this in the test method.
-{: .notice}
+**Conclusion:**\\
+Very fine-grained and meaningful. The test fact is described in detail and will force the developer just to test this in the test method.
+{: .notice--success}
 
 ## Behavior Driven Tests
 
