@@ -257,7 +257,11 @@ will be removed on uninstall. -->
 </Component>
 ```
 
-Instead of the binary key, the certificate path must now be specified! You also have to set `Overwrite` to `no`, otherwise the installation will fail.
+Instead of the binary key, the certificate path must now be specified!
+
+_**Attention:**_\\
+You also have to set `Overwrite` to `no`, otherwise the installation will fail.
+{: .notice--warning}
 
 ### Optional component
 
