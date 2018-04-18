@@ -259,8 +259,7 @@ will be removed on uninstall. -->
 
 Statt des Binärschlüssels muss nun also der Zertifikatspfad angegeben werden!
 
-_**Achtung:**_\\
-Außerdem muss man `Overwrite` auf `no` setzen, sonst schlägt die Installation fehl.
+_**Achtung:**_ Außerdem muss man `Overwrite` auf `no` setzen, sonst schlägt die Installation fehl.
 {: .notice--warning}
 
 ### Optionale Komponente
