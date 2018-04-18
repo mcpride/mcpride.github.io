@@ -2,6 +2,7 @@
 layout: post
 title:  "Localized jekyll pages without plugin"
 date:   2018-02-25 21:00:00
+date_modified: 2018-04-18 12:00:00
 excerpt: "How I added localization to my personal github pages"
 image: /assets/img/wide/jekyll-logo-l10n.jpg
 thumb: /assets/img/thumbs/jekyll-logo-l10n.jpg
@@ -77,7 +78,8 @@ lang: de
 ---
 ```
 
->For a successful implementation of multi-language support, a consistent separation of template and content (markdown files) is necessary, as content has to be maintained several times for each language in contrast to the design!
+*For a successful implementation of multi-language support, a consistent separation of template and content (markdown files) is necessary, as content has to be maintained several times for each language in contrast to the design!*
+{: .notice--info}
 
 Now I can build translation in the template files via evaluation of the `lang` attribute. This mainly concerns headings, navigation entries and other recurring information (depending on the theme). E.g. my `home.html` layout integrates the views (_includes) `head.html`, `banner.html` and `sidebar.html`, in which I do such translations.
 In `head.html`, which is the first one to be included in all pages, I've placed a small liquid construct, which always stores a valid language id in a variable named `navlang` and, if necessary, falls back to the default language set in `_config.yml` if `page.lang` was not set (navlang - "Navigation Language" because I originally introduced the variable for navigation links).
@@ -483,7 +485,9 @@ end
 puts "#{fcount} files written!"{% endraw %}
 ```
 
->Hint: The script requires the presence of language-dependent directories - e.g. `tags/en` or `tags/de`!
+_**Hint:**\\
+The script requires the presence of language-dependent directories - e.g. `tags/en` or `tags/de`!_
+{: .notice--warning}
 
 ## Source code
 

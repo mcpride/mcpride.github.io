@@ -2,7 +2,7 @@
 layout: post
 title:  "Mehrsprachige Seiten mit Jekyll ohne Plugin"
 date:   2018-02-25 21:00:00
-date_modified: 2018-04-16 12:00:00
+date_modified: 2018-04-18 12:00:00
 excerpt: "Wie ich Mehrsprachigkeit bei meinen Github-Seiten umgesetzt habe."
 image: /assets/img/wide/jekyll-logo-l10n.jpg
 thumb: /assets/img/thumbs/jekyll-logo-l10n.jpg
@@ -78,7 +78,8 @@ lang: en
 ---
 ```
 
->Für eine erfolgreiche Umsetzung der Mehrsprachigkeit ist eine konsequente Trennung von Template und Inhalt (Markdown-Dateien) notwendig, da Inhalte im Gegensatz zur Gestaltung je Sprache mehrfach zu pflegen sind!
+*Für eine erfolgreiche Umsetzung der Mehrsprachigkeit ist eine konsequente Trennung von Template und Inhalt (Markdown-Dateien) notwendig, da Inhalte im Gegensatz zur Gestaltung je Sprache mehrfach zu pflegen sind!*
+{: .notice--info}
 
 Nun kann ich über die Auswertung des `lang`-Attributs Übersetzung in den Templates einbauen. Das betrifft im wesentlichen Überschriften, Navigationseinträge und andere wiederkehrende Informationen (abhängig vom Theme). Mein `home.html`-Layout bindet z.B. die Views (_includes) `head.html`, `banner.html` oder `sidebar.html` ein, in denen ich solche Übersetzungen vornehme.
 In `head.html`, welches als erstes in alle Seiten eingebunden wird habe ich noch ein kleines Liquid-Konstrukt platziert, welches mir immer eine gültige Sprache in einer Variable `navlang` speichert und notfalls auf die in der `_config.yml` eingestellte Standardsprache zurückfällt, falls `page.lang` nicht gesetzt wurde (navlang - "Navigation language", weil ich die Variable ursprünglich für die Navigations-Verweise eingeführt hatte).
@@ -484,7 +485,9 @@ end
 puts "#{fcount} files written!"{% endraw %}
 ```
 
->Hinweis: Das Skript setzt das Vorhandensein der sprachabhängigen Verzeichnisse voraus - z.B. `tags/en` oder `tags/de`!
+_**Hinweis:**\\
+Das Skript setzt das Vorhandensein der sprachabhängigen Verzeichnisse voraus - z.B. `tags/en` oder `tags/de`!_
+{: .notice--warning}
 
 ## Quellcode
 
