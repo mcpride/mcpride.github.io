@@ -28,6 +28,7 @@ locales:
     menu: "Menu"
     get_in_touch: "Get in touch"
     go_to_top: "to top"
+    share_on_social_media_platform: "Share on $1"
 
   en_US:
     <<: *DEFAULT_EN     # use English translation for en_US
@@ -62,5 +63,6 @@ locales:
     menu: "Menü"
     get_in_touch: "Kontakt aufnehmen"
     go_to_top: "Zum Anfang"
+    share_on_social_media_platform: "Auf $1 teilen"
   de_DE:
     <<: *DEFAULT_DE     # use German translation for de_DE
