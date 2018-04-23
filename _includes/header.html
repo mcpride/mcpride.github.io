@@ -2,11 +2,11 @@
   <header id="header">
     <a href="{{ '' | absolute_url }}{{ navlang }}/" class="logo">{% if page.title %}<strong>{{ page.title }}</strong>{% else %}<strong>{{ site.title }}</strong> {{ site.subtitle }}{% endif %}</a>
     <ul class="icons">
-      <li><a href="https://twitter.com/home?status={{ site.url | url_encode }}" class="icon fa-twitter" target="_blank" title="Share on Twitter"><span class="label">Share on Twitter</span></a></li>
-      <li><a href="https://plus.google.com/share?url={{ site.url | url_encode }}" class="icon fa-google-plus" target="_blank" title="Share on Google+"><span class="label">Share on Google+</span></a></li>
-      <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url | url_encode }}" class="icon fa-facebook" target="_blank" title="Share on Facebook"><span class="label">Share on Facebook</span></a></li>
-      <li><a href="https://pinterest.com/pin/create/button/?url={{ site.url | url_encode }}" class="icon fa-pinterest" target="_blank" title="Share on Pinterest"><span class="label">Share on Pinterest</span></a></li>
-      <li><a href="https://www.linkedin.com/shareArticle?url={{ site.url | url_encode }}" class="icon fa-linkedin" target="_blank" title="Share on LinkedIn"><span class="label">Share on LinkedIn</span></a></li>
-      <li><a href="https://www.xing-share.com/app/user?op=share;sc_p=xing-share;url={{ site.url | url_encode }}" class="icon fa-xing" target="_blank" title="Share on Xing"><span class="label">Share on Xing</span></a></li>
+      <li><a href="https://twitter.com/home?status={{ page.url | absolute_url | url_encode }}" class="icon fa-twitter" target="_blank" title="Share on Twitter"><span class="label">Share on Twitter</span></a></li>
+      <li><a href="https://plus.google.com/share?url={{ page.url | absolute_url | url_encode }}" class="icon fa-google-plus" target="_blank" title="Share on Google+"><span class="label">Share on Google+</span></a></li>
+      <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}" class="icon fa-facebook" target="_blank" title="Share on Facebook"><span class="label">Share on Facebook</span></a></li>
+      <li><a href="https://pinterest.com/pin/create/button/?url={{ page.url | absolute_url | url_encode }}" class="icon fa-pinterest" target="_blank" title="Share on Pinterest"><span class="label">Share on Pinterest</span></a></li>
+      <li><a href="https://www.linkedin.com/shareArticle?url={{ page.url | absolute_url | url_encode }}" class="icon fa-linkedin" target="_blank" title="Share on LinkedIn"><span class="label">Share on LinkedIn</span></a></li>
+      <li><a href="https://www.xing-share.com/app/user?op=share;sc_p=xing-share;url={{ page.url | absolute_url | url_encode }}" class="icon fa-xing" target="_blank" title="Share on Xing"><span class="label">Share on Xing</span></a></li>
     </ul>
   </header>
