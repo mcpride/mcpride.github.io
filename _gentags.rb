@@ -1,4 +1,5 @@
 require 'yaml'
+require 'fileutils'
 
 langs = []
 Dir.glob(File.join('_posts','*.md')).each do |file|
@@ -31,7 +32,9 @@ langs.each do |lang|
 	pretitle = messages['locales'][lang]['tagged_as']
 	tag_desc_1 = messages['locales'][lang]['tagged_as_description_1']
 	tag_desc_2 = messages['locales'][lang]['tagged_as_description_2']
-
+	
+	response = FileUtils.mkdir_p("tags/#{lang}")
+	
 	tags.map{ |tag| tag.downcase if tag.is_a? String }.uniq.each do |tag|
 		tag_file = File.join("tags/#{lang}", "#{tag}.md")
 		puts "Writing file '#{tag_file}' for tag '#{tag}' in language '#{lang}'..." 
