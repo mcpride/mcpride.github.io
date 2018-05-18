@@ -40,31 +40,37 @@ The following pine script calculates both indicators and combines them into one 
 //@version=3
 study(title="(Stochastic) RSI", shorttitle="(Stoch)RSI")
 
-// Stoch
-length = input(14, minval=1, title="Stoch Length")
-smoothK = input(5, minval=1)
-smoothD = input(3, minval=1)
-k = sma(stoch(close, high, low, length), smoothK)
-d = sma(k, smoothD)
-plot(k, color=blue, title="K")
-plot(d, color=orange, title="D")
-
 // RSI
-src = close, len = input(14, minval=1, title="RSI Length")
+src = input(close, title="RSI Source") 
+len = input(14, minval=1, title="RSI Length")
 up = rma(max(change(src), 0), len)
 down = rma(-min(change(src), 0), len)
 rsi = down == 0 ? 100 : up == 0 ? 0 : 100 - (100 / (1 + up / down))
-plot(rsi, color=fuchsia, title="RSI")
 
-// Background 1
+// Stoch
+rsi1 = rsi(src, len)
+length = input(14, minval=1, title="Stoch Length")
+smoothK = input(3, minval=1, title="K")
+smoothD = input(3, minval=1, title="D")
+k = sma(stoch(rsi1, rsi1, rsi1, length), smoothK)
+d = sma(k, smoothD)
+
+// Background Stoch
 h0 = hline(80)
 h1 = hline(20)
 fill(h0, h1, color=#663399, transp=99)
 
-// Background 2
+// Background RSI
 h2 = hline(70)
 h3 = hline(30)
-fill(h2, h3, color=#6A5ACD, transp=90)
+fill(h2, h3, color=#6A5ACD, transp=95)
+
+// Plot Stoch
+plot(k, color=#4169E1, title="K")
+plot(d, color=orange, title="D")
+
+// Plot RSI
+plot(rsi, color=fuchsia, title="RSI")
 ```
 
 It can be copied directly into the pine editor in the tradingview chart page and added to the current chart view with `Add to Chart`:
