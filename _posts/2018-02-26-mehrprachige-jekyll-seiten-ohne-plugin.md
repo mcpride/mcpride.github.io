@@ -114,7 +114,9 @@ Somit habe ich auch für die `index.md`, bei der das `lang`-Attribut nicht geset
 Wenn also `page.lang` nicht vorhanden ist, wird ein Weiterleitungsskript eingebettet, welches für
 deutschsprachige Benutzer auf die deutschen Seiten, für alle anderen auf die englischsprachige Repräsentation weiterleitet.
 
->Zu beachten ist dabei, dass einige Browser einen 2-stelligen, anderen jedoch den vollständigen Language-ISO-Code zurückgeben!
+*Zu beachten ist dabei, dass einige Browser einen 2-stelligen, anderen jedoch den vollständigen Language-ISO-Code zurückgeben!*
+{: .notice--warning}
+
 
 ## Übersetzungen
 
