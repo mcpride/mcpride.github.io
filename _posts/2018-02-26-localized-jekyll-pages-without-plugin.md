@@ -114,7 +114,9 @@ So for the `index.md`, where the `lang` attribute is not set, I have a valid lan
 
 It means - if `page.lang` is not available, a forwarding script is embedded, which will be used for german-speaking users to forward to the german pages, for all others to the english content.
 
->Please note that some browsers return a 2-digit code, others return the complete language ISO code!
+*Please note that some browsers return a 2-digit code, others return the complete language ISO code!*
+{: .notice--warning}
+
 
 ## Translations
 
