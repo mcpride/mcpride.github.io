@@ -6,8 +6,29 @@
 
 /* Icon */
 
+/*
 	.icon {
 		@include icon;
+		border-bottom: none;
+		position: relative;
+
+		> .label {
+			display: none;
+		}
+	}
+*/
+	.iconr {
+		@include iconr;
+		border-bottom: none;
+		position: relative;
+
+		> .label {
+			display: none;
+		}
+	}
+
+	.iconb {
+		@include iconb;
 		border-bottom: none;
 		position: relative;
 

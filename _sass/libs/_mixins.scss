@@ -13,7 +13,55 @@
 
 		-moz-osx-font-smoothing: grayscale;
 		-webkit-font-smoothing: antialiased;
-		font-family: FontAwesome;
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 400;
+		font-style: normal;
+		text-transform: none !important;
+
+	}
+
+}
+
+/// Makes an element's :before pseudoelement a FontAwesome regular icon.
+/// @param {string} $content Optional content value to use.
+/// @param {string} $where Optional pseudoelement to target (before or after).
+@mixin iconr($content: false, $where: before) {
+
+	text-decoration: none;
+
+	&:#{$where} {
+
+		@if $content {
+			content: $content;
+		}
+
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 400;
+		font-style: normal;
+		text-transform: none !important;
+
+	}
+
+}
+
+/// Makes an element's :before pseudoelement a FontAwesome brand icon.
+/// @param {string} $content Optional content value to use.
+/// @param {string} $where Optional pseudoelement to target (before or after).
+@mixin iconb($content: false, $where: before) {
+
+	text-decoration: none;
+
+	&:#{$where} {
+
+		@if $content {
+			content: $content;
+		}
+
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		font-family: 'Font Awesome 5 Brands';
 		font-style: normal;
 		font-weight: normal;
 		text-transform: none !important;
@@ -21,6 +69,7 @@
 	}
 
 }
+
 
 /// Applies padding to an element, taking the current element-margin value into account.
 /// @param {mixed} $tb Top/bottom padding.
