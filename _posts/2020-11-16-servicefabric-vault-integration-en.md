@@ -12,5 +12,5 @@ lang: en
 ref: servicefabric-vault-integration
 ---
 
-Siehe: [servicefabric-vault-integration](https://github.com/mcpride/servicefabric-vault-integration)
+See: [servicefabric-vault-integration](https://github.com/mcpride/servicefabric-vault-integration)
 
