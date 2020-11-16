@@ -3,8 +3,8 @@ layout: post
 title:  "Integration für Hashicorp Vault in ServiceFabric"
 date:   2020-11-16 17:00:00
 excerpt: Hashicorp's Vault tool in Microsoft ServiceFabric integrieren, z.B. für On-Premises-Szenarios. 
-image: /assets/img/wide/syntax-highlight.jpg
-thumb: https://github.com/hashicorp/vault/raw/master/ui/public/favicon.png
+image: /assets/img/wide/sf_vault.jpg
+thumb: /assets/img/thumbs/vault.png
 tags: [hashicorp, vault, servicefabric, microservices, golang, dotnet, csharp]
 categories: [posts, development]
 comments: true
