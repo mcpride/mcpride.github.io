@@ -28,12 +28,12 @@ ref: post-configure-https-for-iis-website-by-wix
 
 ## Einleitung
 
-Aufgrund von Cybersecurity-Betrachtungen hatte ich neulich die User Story umzusetzen, mithilfe eines bereits existierenden MSI-Installers für eine Intranet-Webanwendung beim Kunden nun auch gleich SSL-Verschlüsselung für die `Default Web Site` des Internet Information Server(nachfolgend: IIS) anzuschalten, wenn an einem vordefinierten Ort die entsprechende PKS-Datei für das Serverzertifikat gefunden wird. Die Konfiguration sollte aber auch nach der Deinstallation des MSI-Pakets bestehen bleiben.
+Aufgrund von Cybersecurity-Betrachtungen hatte ich neulich die User Story umzusetzen, mithilfe eines bereits existierenden MSI-Installers für eine Intranet-Webanwendung beim Kunden nun auch gleich SSL-Verschlüsselung für die `Default Web Site` des Internet Information Server(nachfolgend: IIS) anzuschalten, wenn an einem vordefinierten Ort die entsprechende PFX-Datei für das Serverzertifikat gefunden wird. Die Konfiguration sollte aber auch nach der Deinstallation des MSI-Pakets bestehen bleiben.
 
 ## Anforderungen im Detail
 
 1. Der MSI-Installer (WiX) installiert die Webanwendung im IIS unter der bereits vorhandenen `Default Web Site` (Port 80).
-1. Wird während der Installation in einem vordefinierten Verzeichnis ein valides Zertifikat gefunden (PKS-Datei mit festgelegtem Passwort), so wird die HTTPS-Bindung (Port 443) - falls noch nicht existierend - der `Default Web Site` hinzugefügt.
+1. Wird während der Installation in einem vordefinierten Verzeichnis ein valides Zertifikat gefunden (PFX-Datei mit festgelegtem Passwort), so wird die HTTPS-Bindung (Port 443) - falls noch nicht existierend - der `Default Web Site` hinzugefügt.
 1. Für die hinzugefügte HTTPS-Bindung wird das zuvor bereitgestellte Zertifikat benutzt.
 1. Wenn die Webanwendung per MSI deinstalliert wird, so soll zwar die Webanwendung aus der `Default Web Site` des IIS entfernt werden - nicht jedoch die `Default Web Site` selbst. Ebenso soll deren Serverzertifikat und die HTTPS-Bindung erhalten bleiben.
 1. Eine erneute Installation soll eine schon vorhandene HTTPS-Bindung nicht überschreiben.
