@@ -28,12 +28,12 @@ ref: post-configure-https-for-iis-website-by-wix
 
 ## Introduction
 
-Due to cybersecurity considerations, I recently had to implement a user story, using an existing MSI installer for an intranet web application at the customer's site, to enable SSL encryption for the Internet Information Server's `Default Web Site` (hereinafter: IIS) when the corresponding PKS file for the server certificate is found at a predefined location. However, the configuration should remain after uninstalling the MSI package.
+Due to cybersecurity considerations, I recently had to implement a user story, using an existing MSI installer for an intranet web application at the customer's site, to enable SSL encryption for the Internet Information Server's `Default Web Site` (hereinafter: IIS) when the corresponding PFX file for the server certificate is found at a predefined location. However, the configuration should remain after uninstalling the MSI package.
 
 ## Detailed requirements
 
 1. The MSI installer (WiX) installs the web application in IIS under the existing `Default Web Site` (port 80).
-1. If a valid certificate is found during the installation in a predefined directory (PKS file with defined password), the HTTPS binding (port 443) - if not already existing - is added to the `Default Web Site`.
+1. If a valid certificate is found during the installation in a predefined directory (PFX file with defined password), the HTTPS binding (port 443) - if not already existing - is added to the `Default Web Site`.
 1. The previously provided certificate is used for the added HTTPS binding.
 1. If the web application is uninstalled via MSI, the web application should be removed from the `Default Web Site` of IIS, but not the `Default Web Site` itself. Their server certificate and the HTTPS binding should also be preserved.
 1. Reinstallation should not overwrite an existing HTTPS binding.
